@@ -2,17 +2,43 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerState : MonoBehaviour
+public class PlayerState
 {
-    // Start is called before the first frame update
-    void Start()
+    public PlayerStateMachine StateMachine;
+    public Player Player;
+    public int AnimBoolHash;
+
+    public bool IsTirggcalled;
+    
+    protected Animator Animator;
+
+    public PlayerState(Player player, PlayerStateMachine stateMachine, string animBoolHash)
     {
-        
+        Player = player;
+        StateMachine = stateMachine;
+        AnimBoolHash = Animator.StringToHash(animBoolHash);
+
+        Animator = player.Animator;
     }
 
-    // Update is called once per frame
-    void Update()
+    public virtual void Enter()
     {
-        
+        //Animator.SetBool(AnimBoolHash,true);
+        IsTirggcalled = false;
+    }
+
+    public virtual void Update()
+    {
+
+    }
+
+    public virtual void Exit()
+    {
+        //Animator.SetBool(AnimBoolHash, false);
+    }
+
+    public void Tirggercalled()
+    {
+        IsTirggcalled = true;
     }
 }

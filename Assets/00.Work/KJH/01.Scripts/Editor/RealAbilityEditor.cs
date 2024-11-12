@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEditor;
@@ -7,75 +8,132 @@ using UnityEngine.UIElements;
 
 public class RealAbilityEditor : EditorWindow
 {
-    private Ability playerStats;
+    private List<AbilityData> _allItems = new();
+    private VisualElement _rightPane;
+    private AbilityData _selectedItem;
 
-    [MenuItem("Tools/Player Stats Editor")]
+    [MenuItem("Tools/RealAbilityEditor")]
     public static void ShowWindow()
     {
         var wnd = GetWindow<RealAbilityEditor>();
-        wnd.titleContent = new GUIContent("Player Stats Editor");
-        wnd.minSize = new Vector2(300, 300);
+        wnd.titleContent = new GUIContent("RealAbilityEditor");
+        wnd.minSize = new Vector2(450, 300);
     }
 
+    [Obsolete("Obsolete")]
     public void CreateGUI()
     {
-        // 게임 오브젝트 필드 생성
-        var objectField = new ObjectField("Player GameObject")
+        LoadAllItems();
+
+        var splitView = new TwoPaneSplitView(0, 200, TwoPaneSplitViewOrientation.Horizontal);
+        rootVisualElement.Add(splitView);
+
+        var leftPane = new ListView(_allItems, 20, () => new Label(), (element, index) =>
         {
-            objectType = typeof(GameObject),
-            allowSceneObjects = true
-        };
-        objectField.RegisterValueChangedCallback(evt =>
-        {
-            // 선택된 GameObject에서 PlayerStats 컴포넌트를 찾음
-            var selectedObject = evt.newValue as GameObject;
-            playerStats = selectedObject?.GetComponent<Ability>();
-            RefreshStatsFields();
+            ((Label)element).text = _allItems[index].itemName;
         });
-        rootVisualElement.Add(objectField);
+        splitView.Add(leftPane);
+
+        _rightPane = new VisualElement();
+        splitView.Add(_rightPane);
+
+        leftPane.onSelectionChange += OnItemSelected;
     }
 
-    private void RefreshStatsFields()
+    private void LoadAllItems()
     {
-        // 기존 필드를 모두 제거
-        rootVisualElement.Clear();
+        _allItems = AssetDatabase.FindAssets("t:AbilityData")
+            .Select(guid => AssetDatabase.LoadAssetAtPath<AbilityData>(AssetDatabase.GUIDToAssetPath(guid)))
+            .Where(item => item != null)
+            .ToList();
+    }
 
-        // PlayerStats 컴포넌트가 없으면 메시지 표시
-        if (playerStats == null)
+    private void OnItemSelected(IEnumerable<object> selectedItems)
+    {
+        _selectedItem = selectedItems.FirstOrDefault() as AbilityData;
+        _rightPane.Clear();
+
+        if (_selectedItem == null) return;
+
+        AddField("Name", _selectedItem.itemName, value => _selectedItem.itemName = value);
+        AddField("AttackPower", _selectedItem.attackPower, value => _selectedItem.attackPower = value);
+        AddField("Hp", _selectedItem.hp, value => _selectedItem.hp = value);
+        AddField("Speed",_selectedItem.speed, value => _selectedItem.speed = value);
+        AddField("EvasionRate",_selectedItem.evasionRate, value => _selectedItem.evasionRate = value);
+        AddField("Accuracy",_selectedItem.accuracy, value => _selectedItem.accuracy = value);
+        AddField("EscapeRate",_selectedItem.escapeRate, value => _selectedItem.escapeRate = value);
+        AddField("CriticalStrikeRate",_selectedItem.criticalStrikeRate, value => _selectedItem.criticalStrikeRate = value);
+        
+        
+        AddImageField("AttackPowerImage", _selectedItem.attackPowerImage, value => _selectedItem.attackPowerImage = value);
+        AddImagePreview(_selectedItem.attackPowerImage); 
+        AddImageField("HpImage", _selectedItem.hpImage, value => _selectedItem.hpImage = value);
+        AddImagePreview(_selectedItem.hpImage);
+        AddImageField("SpeedImage", _selectedItem.speedImage, value => _selectedItem.speedImage = value);
+        AddImagePreview(_selectedItem.speedImage);
+        AddImageField("EvasionRateImage", _selectedItem.evasionRateImage, value => _selectedItem.evasionRateImage = value);
+        AddImagePreview(_selectedItem.evasionRateImage);
+        AddImageField("AccuracyImage", _selectedItem.accuracyImage, value => _selectedItem.accuracyImage = value);
+        AddImagePreview(_selectedItem.accuracyImage);
+        AddImageField("EscapeRateRateImage", _selectedItem.escapeRateRateImage, value => _selectedItem.escapeRateRateImage = value);
+        AddImagePreview(_selectedItem.escapeRateRateImage);
+        AddImageField("CriticalStrikeRateImage", _selectedItem.criticalStrikeRateImage, value => _selectedItem.criticalStrikeRateImage = value);
+        AddImagePreview(_selectedItem.criticalStrikeRateImage);
+        
+    }
+
+    private void AddField<T>(string label, T initialValue, System.Action<T> onValueChanged)
+    {
+        VisualElement field;
+
+        if (typeof(T) == typeof(int))
         {
-            rootVisualElement.Add(new Label("PlayerStats 컴포넌트를 가진 오브젝트를 선택하세요."));
+            var intField = new IntegerField(label) { value = (int)(object)initialValue };
+            intField.RegisterValueChangedCallback(evt =>
+            {
+                onValueChanged((T)(object)evt.newValue);
+                EditorUtility.SetDirty(_selectedItem);
+            });
+            field = intField;
+        }
+        else if (typeof(T) == typeof(string))
+        {
+            var textField = new TextField(label) { value = (string)(object)initialValue };
+            textField.RegisterValueChangedCallback(evt =>
+            {
+                onValueChanged((T)(object)evt.newValue);
+                EditorUtility.SetDirty(_selectedItem);
+            });
+            field = textField;
+        }
+        else
+        {
             return;
         }
 
-        // 각 능력치 필드를 생성하고, 값이 변경될 때마다 반영
-        AddIntegerField("Attack Power", playerStats.attackPower, value => playerStats.attackPower = value);
-        AddIntegerField("Health", playerStats.health, value => playerStats.health = value);
-        AddFloatField("Speed", playerStats.speed, value => playerStats.speed = value);
-        AddFloatField("Dodge Chance", playerStats.dodgeChance, value => playerStats.dodgeChance = value);
-        AddFloatField("Accuracy", playerStats.accuracy, value => playerStats.accuracy = value);
-        AddFloatField("Escape Rate", playerStats.escapeRate, value => playerStats.escapeRate = value);
-        AddFloatField("Critical Chance", playerStats.criticalChance, value => playerStats.criticalChance = value);
+        _rightPane.Add(field);
+    }
 
-        // 변경 사항 저장 버튼
-        var saveButton = new Button(() =>
+    private void AddImageField(string label, Sprite initialImage, System.Action<Sprite> onValueChanged)
+    {
+        var imageField = new ObjectField(label)
         {
-            EditorUtility.SetDirty(playerStats);
-        })
-        { text = "Save Changes" };
-        rootVisualElement.Add(saveButton);
+            objectType = typeof(Sprite),
+            value = initialImage
+        };
+        imageField.RegisterValueChangedCallback(evt =>
+        {
+            onValueChanged(evt.newValue as Sprite);
+            EditorUtility.SetDirty(_selectedItem);
+        });
+        _rightPane.Add(imageField);
     }
 
-    private void AddIntegerField(string label, int initialValue, System.Action<int> onValueChanged)
+    private void AddImagePreview(Sprite sprite)
     {
-        var field = new IntegerField(label) { value = initialValue };
-        field.RegisterValueChangedCallback(evt => onValueChanged(evt.newValue));
-        rootVisualElement.Add(field);
-    }
+        if (sprite == null) return;
 
-    private void AddFloatField(string label, float initialValue, System.Action<float> onValueChanged)
-    {
-        var field = new FloatField(label) { value = initialValue };
-        field.RegisterValueChangedCallback(evt => onValueChanged(evt.newValue));
-        rootVisualElement.Add(field);
+        var spriteImage = new Image { image = sprite.texture };
+        _rightPane.Add(spriteImage);
     }
 }

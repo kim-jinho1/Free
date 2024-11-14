@@ -11,8 +11,13 @@ public class PlayerIdleState : PlayerState
     public override void Enter()
     {
         base.Enter();
+        
     }
 
+    private void CheckRoom()
+    {
+        Player.CheckRoom(Player.Collider);
+    }
     public override void Update()
     {
         if (Player.MoveInput.sqrMagnitude > 0)
@@ -23,6 +28,11 @@ public class PlayerIdleState : PlayerState
         if (Input.GetKeyDown(KeyCode.F))
         {
             StateMachine.ChangeState(PlayerStateEnum.Attack);
+        }
+
+        if (Player.Collider != null)
+        {
+            CheckRoom();
         }
     }
 

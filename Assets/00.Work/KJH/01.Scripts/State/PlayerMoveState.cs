@@ -9,6 +9,11 @@ public class PlayerMoveState : PlayerState
 
     }
 
+    public override void Enter()
+    {
+        base.Enter();
+    }
+
     public override void Update()
     {
         base.Update();
@@ -25,6 +30,8 @@ public class PlayerMoveState : PlayerState
 
         Player.FiIpController();
     }
+
+    
 
     public override void Exit()
     {

@@ -9,6 +9,8 @@ public class Player : MonoBehaviour
 
     public PlayerStateMachine StateMachine { get; private set; }
 
+    
+    public Collider2D Collider { get; private set; }
     public Vector2 MoveInput { get; private set; }
     private float _yVelocity;
 
@@ -38,24 +40,28 @@ public class Player : MonoBehaviour
         {
             Vector2 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             RaycastHit2D hit = Physics2D.Raycast(pos, Vector2.zero);
+            
             if (hit.collider != null)
-            {
-                CheckRoom(hit.collider);
-            }
+                ClickRoom(hit.collider);
         }
-        
-        MoveInput = new Vector2(Input.GetAxisRaw("Horizontal"), _yVelocity);
     }
 
-    private void CheckRoom(Collider2D hitCollider)
+    public void ClickRoom(Collider2D hitCollider)
+    {
+        Collider = hitCollider;
+    }
+    
+    public void CheckRoom(Collider2D hitCollider)
     {
         if (hitCollider.GetComponent<VerticalRoom>() is not null)
         {
-            
+            Debug.Log(1);
+            Collider = null;
         }
         else if (hitCollider.GetComponent<HorizontalRoom>() is not null)
         {
-            
+            Debug.Log(1);
+            Collider = null;
         }
     }
 

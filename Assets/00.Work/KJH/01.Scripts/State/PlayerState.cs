@@ -20,6 +20,11 @@ public class PlayerState
 
         Animator = player.Animator;
     }
+    
+    public virtual void Update()
+    {
+
+    }
 
     public virtual void Enter()
     {
@@ -27,10 +32,6 @@ public class PlayerState
         IsTirggcalled = false;
     }
 
-    public virtual void Update()
-    {
-
-    }
 
     public virtual void Exit()
     {

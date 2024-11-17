@@ -53,12 +53,12 @@ public class Player : MonoBehaviour
     
     public void CheckRoom(Collider2D hitCollider)
     {
-        if (hitCollider.GetComponent<VerticalRoom>() is not null)
+        if (hitCollider.GetComponent<VerticalRoom>() != null)
         {
             Debug.Log(1);
             Collider = null;
         }
-        else if (hitCollider.GetComponent<HorizontalRoom>() is not null)
+        else if (hitCollider.GetComponent<HorizontalRoom>() != null)
         {
             Debug.Log(1);
             Collider = null;

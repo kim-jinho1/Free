@@ -6,8 +6,10 @@ using UnityEngine;
 public enum PlayerStateEnum
 {
     Idle,
-    Move,
-    Attack
+    HorizontalMove,
+    VerticalMove,
+    Attack,
+    UI
 }
 
 public class PlayerStateMachine

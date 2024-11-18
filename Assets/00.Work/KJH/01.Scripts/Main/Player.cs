@@ -1,30 +1,47 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class Player : MonoBehaviour
 {
+    [SerializeField] private Transform _pos;
+    [SerializeField] private AbilityData _abilityData;
+    
+    
+    public Action<Transform> OnMoveVertical;
+    public Action<Transform> OnMoveHorizontal;
+
+    public Action<int> OnAttack;
+    public Action<int> OnHit;
+
+    public AbilityData AbilityData => _abilityData;
     public Animator Animator { get; private set; }
     public Rigidbody2D Rigid { get; private set; }
-
-    public PlayerStateMachine StateMachine { get; private set; }
-
     
-    public Collider2D Collider { get; private set; }
-    public Vector2 MoveInput { get; private set; }
-    private float _yVelocity;
+    public bool IsCenter {get; set;}
+    public Transform CenterPosition { get; set; }
+    public int CurrentFloor { get; set; }
+     
+    public PlayerStateMachine StateMachine { get; set; }
+    
+    public Collider2D Collider { get;  set; }
 
     private bool _dirRight = true;
-    private int _dir = 1;
 
     private void Awake()
     {
         Animator = GetComponentInChildren<Animator>();
         Rigid = GetComponent<Rigidbody2D>();
-
+        IsCenter = true;
+        CenterPosition = _pos;
+        CurrentFloor = 1;
         StateMachine = new PlayerStateMachine();
         StateMachine.AddState(PlayerStateEnum.Idle, new PlayerIdleState(this, StateMachine, "Idle"));
-        StateMachine.AddState(PlayerStateEnum.Move, new PlayerMoveState(this, StateMachine, "Move"));
+        StateMachine.AddState(PlayerStateEnum.Attack, new PlayerAttackState(this, StateMachine, "Attack"));
+        StateMachine.AddState(PlayerStateEnum.HorizontalMove, new PlayerHorizontalMoveState(this, StateMachine, "HorizontalMove"));
+        StateMachine.AddState(PlayerStateEnum.VerticalMove, new PlayerVerticalMoveState(this, StateMachine, "VerticalMove"));
     }
 
     private void Start()
@@ -51,27 +68,13 @@ public class Player : MonoBehaviour
         Collider = hitCollider;
     }
     
-    public void CheckRoom(Collider2D hitCollider)
-    {
-        if (hitCollider.GetComponent<VerticalRoom>() != null)
-        {
-            Debug.Log(1);
-            Collider = null;
-        }
-        else if (hitCollider.GetComponent<HorizontalRoom>() != null)
-        {
-            Debug.Log(1);
-            Collider = null;
-        }
-    }
-
     public void FiIpController()
     {
         if (Rigid.velocity.x > 0 && _dirRight == false) 
         {
             FiIp();
         }
-        else if (Rigid.velocity.x < 0 && _dirRight == true) 
+        else if (Rigid.velocity.x < 0 && _dirRight) 
         {
             FiIp();
         }
@@ -80,7 +83,6 @@ public class Player : MonoBehaviour
     private void FiIp()
     {
         _dirRight = !_dirRight;
-        _dir *= -1;
         transform.Rotate(0, 180, 0);
     }
 }

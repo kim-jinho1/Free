@@ -20,10 +20,3 @@ MonoBehaviour:
   accuracy: 50
   escapeRate: 50
   criticalStrikeRate: 10
-  attackPowerImage: {fileID: 0}
-  hpImage: {fileID: 0}
-  speedImage: {fileID: 0}
-  evasionRateImage: {fileID: 0}
-  accuracyImage: {fileID: 0}
-  escapeRateRateImage: {fileID: 0}
-  criticalStrikeRateImage: {fileID: 0}

@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEditor;
-using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -63,23 +62,6 @@ public class RealAbilityEditor : EditorWindow
         AddField("Accuracy",_selectedItem.accuracy, value => _selectedItem.accuracy = value);
         AddField("EscapeRate",_selectedItem.escapeRate, value => _selectedItem.escapeRate = value);
         AddField("CriticalStrikeRate",_selectedItem.criticalStrikeRate, value => _selectedItem.criticalStrikeRate = value);
-        
-        
-        AddImageField("AttackPowerImage", _selectedItem.attackPowerImage, value => _selectedItem.attackPowerImage = value);
-        AddImagePreview(_selectedItem.attackPowerImage); 
-        AddImageField("HpImage", _selectedItem.hpImage, value => _selectedItem.hpImage = value);
-        AddImagePreview(_selectedItem.hpImage);
-        AddImageField("SpeedImage", _selectedItem.speedImage, value => _selectedItem.speedImage = value);
-        AddImagePreview(_selectedItem.speedImage);
-        AddImageField("EvasionRateImage", _selectedItem.evasionRateImage, value => _selectedItem.evasionRateImage = value);
-        AddImagePreview(_selectedItem.evasionRateImage);
-        AddImageField("AccuracyImage", _selectedItem.accuracyImage, value => _selectedItem.accuracyImage = value);
-        AddImagePreview(_selectedItem.accuracyImage);
-        AddImageField("EscapeRateRateImage", _selectedItem.escapeRateRateImage, value => _selectedItem.escapeRateRateImage = value);
-        AddImagePreview(_selectedItem.escapeRateRateImage);
-        AddImageField("CriticalStrikeRateImage", _selectedItem.criticalStrikeRateImage, value => _selectedItem.criticalStrikeRateImage = value);
-        AddImagePreview(_selectedItem.criticalStrikeRateImage);
-        
     }
 
     private void AddField<T>(string label, T initialValue, System.Action<T> onValueChanged)
@@ -112,28 +94,5 @@ public class RealAbilityEditor : EditorWindow
         }
 
         _rightPane.Add(field);
-    }
-
-    private void AddImageField(string label, Sprite initialImage, System.Action<Sprite> onValueChanged)
-    {
-        var imageField = new ObjectField(label)
-        {
-            objectType = typeof(Sprite),
-            value = initialImage
-        };
-        imageField.RegisterValueChangedCallback(evt =>
-        {
-            onValueChanged(evt.newValue as Sprite);
-            EditorUtility.SetDirty(_selectedItem);
-        });
-        _rightPane.Add(imageField);
-    }
-
-    private void AddImagePreview(Sprite sprite)
-    {
-        if (sprite == null) return;
-
-        var spriteImage = new Image { image = sprite.texture };
-        _rightPane.Add(spriteImage);
     }
 }

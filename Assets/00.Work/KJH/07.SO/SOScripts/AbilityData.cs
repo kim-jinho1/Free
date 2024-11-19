@@ -10,25 +10,15 @@ public class AbilityData : ScriptableObject
     
     #region AbilityData
     
-    public int attackPower;
-    public int hp;
-    public int speed;
-    public int evasionRate;
-    public int accuracy;
-    public int escapeRate;
-    public int criticalStrikeRate;
+    public float attackPower;
+    public float hp;
+    public float speed;
+    public float evasionRate;
+    public float accuracy;
+    public float escapeRate;
+    public float criticalStrikeRate;
+    public float CriticalDamage;
     
     #endregion
     
-    #region AbilityDataImage
-    
-    public Sprite attackPowerImage;
-    public Sprite hpImage;
-    public Sprite speedImage;
-    public Sprite evasionRateImage;
-    public Sprite accuracyImage;
-    public Sprite escapeRateRateImage;
-    public Sprite criticalStrikeRateImage;
-    
-    #endregion
 }

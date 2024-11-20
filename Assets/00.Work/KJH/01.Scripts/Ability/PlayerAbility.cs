@@ -8,10 +8,10 @@ public class PlayerAbility : MonoBehaviour
 
     #region AbilitySetting
     //공격력
-    public float AttackPower
+    public float Attack
     {
-        get => _player.AbilityData.attackPower;
-        set => _player.AbilityData.attackPower = value;
+        get => _player.AbilityData.attack;
+        set => _player.AbilityData.attack = value;
     }
     //체력
     public float Hp
@@ -26,7 +26,7 @@ public class PlayerAbility : MonoBehaviour
         set => _player.AbilityData.speed = value;
     }
     //회피율
-    public float EvasionRate
+    public float Dodge
     {
         get => _player.AbilityData.dodge;
         set => _player.AbilityData.dodge = value;
@@ -38,19 +38,19 @@ public class PlayerAbility : MonoBehaviour
         set => _player.AbilityData.accuracy = value;
     }
     //도주율
-    public float EscapeRate
+    public float Escape
     {
         get => _player.AbilityData.escape;
         set => _player.AbilityData.escape = value;
     }
     //치명타율
-    public float CriticalStrikeRate
+    public float Critical
     {
         get => _player.AbilityData.critical;
         set => _player.AbilityData.critical = value;
     }
     //치명타 피해
-    public float CriticalDamage{
+    public float CriticalAttack{
         get => _player.AbilityData.criticalAttack;
         set => _player.AbilityData.criticalAttack = value;
     }
@@ -60,15 +60,15 @@ public class PlayerAbility : MonoBehaviour
     
     #endregion
 
-    public void IncreaseAttackPower(float amount) => AttackPower += amount;
+    public void IncreaseAttack(float amount) => Attack += amount;
     public void IncreaseHp(float amount) => Hp += amount;
     public void IncreaseSpeed(float amount) => Speed += amount;
-    public void IncreaseEvasionRate(float amount) => EvasionRate += amount;
+    public void IncreaseDodge(float amount) => Dodge += amount;
     public void IncreaseAccuracy(float amount) => Accuracy += amount;
-    public void IncreaseEscapeRate(float amount) => EscapeRate += amount;
-    public void IncreaseCriticalStrikeRate(float amount) => CriticalStrikeRate += amount;
+    public void IncreaseEscape(float amount) => Escape += amount;
+    public void IncreaseCritical(float amount) => Critical += amount;
     
-    public void IncreaseCriticalDamage(float amount) => CriticalStrikeRate += amount;
+    public void IncreaseCriticalAttack(float amount) => CriticalAttack += amount;
     
-    public void IncreaseMaxHealth(int amount) => CriticalDamage += amount;
+    public void IncreaseMaxHealth(int amount) => MaxHealth += amount;
 }

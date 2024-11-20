@@ -10,14 +10,9 @@ public class SJ_UIDataReader : MonoBehaviour
     [SerializeField] private TextMeshProUGUI HP;
     [SerializeField] private TextMeshProUGUI Hunger;
 
-    private Player _player;
+    [SerializeField] private Player _player;
 
     //[SerializeField] private AbilityData _playerData; 
-
-    private void Awake()
-    {
-        _player = GetComponent<Player>();
-    }
 
     private void Update()
     {

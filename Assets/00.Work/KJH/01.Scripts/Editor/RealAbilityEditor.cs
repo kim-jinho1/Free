@@ -88,8 +88,29 @@ public class RealAbilityEditor : EditorWindow
             });
             field = textField;
         }
+        else if (typeof(T) == typeof(float))
+        {
+            var floatField = new FloatField(label) { value = (float)(object)initialValue };
+            floatField.RegisterValueChangedCallback(evt =>
+            {
+                onValueChanged((T)(object)evt.newValue);
+                EditorUtility.SetDirty(_selectedItem);
+            });
+            field = floatField;
+        }
+        else if (typeof(T) == typeof(bool))
+        {
+            var toggleField = new Toggle(label) { value = (bool)(object)initialValue };
+            toggleField.RegisterValueChangedCallback(evt =>
+            {
+                onValueChanged((T)(object)evt.newValue);
+                EditorUtility.SetDirty(_selectedItem);
+            });
+            field = toggleField;
+        }
         else
         {
+            Debug.LogWarning($"Unsupported field type: {typeof(T).Name}");
             return;
         }
 

@@ -18,7 +18,13 @@ public class AbilityData : ScriptableObject
     public float escapeRate;
     public float criticalStrikeRate;
     public float CriticalDamage;
-    
+
+    public float CurrentHp;
+    public float maxHp;
+
+    public float Hungry;
+    public float CurrnetHungry;
+    public float MaxHungry;
+
     #endregion
-    
 }

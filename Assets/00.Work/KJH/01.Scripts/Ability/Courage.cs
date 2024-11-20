@@ -8,9 +8,9 @@ public class Courage : Virtue
     //용기
     protected override void ApplyStatBonuses(PlayerAbility stats)
     {
-        stats.IncreaseAttackPower(1);
-        stats.IncreaseCriticalStrikeRate(0.02f);
-        stats.IncreaseEscapeRate(0.01f);
+        stats.IncreaseAttack(1);
+        stats.IncreaseCritical(0.02f);
+        stats.IncreaseEscape(0.01f);
     }
 
     protected override void ApplySpecialEffects(PlayerAbility stats)
@@ -29,7 +29,7 @@ public class Courage : Virtue
     {
         if (Stack <= 5) 
         {
-            stats.IncreaseAttackPower(1);
+            stats.IncreaseAttack(1);
             Stack++;
         }
     }

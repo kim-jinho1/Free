@@ -9,7 +9,7 @@ public class Wisdom : Virtue
     protected override void ApplyStatBonuses(PlayerAbility stats)
     {
         stats.IncreaseAccuracy(0.02f);
-        stats.IncreaseEvasionRate(0.02f);
+        stats.IncreaseDodge(0.02f);
     }
 
     protected override void ApplySpecialEffects(PlayerAbility stats)
@@ -31,8 +31,8 @@ public class Wisdom : Virtue
 
     protected override void ApplyTwentiesStats(PlayerAbility stats)
     {
-        stats.IncreaseAttackPower(10);
+        stats.IncreaseAttack(10);
         stats.IncreaseSpeed(5);
-        stats.IncreaseCriticalStrikeRate(5);
+        stats.IncreaseCritical(5);
     }
 }

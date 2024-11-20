@@ -19,6 +19,12 @@ public class PlayerAbility : MonoBehaviour
         get => _player.AbilityData.hp;
         set => _player.AbilityData.hp = value;
     }
+
+    public float Hungry
+    {
+        get => _player.AbilityData.hungry;
+        set => _player.AbilityData.hungry = value;
+    }
     //속도
     public float Speed
     {
@@ -54,9 +60,29 @@ public class PlayerAbility : MonoBehaviour
         get => _player.AbilityData.criticalAttack;
         set => _player.AbilityData.criticalAttack = value;
     }
-    
     //최대 체력
-    public int MaxHealth { get; private set; } = 100;
+    public float MaxHealth {  
+        get => _player.AbilityData.maxHp;
+        set => _player.AbilityData.maxHp = value; 
+    }
+    //현재체력
+    public float CurrentHp
+    {
+        get => _player.AbilityData.currentHp;
+        set => _player.AbilityData.currentHp = value; 
+    }
+    //현재배고픔
+    public float CurrentHungry
+    {
+        get => _player.AbilityData.currentHungry;
+        set => _player.AbilityData.currentHungry = value; 
+    }
+    //최대배고픔수치
+    public float MaxHungry
+    {
+        get => _player.AbilityData.maxHungry;
+        set => _player.AbilityData.maxHungry = value; 
+    }
     
     #endregion
 
@@ -70,5 +96,11 @@ public class PlayerAbility : MonoBehaviour
     
     public void IncreaseCriticalAttack(float amount) => CriticalAttack += amount;
     
-    public void IncreaseMaxHealth(int amount) => MaxHealth += amount;
+    public void IncreaseCurrentHp(float amount) => Hp += amount;
+    
+    public void IncreaseMaxHealth(float amount) => MaxHealth += amount;
+    
+    public void IncreaseCurrentHungry(float amount) => Hungry += amount;
+    
+    public void IncreaseMaxHungry(float amount) => MaxHungry += amount;
 }

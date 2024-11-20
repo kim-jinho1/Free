@@ -19,12 +19,12 @@ public class AbilityData : ScriptableObject
     public float criticalAttack;
 
     public float hp;
-    public float CurrentHp;
+    public float currentHp;
     public float maxHp;
 
-    public float Hungry;
-    public float CurrnetHungry;
-    public float MaxHungry;
+    public float hungry;
+    public float currentHungry;
+    public float maxHungry;
 
     #endregion
 }

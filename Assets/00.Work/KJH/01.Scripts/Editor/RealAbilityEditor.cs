@@ -55,13 +55,13 @@ public class RealAbilityEditor : EditorWindow
         if (_selectedItem == null) return;
 
         AddField("Name", _selectedItem.itemName, value => _selectedItem.itemName = value);
-        AddField("AttackPower", _selectedItem.attackPower, value => _selectedItem.attackPower = value);
+        AddField("AttackPower", _selectedItem.attack, value => _selectedItem.attack = value);
         AddField("Hp", _selectedItem.hp, value => _selectedItem.hp = value);
         AddField("Speed",_selectedItem.speed, value => _selectedItem.speed = value);
-        AddField("EvasionRate",_selectedItem.evasionRate, value => _selectedItem.evasionRate = value);
+        AddField("EvasionRate",_selectedItem.dodge, value => _selectedItem.dodge = value);
         AddField("Accuracy",_selectedItem.accuracy, value => _selectedItem.accuracy = value);
-        AddField("EscapeRate",_selectedItem.escapeRate, value => _selectedItem.escapeRate = value);
-        AddField("CriticalStrikeRate",_selectedItem.criticalStrikeRate, value => _selectedItem.criticalStrikeRate = value);
+        AddField("EscapeRate",_selectedItem.escape, value => _selectedItem.escape = value);
+        AddField("CriticalStrikeRate",_selectedItem.critical, value => _selectedItem.critical = value);
     }
 
     private void AddField<T>(string label, T initialValue, System.Action<T> onValueChanged)

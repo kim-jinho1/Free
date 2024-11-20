@@ -28,8 +28,8 @@ public class PlayerAbility : MonoBehaviour
     //회피율
     public float EvasionRate
     {
-        get => _player.AbilityData.evasionRate;
-        set => _player.AbilityData.evasionRate = value;
+        get => _player.AbilityData.dodge;
+        set => _player.AbilityData.dodge = value;
     }
     //명중률
     public float Accuracy
@@ -40,19 +40,19 @@ public class PlayerAbility : MonoBehaviour
     //도주율
     public float EscapeRate
     {
-        get => _player.AbilityData.escapeRate;
-        set => _player.AbilityData.escapeRate = value;
+        get => _player.AbilityData.escape;
+        set => _player.AbilityData.escape = value;
     }
     //치명타율
     public float CriticalStrikeRate
     {
-        get => _player.AbilityData.criticalStrikeRate;
-        set => _player.AbilityData.criticalStrikeRate = value;
+        get => _player.AbilityData.critical;
+        set => _player.AbilityData.critical = value;
     }
     //치명타 피해
     public float CriticalDamage{
-        get => _player.AbilityData.CriticalDamage;
-        set => _player.AbilityData.CriticalDamage = value;
+        get => _player.AbilityData.criticalAttack;
+        set => _player.AbilityData.criticalAttack = value;
     }
     
     //최대 체력

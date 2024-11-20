@@ -10,15 +10,15 @@ public class AbilityData : ScriptableObject
     
     #region AbilityData
     
-    public float attackPower;
-    public float hp;
+    public float attack;
     public float speed;
-    public float evasionRate;
+    public float dodge;
     public float accuracy;
-    public float escapeRate;
-    public float criticalStrikeRate;
-    public float CriticalDamage;
+    public float escape;
+    public float critical;
+    public float criticalAttack;
 
+    public float hp;
     public float CurrentHp;
     public float maxHp;
 

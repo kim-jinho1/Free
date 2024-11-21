@@ -8,7 +8,7 @@ public class AbilityData : ScriptableObject
 {
     public string itemName;
     
-    #region AbilityData
+    #region PublicAbilityData
     
     public float attack;
     public float speed;
@@ -25,6 +25,14 @@ public class AbilityData : ScriptableObject
     public float hungry;
     public float currentHungry;
     public float maxHungry;
+    
 
+    #endregion
+    
+     
+    #region PrivateAbilityData
+    
+    public float damageDown;
+    
     #endregion
 }

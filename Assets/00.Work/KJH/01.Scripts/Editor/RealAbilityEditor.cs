@@ -55,13 +55,15 @@ public class RealAbilityEditor : EditorWindow
         if (_selectedItem == null) return;
 
         AddField("Name", _selectedItem.itemName, value => _selectedItem.itemName = value);
-        AddField("AttackPower", _selectedItem.attack, value => _selectedItem.attack = value);
-        AddField("Hp", _selectedItem.hp, value => _selectedItem.hp = value);
+        AddField("Attack", _selectedItem.attack, value => _selectedItem.attack = value);
         AddField("Speed",_selectedItem.speed, value => _selectedItem.speed = value);
-        AddField("EvasionRate",_selectedItem.dodge, value => _selectedItem.dodge = value);
+        AddField("Dodge",_selectedItem.dodge, value => _selectedItem.dodge = value);
         AddField("Accuracy",_selectedItem.accuracy, value => _selectedItem.accuracy = value);
-        AddField("EscapeRate",_selectedItem.escape, value => _selectedItem.escape = value);
-        AddField("CriticalStrikeRate",_selectedItem.critical, value => _selectedItem.critical = value);
+        AddField("Escape",_selectedItem.escape, value => _selectedItem.escape = value);
+        AddField("Critical",_selectedItem.critical, value => _selectedItem.critical = value);
+        AddField("CriticalAttack",_selectedItem.criticalAttack, value => _selectedItem.criticalAttack = value);
+        AddField("MaxHp",_selectedItem.maxHp, value => _selectedItem.maxHp = value);
+        AddField("MaxHungry",_selectedItem.maxHungry, value => _selectedItem.maxHungry = value); 
     }
 
     private void AddField<T>(string label, T initialValue, System.Action<T> onValueChanged)

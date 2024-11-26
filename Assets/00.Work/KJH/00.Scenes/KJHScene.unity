@@ -154,6 +154,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9dbed551fc0b04347a6f0e01671404f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isEntered: 0
+  _isExiting: 0
   _currentFloor: 1
 --- !u!61 &65226227
 BoxCollider2D:
@@ -498,6 +500,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13b7e7eb6469220469ab7cf3ddc65d37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isEntered: 0
+  _isExiting: 0
   _currentFloor: 1
 --- !u!1 &519420028
 GameObject:
@@ -702,6 +706,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9dbed551fc0b04347a6f0e01671404f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isEntered: 0
+  _isExiting: 0
   _currentFloor: 0
 --- !u!61 &535750646
 BoxCollider2D:
@@ -928,6 +934,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9dbed551fc0b04347a6f0e01671404f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isEntered: 0
+  _isExiting: 0
   _currentFloor: 1
 --- !u!61 &643554496
 BoxCollider2D:
@@ -1184,6 +1192,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9dbed551fc0b04347a6f0e01671404f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isEntered: 0
+  _isExiting: 0
   _currentFloor: 2
 --- !u!1 &1088710297
 GameObject:
@@ -1216,6 +1226,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9dbed551fc0b04347a6f0e01671404f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isEntered: 0
+  _isExiting: 0
   _currentFloor: 3
 --- !u!61 &1088710299
 BoxCollider2D:
@@ -1360,6 +1372,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9dbed551fc0b04347a6f0e01671404f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isEntered: 0
+  _isExiting: 0
   _currentFloor: 3
 --- !u!61 &1177708314
 BoxCollider2D:
@@ -1616,6 +1630,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13b7e7eb6469220469ab7cf3ddc65d37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isEntered: 0
+  _isExiting: 0
   _currentFloor: 3
 --- !u!1 &1233340741
 GameObject:
@@ -1760,6 +1776,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13b7e7eb6469220469ab7cf3ddc65d37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isEntered: 0
+  _isExiting: 0
   _currentFloor: 2
 --- !u!1 &1289460244
 GameObject:
@@ -2019,6 +2037,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9dbed551fc0b04347a6f0e01671404f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isEntered: 0
+  _isExiting: 0
   _currentFloor: 2
 --- !u!1 &1816748466
 GameObject:
@@ -2102,6 +2122,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1875677446}
   - component: {fileID: 1875677447}
+  - component: {fileID: 1875677449}
   - component: {fileID: 1875677448}
   m_Layer: 0
   m_Name: Player
@@ -2168,6 +2189,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &1875677449
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1875677444}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dac00cd986861664fa03f2e751f947c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _player: {fileID: 1875677447}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

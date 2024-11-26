@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEditor;
-using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -56,30 +55,15 @@ public class RealAbilityEditor : EditorWindow
         if (_selectedItem == null) return;
 
         AddField("Name", _selectedItem.itemName, value => _selectedItem.itemName = value);
-        AddField("AttackPower", _selectedItem.attackPower, value => _selectedItem.attackPower = value);
-        AddField("Hp", _selectedItem.hp, value => _selectedItem.hp = value);
+        AddField("Attack", _selectedItem.attack, value => _selectedItem.attack = value);
         AddField("Speed",_selectedItem.speed, value => _selectedItem.speed = value);
-        AddField("EvasionRate",_selectedItem.evasionRate, value => _selectedItem.evasionRate = value);
+        AddField("Dodge",_selectedItem.dodge, value => _selectedItem.dodge = value);
         AddField("Accuracy",_selectedItem.accuracy, value => _selectedItem.accuracy = value);
-        AddField("EscapeRate",_selectedItem.escapeRate, value => _selectedItem.escapeRate = value);
-        AddField("CriticalStrikeRate",_selectedItem.criticalStrikeRate, value => _selectedItem.criticalStrikeRate = value);
-        
-        
-        AddImageField("AttackPowerImage", _selectedItem.attackPowerImage, value => _selectedItem.attackPowerImage = value);
-        AddImagePreview(_selectedItem.attackPowerImage); 
-        AddImageField("HpImage", _selectedItem.hpImage, value => _selectedItem.hpImage = value);
-        AddImagePreview(_selectedItem.hpImage);
-        AddImageField("SpeedImage", _selectedItem.speedImage, value => _selectedItem.speedImage = value);
-        AddImagePreview(_selectedItem.speedImage);
-        AddImageField("EvasionRateImage", _selectedItem.evasionRateImage, value => _selectedItem.evasionRateImage = value);
-        AddImagePreview(_selectedItem.evasionRateImage);
-        AddImageField("AccuracyImage", _selectedItem.accuracyImage, value => _selectedItem.accuracyImage = value);
-        AddImagePreview(_selectedItem.accuracyImage);
-        AddImageField("EscapeRateRateImage", _selectedItem.escapeRateRateImage, value => _selectedItem.escapeRateRateImage = value);
-        AddImagePreview(_selectedItem.escapeRateRateImage);
-        AddImageField("CriticalStrikeRateImage", _selectedItem.criticalStrikeRateImage, value => _selectedItem.criticalStrikeRateImage = value);
-        AddImagePreview(_selectedItem.criticalStrikeRateImage);
-        
+        AddField("Escape",_selectedItem.escape, value => _selectedItem.escape = value);
+        AddField("Critical",_selectedItem.critical, value => _selectedItem.critical = value);
+        AddField("CriticalAttack",_selectedItem.criticalAttack, value => _selectedItem.criticalAttack = value);
+        AddField("MaxHp",_selectedItem.maxHp, value => _selectedItem.maxHp = value);
+        AddField("MaxHungry",_selectedItem.maxHungry, value => _selectedItem.maxHungry = value); 
     }
 
     private void AddField<T>(string label, T initialValue, System.Action<T> onValueChanged)
@@ -106,34 +90,32 @@ public class RealAbilityEditor : EditorWindow
             });
             field = textField;
         }
+        else if (typeof(T) == typeof(float))
+        {
+            var floatField = new FloatField(label) { value = (float)(object)initialValue };
+            floatField.RegisterValueChangedCallback(evt =>
+            {
+                onValueChanged((T)(object)evt.newValue);
+                EditorUtility.SetDirty(_selectedItem);
+            });
+            field = floatField;
+        }
+        else if (typeof(T) == typeof(bool))
+        {
+            var toggleField = new Toggle(label) { value = (bool)(object)initialValue };
+            toggleField.RegisterValueChangedCallback(evt =>
+            {
+                onValueChanged((T)(object)evt.newValue);
+                EditorUtility.SetDirty(_selectedItem);
+            });
+            field = toggleField;
+        }
         else
         {
+            Debug.LogWarning($"Unsupported field type: {typeof(T).Name}");
             return;
         }
 
         _rightPane.Add(field);
-    }
-
-    private void AddImageField(string label, Sprite initialImage, System.Action<Sprite> onValueChanged)
-    {
-        var imageField = new ObjectField(label)
-        {
-            objectType = typeof(Sprite),
-            value = initialImage
-        };
-        imageField.RegisterValueChangedCallback(evt =>
-        {
-            onValueChanged(evt.newValue as Sprite);
-            EditorUtility.SetDirty(_selectedItem);
-        });
-        _rightPane.Add(imageField);
-    }
-
-    private void AddImagePreview(Sprite sprite)
-    {
-        if (sprite == null) return;
-
-        var spriteImage = new Image { image = sprite.texture };
-        _rightPane.Add(spriteImage);
     }
 }

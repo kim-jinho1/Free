@@ -8,27 +8,31 @@ public class AbilityData : ScriptableObject
 {
     public string itemName;
     
-    #region AbilityData
+    #region PublicAbilityData
     
-    public int attackPower;
-    public int hp;
-    public int speed;
-    public int evasionRate;
-    public int accuracy;
-    public int escapeRate;
-    public int criticalStrikeRate;
+    public float attack;
+    public float speed;
+    public float dodge;
+    public float accuracy;
+    public float escape;
+    public float critical;
+    public float criticalAttack;
+
+    public float hp;
+    public float currentHp;
+    public float maxHp;
+
+    public float hungry;
+    public float currentHungry;
+    public float maxHungry;
     
+
     #endregion
     
-    #region AbilityDataImage
+     
+    #region PrivateAbilityData
     
-    public Sprite attackPowerImage;
-    public Sprite hpImage;
-    public Sprite speedImage;
-    public Sprite evasionRateImage;
-    public Sprite accuracyImage;
-    public Sprite escapeRateRateImage;
-    public Sprite criticalStrikeRateImage;
+    public float damageDown;
     
     #endregion
 }

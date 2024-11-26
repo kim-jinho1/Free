@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -41,4 +42,6 @@ public abstract class Enemy_State : MonoBehaviour
     protected virtual void ExitState()
     {
     }
+
+   
 }

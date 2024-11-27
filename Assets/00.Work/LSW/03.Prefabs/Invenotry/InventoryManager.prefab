@@ -1,0 +1,80 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6540714153538531336
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2687516245223254080}
+  - component: {fileID: 4930480298077119936}
+  m_Layer: 0
+  m_Name: InventoryManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2687516245223254080
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6540714153538531336}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4930480298077119936
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6540714153538531336}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fa6f4ded78ed7246bf15818bd1bd1e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _player: {fileID: 0}
+  _inventory: {fileID: 0}
+  _inventory_EnableButton: {fileID: 0}
+  _inventory_DisableButton: {fileID: 0}
+  _inspector: {fileID: 0}
+  _UseTxt: {fileID: 0}
+  _slotData:
+  - {fileID: 11400000, guid: 64ad88c9bed5eaf469cd8fdce6a78008, type: 2}
+  - {fileID: 11400000, guid: 122d62286a56e014cb97aeb0b6f9b7eb, type: 2}
+  - {fileID: 11400000, guid: d7b359ecd6bb3cb4796fcdd014832a5f, type: 2}
+  - {fileID: 11400000, guid: 403847cab66570e4ea435a4f31808bb3, type: 2}
+  - {fileID: 11400000, guid: 86ea3f0ab4e962a439c699951e1aaffe, type: 2}
+  - {fileID: 11400000, guid: b5f1da80adf5cff4a93c933f94ec0f09, type: 2}
+  - {fileID: 11400000, guid: ba55013b98536894aabbde60af40dbc5, type: 2}
+  - {fileID: 11400000, guid: 9020763c6e8cac94b97c94213c32c9af, type: 2}
+  - {fileID: 11400000, guid: 15a8c40f7f37eca48856dc7daf38b21d, type: 2}
+  - {fileID: 11400000, guid: 44c73ba6b6be42d419272fd00397cdaa, type: 2}
+  - {fileID: 11400000, guid: 81e961a849636ff409b742062068a7c6, type: 2}
+  - {fileID: 11400000, guid: 7eb0325973d0f5f429f6ffa1059c983d, type: 2}
+  - {fileID: 11400000, guid: 436144488f655854d988f67c9e28cf1b, type: 2}
+  - {fileID: 11400000, guid: 8d91d9aa00c8db342bcb3e9ca5107a0d, type: 2}
+  - {fileID: 11400000, guid: c10b0991b8c5001418e26b8bdf86d9ed, type: 2}
+  - {fileID: 11400000, guid: e3be304ca3f29144e8b05e3566a11b90, type: 2}
+  - {fileID: 11400000, guid: f6dcd7c8dfa2aa8499a78d049ef5a523, type: 2}
+  - {fileID: 11400000, guid: b851779d5092b094db6bee016124b521, type: 2}
+  - {fileID: 11400000, guid: 425fa4d9e6dde674c84bd7d418aea6d0, type: 2}
+  - {fileID: 11400000, guid: 0a418fdfa15674d40b95985aadb362bd, type: 2}
+  Slots: []
+  _slotPrefabs: {fileID: 5750053668177204732, guid: aaa9db6ec7cc2424cb1829434afa71f7, type: 3}
+  _slotParent: {fileID: 0}
+  _equipSlots: []
+  _slotMovePrefabs: {fileID: 6799790701002244845, guid: aa6959164690c9c46a13c87dab2ce8ff, type: 3}
+  _slotChangeObject: {fileID: 0}
+  _eachChangeSlot: []

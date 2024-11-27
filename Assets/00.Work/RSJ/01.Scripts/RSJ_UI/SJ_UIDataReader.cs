@@ -18,7 +18,7 @@ public class SJ_UIDataReader : MonoBehaviour
     {
         floor.text = _player.CurrentFloor.ToString() + "F";
 
-        HP.text = _player.AbilityData.CurrentHp.ToString() + "/" + _player.AbilityData.maxHp.ToString();
-        Hunger.text = _player.AbilityData.CurrnetHungry.ToString() + "/" + _player.AbilityData.MaxHungry.ToString();
+        HP.text = _player.AbilityData.currentHp.ToString() + "/" + _player.AbilityData.maxHp.ToString();
+        Hunger.text = _player.AbilityData.currentHungry.ToString() + "/" + _player.AbilityData.maxHungry.ToString();
     }
 }

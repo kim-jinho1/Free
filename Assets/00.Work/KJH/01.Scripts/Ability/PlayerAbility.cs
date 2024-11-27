@@ -7,6 +7,7 @@ public class PlayerAbility : MonoBehaviour
     [SerializeField] private Player _player;
 
     #region AbilitySetting
+    
     //공격력
     public float Attack
     {
@@ -18,6 +19,12 @@ public class PlayerAbility : MonoBehaviour
     {
         get => _player.AbilityData.hp;
         set => _player.AbilityData.hp = value;
+    }
+
+    public float Hungry
+    {
+        get => _player.AbilityData.hungry;
+        set => _player.AbilityData.hungry = value;
     }
     //속도
     public float Speed
@@ -50,13 +57,40 @@ public class PlayerAbility : MonoBehaviour
         set => _player.AbilityData.critical = value;
     }
     //치명타 피해
-    public float CriticalAttack{
+    public float CriticalAttack
+    {
         get => _player.AbilityData.criticalAttack;
         set => _player.AbilityData.criticalAttack = value;
     }
-    
     //최대 체력
-    public int MaxHealth { get; private set; } = 100;
+    public float MaxHealth {  
+        get => _player.AbilityData.maxHp;
+        set => _player.AbilityData.maxHp = value; 
+    }
+    //현재체력
+    public float CurrentHp
+    {
+        get => _player.AbilityData.maxHp;
+        set => _player.AbilityData.maxHp = value; 
+    }
+    //현재배고픔
+    public float CurrentHungry
+    {
+        get => _player.AbilityData.maxHungry;
+        set => _player.AbilityData.maxHungry = value; 
+    }
+    //최대배고픔수치
+    public float MaxHungry
+    {
+        get => _player.AbilityData.maxHungry;
+        set => _player.AbilityData.maxHungry = value; 
+    }
+    
+    public float DamageDown
+    {
+        get => _player.AbilityData.damageDown;
+        set => _player.AbilityData.damageDown = value; 
+    }
     
     #endregion
 
@@ -67,8 +101,10 @@ public class PlayerAbility : MonoBehaviour
     public void IncreaseAccuracy(float amount) => Accuracy += amount;
     public void IncreaseEscape(float amount) => Escape += amount;
     public void IncreaseCritical(float amount) => Critical += amount;
-    
     public void IncreaseCriticalAttack(float amount) => CriticalAttack += amount;
-    
-    public void IncreaseMaxHealth(int amount) => MaxHealth += amount;
+    public void IncreaseCurrentHp(float amount) => Hp += amount;
+    public void IncreaseMaxHealth(float amount) => MaxHealth += amount;
+    public void IncreaseCurrentHungry(float amount) => Hungry += amount;
+    public void IncreaseMaxHungry(float amount) => MaxHungry += amount;
+    public void IncreaseDamageDown(float amount) => DamageDown += amount;
 }

@@ -5,7 +5,7 @@ using UnityEngine;
 public enum Test { Get, Delete }
 public class Test_GetItem : MonoBehaviour
 {
-    [SerializeField] private ItemData itemData;
+    [SerializeField] private ItemData[] itemData;
     private List<Slot> r = new List<Slot>();
     public Test t;
 
@@ -13,7 +13,7 @@ public class Test_GetItem : MonoBehaviour
     {
         if (t == Test.Get)
         {
-            InventoryManager.Instance.AddItem(itemData);
+            InventoryManager.Instance.AddItem(itemData[Random.Range(0, itemData.Length)]);
         }
         else if (t == Test.Delete)
         {
@@ -21,13 +21,13 @@ public class Test_GetItem : MonoBehaviour
             slot = InventoryManager.Instance.Slots;
             for (int i = 0; i < slot.Count; i++)
             {
-                if (slot[i].GetComponent<Slot>()._state != State.Empty)
+                if (slot[i].GetComponent<Slot>()._slotData.state != State.Empty)
                 {
                     r.Add(slot[i]);
                 }
             }
             if (r.Count > 0)
-                r[Random.Range(0, r.Count)].Reduce();
+                r[Random.Range(0, r.Count)].Delete();
         }
     }
 }

@@ -1,100 +1,69 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
+using UnityEditor;
+using UnityEditorInternal;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public enum State { Empty, NotFull, Full }
-public class Slot : MonoBehaviour
+public class Slot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler, IPointerUpHandler
 {
-    [SerializeField] protected GameObject _itemMark;
-    [SerializeField] protected Image _equipMark;
-    public State _state;
-    protected ItemData _itemData;
-    protected bool equip;
+    [SerializeField] private GameObject _itemMark;
+    public SlotData _slotData;
+    public event Action<Slot> OnShowInspector; 
 
-    [Header("Duplicate")]
-    [SerializeField] private TextMeshProUGUI _duplicateTxt;
-    public int NowDulicate;
-
-    //[Header("ItemMove")]
+    [Header("ItemMove")]
+    [SerializeField] private GameObject _itemMove;
+    public bool _isDragging, _MoveSlotEnter;
 
     [Header("Use")]
-    [SerializeField] protected GameObject _inspector;
+    public bool _isMousePointIn;
+    public string EquipTxt = "EQUIP";
+    public string UnEquipTxt = "UNEQUIP";
+    public string UseTxt = "USE";
+    public string HealTxt = "HEAL";
+    public Image _equipBorder;
+    public GameObject _equipMark;
 
     private void Start()
     {
-        _duplicateTxt.enabled = false;
+        _equipMark.SetActive(false);
     }
 
     private void Update()
     {
-        if(_state != State.Empty)
-            if(NowDulicate == _itemData.DuplicateValue)
-            _state = State.Full;
-
-        if (NowDulicate > 1)
-            _duplicateTxt.enabled = true;
-        else if (NowDulicate == 1)
-            _duplicateTxt.enabled = false;
-
-        //if(Input.GetKeyDown(KeyCode.Q) && gameObject.GetComponent<Button>()
-        //{
-            Reduce();
-        //}
-
-        //if(Input.GetMouseButtonDown(1) && InventoryManager.Instance.OnActive 
-        //    && GetComponent<Button>().)
-            _inspector.SetActive(true);
-        else if(Input.anyKeyDown)
-            _inspector.SetActive(false);
-    }
-
-    public bool CanAdd()
-    {
-        if (_state == State.Empty || _state == State.NotFull)
+        if (_isMousePointIn && Input.GetMouseButtonDown(1) && _slotData.itemData != null)
         {
-            NowDulicate++;
-            return true;
+            InventoryManager.Instance._inspector.SetActive(true);
+            OnShowInspector?.Invoke(this);
         }
-        return false;
     }
 
-    public void Add(ItemData newitem)
+    public void AddItem(ItemData newitem)
     {
-        _state = State.NotFull;
-        _itemData = newitem;
-        Change();
-        SetDuplicate(newitem);
+        _slotData.state = State.Full;
+        _slotData.itemData = newitem;
+        _slotData.itemData.ItemImage = newitem.ItemImage;
+        ChangeImage(_slotData.itemData.ItemImage);
     }
 
-    private void SetDuplicate(ItemData newitem)
+    public void ChangeImage(Sprite sprite)
     {
-        _duplicateTxt.text = NowDulicate.ToString();
+        _itemMark.GetComponent<Image>().sprite = sprite;
     }
 
-    private void Change()
+    public void Delete()
     {
-        _itemMark.GetComponent<Image>().sprite = _itemData.ItemImage;
-    }
-
-    public void Reduce()
-    {
-        NowDulicate--;
-        SetDuplicate(_itemData);
-        if(NowDulicate <= 0)
-            Delete();
-    }
-
-    protected void Delete()
-    {
-        NowDulicate = 0;
-        _equipMark.sprite = null;
-        _state = State.Empty;
-        _itemData = null;
-        _duplicateTxt.enabled = false;
+        if (_slotData.equip)
+        {
+            InventoryManager.Instance.UnEquipItem(this);
+        }
+        _equipMark.SetActive(false);
+        _slotData.state = State.Empty;
+        _slotData.itemData = null;
         _itemMark.GetComponent<Image>().sprite = null;
         InventoryManager.Instance.DeleteItem(this);
     }
@@ -102,5 +71,52 @@ public class Slot : MonoBehaviour
     private IEnumerator Coroutines(float item)
     {
         yield return new WaitForSeconds(item);
+    }
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        _isMousePointIn = true;
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        _isMousePointIn = false;
+    }
+
+    public void ResetData()
+    {
+        if (_slotData.equip)
+        {
+            InventoryManager.Instance.UnEquipItem(this);
+        }
+
+        _slotData.itemData = null;
+        _slotData.itemType = itemType.Equip;
+        _slotData.state = State.Empty;
+
+        _slotData.equip = false;
+    }
+
+    public void OnPointerDown(PointerEventData eventData)
+    {
+        if (Input.GetMouseButtonDown(0) && _slotData.itemData != null)
+        {
+            _isDragging = true;
+            InventoryManager.Instance._slotChangeObject = Instantiate(InventoryManager.Instance._slotMovePrefabs, InventoryManager.Instance.GetMousePos(), Quaternion.identity);
+            InventoryManager.Instance._slotChangeObject.transform.SetParent(InventoryManager.Instance._inventory.transform);
+            InventoryManager.Instance._inspector.SetActive(false);
+            InventoryManager.Instance._slotChangeObject.SetActive(true);
+            InventoryManager.Instance._slotChangeObject.GetComponent<Slot_Move>().SetImage(_slotData.itemData.ItemImage);
+            ChangeImage(null);
+        }
+    }
+
+    public void OnPointerUp(PointerEventData eventData)
+    {
+        if (_isDragging)
+        {
+            InventoryManager.Instance._slotChangeObject.GetComponent<Slot_Move>().Check(this);
+            _isDragging = false;
+        }
     }
 }

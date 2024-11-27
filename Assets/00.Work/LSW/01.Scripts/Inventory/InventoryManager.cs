@@ -1,43 +1,41 @@
+using DG.Tweening.Plugins.Options;
 using JetBrains.Annotations;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
 using TMPro;
 using Unity.VisualScripting;
+using UnityEditorInternal;
+using UnityEditorInternal.Profiling.Memory.Experimental;
 using UnityEngine;
 
 public class InventoryManager : MonoBehaviour
 {
     public Player _player;
     public static InventoryManager Instance;
+    public GameObject _inventory, _inventory_EnableButton, _inventory_DisableButton, _inspector;
+    public TextMeshProUGUI _UseTxt;
 
     [Header("Slot")]
+    [SerializeField] private SlotData[] _slotData;
     public List<Slot> Slots = new List<Slot>(); // 아이템 목록
     [SerializeField] private GameObject _slotPrefabs, _slotParent;
     private int SlotFullValue = 0;
-    public bool OnActive = false;
-
-    [Header("Message")]
-    [SerializeField] private GameObject _messageUI;
-    public float _messageDisapearTime;
-    public string _inventFullMessage = "CanGetItem!!\n(Inventory is full)";
-    private bool MessageShow = false;
 
     [Header("Equip")]
-    private List<ItemData> equipItems = new List<ItemData>();
+    public List<Slot> _equipSlots = new List<Slot>();
 
     [Header("MovingItem")]
-    public GameObject _movingItem;
+    public GameObject _slotMovePrefabs;
+    public GameObject _slotChangeObject;
+    public List<Slot> _eachChangeSlot = new List<Slot>();
 
     private void Awake()
     {
         if(Instance == null)
-        {
             Instance = this;
-        }
-
-        _messageUI.SetActive(false);
     }
 
     private void Start()
@@ -45,93 +43,86 @@ public class InventoryManager : MonoBehaviour
         for(int i = 0; i < 20; i ++)
         {
             GameObject slot = Instantiate(_slotPrefabs, _slotParent.transform);
-            Slots.Add(slot.GetComponentInChildren<Slot>());
+            Slot slotScr = slot.GetComponentInChildren<Slot>();
+            slotScr._slotData = _slotData[i];
+            slotScr.ResetData();
+            Slots.Add(slotScr);
         }
     }
 
     private void Update()
     {
-        if (MessageShow)
-        {
-            if (Input.GetMouseButtonDown(0))
-                Disable();
-        }
-    }
-
-    public void Active()
-    {
-        OnActive = !OnActive;
-        if (OnActive)
-            _slotParent.SetActive(true);
-        else
-            _slotParent.SetActive(false);
+        foreach(SlotData item in _slotData)
+            if(item.itemData == null)
+                 item.state = State.Empty;
+            else
+                 item.state = State.Full;
     }
 
     public void AddItem(ItemData newItem)       //아이템을 인벤토리에 추가
     {
-        if(SlotFullValue >= 20)
+        if (SlotFullValue < 20)
         {
-            ShowUIMessage(_inventFullMessage);
-            return;
-        }
-        foreach (Slot slot in Slots)
-        {
-            if (slot.CanAdd())
+            foreach (Slot slot in Slots)
             {
-                slot.Add(newItem);
-                break;
+                if (slot._slotData.state == State.Empty)
+                {
+                    slot.AddItem(newItem);
+                    return;
+                }
             }
+            Debug.Log("Inventory Slot Is Full");       //인벤토리 꽉참
         }
     }
 
     public void DeleteItem(Slot slot)       //아이템을 인벤토리에 제거
     {
-        Slots.Remove(slot);
         SlotFullValue--;
     }
 
-    private void ShowUIMessage(string desc)
+    public bool EquipItem(Slot slot)       //아이템을 장착
     {
-        _messageUI.SetActive(true);
-        _messageUI.GetComponentInChildren<TextMeshProUGUI>().text = desc;
-        MessageShow = true;
-        if(MessageShow)
-            StartCoroutine(Coroutines(_messageDisapearTime));
-    }
-
-    private IEnumerator Coroutines(float Time)
-    {
-        yield return new WaitForSecondsRealtime(Time);
-        Disable();
-    }
-
-    private void Disable()
-    {
-        _messageUI.SetActive(false);
-        MessageShow = false;
-    }
-
-    public bool EquipItem(ItemData item)       //아이템을 장착
-    {
-        equipItems.Add(item);
-        SetPlayerStat(item, 1);
+        _equipSlots.Add(slot);
+        SetPlayerStat(slot._slotData.itemData, 1);
+        ShowEquipMark(slot);
         return true;
     }
 
-    public bool UnEquipItem(ItemData item)      //아이템을 장착 해제
+    public bool UnEquipItem(Slot slot)      //아이템을 장착 해제
     {
-        equipItems.Remove(item);
-        SetPlayerStat(item, -1);
+        _equipSlots.Remove(slot);
+        SetPlayerStat(slot._slotData.itemData, -1);
+        HideEquipMark(slot);
+        slot._slotData.equip = false;
         return false;
     }
 
-    public void SetPlayerStat(ItemData item, int v)
+    public void ShowEquipMark(Slot Slot)
     {
-        
+        Slot._equipBorder.color = Color.red;
+        Slot._equipMark.SetActive(true);
     }
 
-    public void ChangeSlot(Slot minDistanceSlot)
+    public void HideEquipMark(Slot Slot)
     {
-        
+        Slot._equipBorder.color = Color.black;
+        Slot._equipMark.SetActive(false);
+    }
+
+    public void SetPlayerStat(ItemData item, int value)
+    {
+        Debug.Log("T");
+    }
+
+    public Vector2 GetMousePos()
+    {
+        Vector2 mousePos = Input.mousePosition;
+        RectTransformUtility.ScreenPointToLocalPointInRectangle(
+        InventoryManager.Instance._inventory.GetComponent<RectTransform>(),
+        mousePos,
+        null,
+        out mousePos
+        );
+        return mousePos;
     }
 }

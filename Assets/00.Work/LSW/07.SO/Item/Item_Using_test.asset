@@ -10,11 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a45fbfb607562464e8a26e5c1e11a039, type: 3}
-  m_Name: Item_test
+  m_Name: Item_Using_test
   m_EditorClassIdentifier: 
   ItemName: wdasd
-  ItemImage: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
+  ItemImage: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
+  itemType: 1
   AttackRateUp: 1
   HealthRateUp: 1
   SpeedRateUp: 1
   RatioRateUp: 1
+  MaxDuplicateValue: 10

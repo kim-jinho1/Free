@@ -61,6 +61,6 @@ public abstract class Virtue
     }
 
     /// <summary>덕목의 특수능력들의 이름을 정의 하는 함수</summary>
-    protected abstract void ApplyName();
+    public abstract void ApplyName();
 
 }

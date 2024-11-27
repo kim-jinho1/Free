@@ -7,7 +7,7 @@ public class Patience : Virtue
     /// <summary>
     /// 덕목의 특수능력 이름
     /// </summary>
-    protected override void ApplyName()
+    public override void ApplyName()
     {
         FirstStatsPointName = "탄탄한 근육";
         SecondStatsPointName = "벌크업";

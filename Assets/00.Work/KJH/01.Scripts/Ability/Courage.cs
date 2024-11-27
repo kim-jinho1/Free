@@ -8,7 +8,7 @@ public class Courage : Virtue
     /// <summary>
     /// 덕목의 특수능력 이름
     /// </summary>
-    protected override void ApplyName()
+    public override void ApplyName()
     {
         FirstStatsPointName = "전투 경험";
         SecondStatsPointName = "블러드 웨폰";
@@ -31,6 +31,7 @@ public class Courage : Virtue
     /// </summary>
     protected override void ApplySpecialEffects()
     {
+        Debug.Log(1);
         if (Points == 10)
         {
             FirstStackPoint = true;

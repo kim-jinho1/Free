@@ -20,7 +20,7 @@ public class Enemy : MonoBehaviour
     }
     void Start()
     {
-        currentState = stateCompo.GetState(StateType.Idle);
+        currentState = stateCompo.GetState(StateType.Hit);
     }
     void Update()
     {
@@ -31,19 +31,24 @@ public class Enemy : MonoBehaviour
     {
         currentState.StateFixedUpdate();
     }
+
     public void TransitionState(Enemy_State InputState)
     {
-        if(InputState == null)
-        return;
+        if (InputState == null)
+        {
+            Debug.LogError("¾ø¾û");
+            return;
+        }
+
         if (currentState == InputState)
             return;
-      
+
         currentState.Exit();
         currentState = InputState;
-      
+
+        currentState.InitializeState(this); 
         currentState.Enter();
-        currentState.InitializeState(this);
     }
 
-   
+
 }

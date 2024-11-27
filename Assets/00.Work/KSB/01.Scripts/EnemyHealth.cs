@@ -5,33 +5,11 @@ using UnityEngine;
 public class EnemyHealth : MonoBehaviour
 {
     private Enemy _enemy;
+    private int _fullHp;
     public bool isDeath = false;
     private int _currentHp;
-    public event Action OnDeath;
 
-    private void Awake()
-    {
-        _enemy = GetComponent<Enemy>();
-    }
-    private void Start()
-    {
-        _currentHp = _enemy.enemyData.Hp;
-    }
-
-    public void HpChange(int Damage)
-    {
-        if(Damage < 0)
-        {
-            Hp -= Damage;
-            _enemy.TransitionState(_enemy.stateCompo.GetState(StateType.Hit));
-          
-        }
-        else
-        {
-            _enemy.CanAttack = true;
-        }
-    }
-    public int Hp
+    private int CurrentHp
     {
         get
         {
@@ -39,14 +17,47 @@ public class EnemyHealth : MonoBehaviour
         }
         set
         {
-            if (value  > 0)
-            {
-                _currentHp = value;
-            }
-            else
+            if(value <_fullHp)
             {
                 _currentHp = 0;
             }
+            else
+            {
+                _currentHp = value;
+            }
         }
     }
+
+    private void Awake()
+    {
+        _enemy = GetComponent<Enemy>();
+    }
+    private void Start()
+    {
+        _fullHp = _enemy.enemyData.Hp;
+        CurrentHp = _enemy.enemyData.Hp;
+    }
+
+    public int GetCurrentHp()
+    {
+        return CurrentHp;
+    }
+    public void HpChange(int Damage)
+    {
+
+        CurrentHp -= Damage;
+
+        if (CurrentHp <= 0)
+        {
+            _enemy.TransitionState(_enemy.stateCompo.GetState(StateType.Death));
+        }
+        else 
+        {
+
+            _enemy.TransitionState(_enemy.stateCompo.GetState(StateType.Hit));
+
+        }
+       
+    }
+  
 }

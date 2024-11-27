@@ -5,22 +5,15 @@ public class HitState_Enemy : Enemy_State
 {
     protected override void EnterState()
     {
-        StartCoroutine(Attack());
+        StartCoroutine(Hit());
     }
 
-    IEnumerator Attack()
+    IEnumerator Hit()
     {
-        _enemy.animationCompo.PlayAnimation(AnimationType.Hit);
+        //_enemy.animationCompo.PlayAnimation(AnimationType.Hit);
         yield return new WaitForSeconds(_enemy.animationCompo.GetDuration("Hit"));
+        _enemy.CanAttack = true;
+        _enemy.TransitionState(_enemy.stateCompo.GetState(StateType.Idle));
 
-        if (_enemy.enemyHealth.Hp <= 0)
-        {
-            _enemy.TransitionState(_enemy.stateCompo.GetState(StateType.Death));
-        }
-        else
-        {
-            _enemy.CanAttack = true;
-            _enemy.TransitionState(_enemy.stateCompo.GetState(StateType.Idle));
-        }
     }
 }

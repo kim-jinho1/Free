@@ -6,7 +6,8 @@ public enum BattleStateEnum
 {
     MiddleState,
     StartState,
-    EndState
+    EndState,
+    NotState
 }
 
 public class BattleStateMachine

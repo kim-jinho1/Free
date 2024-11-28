@@ -437,7 +437,7 @@ MonoBehaviour:
   stateCompo: {fileID: 0}
   enemyData: {fileID: 0}
   enemyHealth: {fileID: 0}
-  CanAttack: 0
+  myTurn: 0
 --- !u!114 &541070459
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -728,7 +728,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32d8302c252f527469b66f41dcc8b8ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemySO: {fileID: 11400000, guid: 6687d2d0fe84db44e8564d6954d8445c, type: 2}
+  enemySO: {fileID: 11400000, guid: 4aca6356981664d43b00e95bb761ec1e, type: 2}
+  hp: 100
+  attackDamage: 0
+  attackSpeed: 0
+  attackSucRate: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

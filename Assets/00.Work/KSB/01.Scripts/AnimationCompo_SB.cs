@@ -40,6 +40,9 @@ public class AnimationCompo_SB : MonoBehaviour
             case AnimationType.Attack:
                 Play("Attack");
                 break;
+            case AnimationType.Attack2:
+                Play("Attack2");
+                break;
             case AnimationType.Death:
                 Play("Death");
                 break;
@@ -53,7 +56,7 @@ public class AnimationCompo_SB : MonoBehaviour
     }
     public void Play(string type)
     {
-        _animator.Play(type);
+      //  _animator.Play(type);
     }
 }
 
@@ -61,6 +64,7 @@ public enum AnimationType
 {
     Idle,
     Attack,
+    Attack2,
     Death,
     Hit,
 

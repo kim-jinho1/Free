@@ -7,7 +7,7 @@ public class EnemyHealth : MonoBehaviour
     private Enemy _enemy;
     private int _fullHp;
     public bool isDeath = false;
-    private int _currentHp;
+    public int _currentHp;
 
     private int CurrentHp
     {
@@ -17,7 +17,7 @@ public class EnemyHealth : MonoBehaviour
         }
         set
         {
-            if(value <_fullHp)
+            if(value >_fullHp)
             {
                 _currentHp = 0;
             }
@@ -34,8 +34,10 @@ public class EnemyHealth : MonoBehaviour
     }
     private void Start()
     {
-        _fullHp = _enemy.enemyData.Hp;
-        CurrentHp = _enemy.enemyData.Hp;
+        _fullHp = _enemy.enemyData.hp;
+        CurrentHp = _enemy.enemyData.hp;
+        Debug.Log(CurrentHp);
+
     }
 
     public int GetCurrentHp()

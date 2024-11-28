@@ -26,3 +26,4 @@ MonoBehaviour:
   hungry: 0
   currentHungry: 100
   maxHungry: 100
+  damageDown: 0

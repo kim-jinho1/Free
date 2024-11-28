@@ -15,7 +15,7 @@ public class InventoryManager : MonoBehaviour
 {
     public Player _player;
     public static InventoryManager Instance;
-    public GameObject _inventory, _inventory_EnableButton, _inventory_DisableButton, _inspector;
+    public GameObject _inventory, _inventory_DisableButton, _inspector;
     public TextMeshProUGUI _UseTxt;
 
     [Header("Slot")]
@@ -34,8 +34,10 @@ public class InventoryManager : MonoBehaviour
 
     private void Awake()
     {
-        if(Instance == null)
+        if (Instance == null)
             Instance = this;
+        else
+            Destroy(this);
     }
 
     private void Start()

@@ -31,11 +31,6 @@ public class SJ_ItemUnD : PlayerAbility
         }
     }
 
-    public void StatChange(float statchange)
-    {
-
-    }
-
     public void Healing()
     {
 

@@ -6,18 +6,16 @@ public class Boss_Attack : Enemy_State
 {
     private int attackSucRate;
     Coroutine tempStatus;
-    private void Awake()
-    {
-        attackSucRate = _enemy.enemyData.attackSucRate;
-    }
+
     protected override void EnterState()
     {
-        _enemy.animationCompo.PlayAnimation(AnimationType.Attack);
+        attackSucRate = _enemy.enemyData.AttackSucRate;
         _enemy.myTurn = false;
+
+        if(_enemy.enemyData._isStunned)
+        return;
         AttackTry(attackSucRate);
     }
-
-
 
     private void AttackTry(int attackSucRng)
     {
@@ -28,33 +26,27 @@ public class Boss_Attack : Enemy_State
         }
         int Randnum = Random.Range(0, 100);
 
-        if (Randnum >= attackSucRng)
+        if (Randnum < attackSucRng)
         {
             tempStatus = StartCoroutine(Attack());
             tempStatus = null;
         }
         else
         {
-            StartCoroutine(AttackMiss());
-        }//
+           AttackMiss();
+        }
     }
     IEnumerator Attack()
     {
+        print("Attack");
         _enemy.animationCompo.PlayAnimation(_enemy.ChooseAttack(_enemy.enemyData.GetBossMainSkillRng()));
         yield return new WaitForSeconds(_enemy.animationCompo.GetDuration("Attack"));
         _enemy.TransitionState(_enemy.stateCompo.GetState(StateType.Idle));
     }
-    IEnumerator AttackMiss()
+    private void AttackMiss()
     {
-        yield return new WaitForSeconds(_enemy.animationCompo.GetDuration("Miss"));
+        print("MissÁ¢±Ù");
         _enemy.TransitionState(_enemy.stateCompo.GetState(StateType.Idle));
-
     }
 
-    private void OnDisable()
-    {
-        StopCoroutine(tempStatus);
-        tempStatus = null;
-
-    }
 }

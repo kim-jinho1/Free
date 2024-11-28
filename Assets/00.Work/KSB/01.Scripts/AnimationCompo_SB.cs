@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class AnimationCompo_SB : MonoBehaviour
 {
-    private Animator _animator;
+    public Animator _animator;
     RuntimeAnimatorController _controller;
 
 
@@ -47,7 +47,7 @@ public class AnimationCompo_SB : MonoBehaviour
                 Play("Death");
                 break;
             case AnimationType.Hit:
-                Play("Death");
+                Play("Hit");
                 break;
             default:
                 Debug.Log("Not Defined");
@@ -56,7 +56,7 @@ public class AnimationCompo_SB : MonoBehaviour
     }
     public void Play(string type)
     {
-      //  _animator.Play(type);
+        _animator.Play(type);
     }
 }
 

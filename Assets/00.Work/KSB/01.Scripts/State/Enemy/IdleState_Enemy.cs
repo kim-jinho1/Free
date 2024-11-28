@@ -16,10 +16,7 @@ public class IdleState_Enemy : Enemy_State
             print("실행");
             _enemy.TransitionState(_enemy.stateCompo.GetState(StateType.Attack));
         }
-        else
-        {
-            print("대기");
-        }
+    
     }
 
     

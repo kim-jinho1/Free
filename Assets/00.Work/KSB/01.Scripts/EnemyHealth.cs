@@ -34,8 +34,8 @@ public class EnemyHealth : MonoBehaviour
     }
     private void Start()
     {
-        _fullHp = _enemy.enemyData.hp;
-        CurrentHp = _enemy.enemyData.hp;
+        _fullHp = _enemy.enemyData.Hp;
+        CurrentHp = _enemy.enemyData.Hp;
         Debug.Log(CurrentHp);
 
     }
@@ -53,9 +53,8 @@ public class EnemyHealth : MonoBehaviour
         {
             _enemy.TransitionState(_enemy.stateCompo.GetState(StateType.Death));
         }
-        else 
-        {
-
+        else
+        { 
             _enemy.TransitionState(_enemy.stateCompo.GetState(StateType.Hit));
 
         }

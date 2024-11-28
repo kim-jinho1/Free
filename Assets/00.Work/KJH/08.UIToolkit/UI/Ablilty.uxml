@@ -1,0 +1,8 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:VisualElement name="VisualElement" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/00.Work/KJH/04.Sprites/testImage.png?fileID=21300000&amp;guid=6fb7c70c632af63478386fc137389423&amp;type=3#testImage&quot;); width: 25%; height: 15%; min-width: 25%; max-width: 30%; min-height: 85%; max-height: 30%; left: 0; top: 10%; right: 0; bottom: 0;">
+        <ui:Label tabindex="-1" text="덕목이름" parse-escape-sequences="true" display-tooltip-when-elided="true" name="VirtueName" />
+        <ui:Label tabindex="-1" text="덕목스킬1" parse-escape-sequences="true" display-tooltip-when-elided="true" name="FirstSkill" />
+        <ui:Label tabindex="-1" text="덕목스킬2" parse-escape-sequences="true" display-tooltip-when-elided="true" name="SecondSkill" />
+        <ui:Button text="+" parse-escape-sequences="true" display-tooltip-when-elided="true" name="AbilityUp" />
+    </ui:VisualElement>
+</ui:UXML>

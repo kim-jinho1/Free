@@ -4,7 +4,10 @@ using UnityEngine;
 
 public enum BattleStateEnum
 {
-    
+    MiddleState,
+    StartState,
+    EndState,
+    NotState
 }
 
 public class BattleStateMachine

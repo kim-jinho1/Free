@@ -16,7 +16,6 @@ public class PlayerVerticalMoveState : PlayerState
         Player.OnMoveVertical += Move;
     }
 
-
     private void Move(Transform target)
     {
         if (Player.IsCenter)

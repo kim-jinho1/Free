@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerAbility : MonoBehaviour
+public class PlayerAbility : MonoSingleton<PlayerAbility>
 {
     [SerializeField] private Player _player;
 

@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class BattleState
 {
+    public Battle battle;
+    
     public BattleStateMachine StateMachine;
     public Battle Battle;
     public int AnimBoolHash;

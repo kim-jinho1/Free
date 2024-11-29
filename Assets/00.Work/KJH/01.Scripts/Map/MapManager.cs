@@ -1,9 +1,7 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
-using UnityEngine;
 
+using System.Collections.Generic;
+using UnityEngine;
 
 [Serializable]
 public class MapGroup
@@ -15,7 +13,8 @@ public class MapGroup
 public enum MapType
 {
     BossMap,
-    NormalMap
+    NormalMap,
+    EventMap
 }
 
 public class MapManager : MonoBehaviour
@@ -29,18 +28,7 @@ public class MapManager : MonoBehaviour
 
     private void Awake()
     {
-        for (int i = 1; i <= _mapScale; i++)    
-        {
-            if (i % 10 == 0)
-            {
-                _map.Add(i,MapType.BossMap);
-            }
-            else
-            {
-                _map.Add(i,MapType.NormalMap);
-            }
-        }
-        
+        CreateMap();
         _maps.Clear();
         foreach (var entry in _map)
         {
@@ -51,5 +39,35 @@ public class MapManager : MonoBehaviour
     private void Start()
     {
         
+    }
+
+    private void CreateMap()
+    {
+        int scale = 0;
+        int floor = 1;
+
+        while (scale < _mapScale)
+        {
+            int random = UnityEngine.Random.Range(0, 11);
+
+            if (floor % 10 == 0) 
+            {
+                _map.Add(floor,MapType.BossMap);
+                floor++;
+                scale++;
+            }
+            else if (random >= 9)
+            {
+                _map.Add(floor,MapType.EventMap);
+                floor++;
+                scale++;
+            }
+            else
+            {
+                _map.Add(floor,MapType.NormalMap);
+                floor++;
+                scale++;
+            }
+        }
     }
 }

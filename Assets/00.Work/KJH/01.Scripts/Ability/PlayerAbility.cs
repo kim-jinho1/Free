@@ -6,7 +6,7 @@ public class PlayerAbility : MonoSingleton<PlayerAbility>
 {
     [SerializeField] private Player _player;
 
-    #region AbilitySetting
+    #region 능력치 세팅
     
     //공격력
     public float Attack
@@ -94,6 +94,8 @@ public class PlayerAbility : MonoSingleton<PlayerAbility>
     
     #endregion
 
+    #region 능력치 증가 합수
+    
     public void IncreaseAttack(float amount) => Attack += amount;
     public void IncreaseHp(float amount) => Hp += amount;
     public void IncreaseSpeed(float amount) => Speed += amount;
@@ -107,4 +109,6 @@ public class PlayerAbility : MonoSingleton<PlayerAbility>
     public void IncreaseCurrentHungry(float amount) => Hungry += amount;
     public void IncreaseMaxHungry(float amount) => MaxHungry += amount;
     public void IncreaseDamageDown(float amount) => DamageDown += amount;
+
+    #endregion
 }

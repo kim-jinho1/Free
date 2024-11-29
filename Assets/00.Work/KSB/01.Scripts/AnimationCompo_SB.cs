@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class AnimationCompo_SB : MonoBehaviour
 {
-    private Animator _animator;
+    public Animator _animator;
     RuntimeAnimatorController _controller;
 
 
@@ -40,11 +40,14 @@ public class AnimationCompo_SB : MonoBehaviour
             case AnimationType.Attack:
                 Play("Attack");
                 break;
+            case AnimationType.Attack2:
+                Play("Attack2");
+                break;
             case AnimationType.Death:
                 Play("Death");
                 break;
             case AnimationType.Hit:
-                Play("Death");
+                Play("Hit");
                 break;
             default:
                 Debug.Log("Not Defined");
@@ -61,6 +64,7 @@ public enum AnimationType
 {
     Idle,
     Attack,
+    Attack2,
     Death,
     Hit,
 

@@ -16,6 +16,7 @@ public class PlayerHorizontalMoveState : PlayerState
     {
         base.Enter();
         Player.OnMoveHorizontal += Move;
+        HorizontalRoom.OnMove += Move;
     }
     private void Move(Transform target)
     {

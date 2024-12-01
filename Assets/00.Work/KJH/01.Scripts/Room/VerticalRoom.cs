@@ -6,7 +6,6 @@ public class VerticalRoom : MonoBehaviour
 {
     public bool _isEntered = false;
     public bool _isExiting = false;
-    public int _currentFloor;
 
     private void Update()
     {

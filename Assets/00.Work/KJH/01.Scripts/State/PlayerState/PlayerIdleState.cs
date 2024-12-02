@@ -10,12 +10,19 @@ public class PlayerIdleState : PlayerState
     public override void Enter()
     {
         base.Enter();
-        
+        HorizontalRoom.OnClick += CheckHorizontalRoom;
+        VerticalRoom.OnClick += CheckVerticalRoom;
     }
 
-    private void CheckRoom()
+    private void CheckVerticalRoom()
     {
-        CheckRoom(Player.Collider);
+        StateMachine.ChangeState(PlayerStateEnum.HorizontalMove);
+    }
+    
+    private void CheckHorizontalRoom()
+    {
+        StateMachine.ChangeState(PlayerStateEnum.HorizontalMove);
+
     }
     
     private void CheckRoom(Collider2D hitCollider)
@@ -29,8 +36,6 @@ public class PlayerIdleState : PlayerState
                 {
                     StateMachine.ChangeState(PlayerStateEnum.VerticalMove);
                     Player.OnMoveVertical?.Invoke(hitCollider.transform);
-                    MapManager.Instance.MoveToFloor(Player.CurrentFloor);
-                    Player.CurrentFloor++;
                 }
                 else if (!Player.IsCenter) 
                 {
@@ -38,18 +43,26 @@ public class PlayerIdleState : PlayerState
                     Player.OnMoveHorizontal?.Invoke(hitCollider.transform); 
                 }
             }
+            else if (hitCollider.GetComponent<HorizontalRoom>() != null)
+            {
+                Player.Collider = null;
+                StateMachine.ChangeState(PlayerStateEnum.HorizontalMove);
+                Player.OnMoveHorizontal?.Invoke(hitCollider.transform);
+            }
         }
     }
     public override void Update()
     {
         if (Player.Collider != null)
         {
-            CheckRoom();
+            
         }
     }
 
     public override void Exit()
     {
         base.Exit();
+        HorizontalRoom.OnClick -= CheckHorizontalRoom;
+        VerticalRoom.OnClick -= CheckVerticalRoom;
     }
 }

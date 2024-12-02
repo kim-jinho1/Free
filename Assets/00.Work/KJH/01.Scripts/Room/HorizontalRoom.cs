@@ -1,13 +1,10 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class HorizontalRoom : MonoBehaviour
 {
     public static Action<Transform> OnMove;
-    
+    public static Action OnClick;
     public bool _isEntered = false;
     public bool _isExiting = false;
 
@@ -46,6 +43,7 @@ public class HorizontalRoom : MonoBehaviour
     public void OnHorizontalRoomClick()
     {
         Debug.Log("11s");
+        OnClick?.Invoke();
         OnMove?.Invoke(transform);
     }
 }

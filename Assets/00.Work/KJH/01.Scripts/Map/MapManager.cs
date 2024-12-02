@@ -24,6 +24,7 @@ public class MapManager : MonoSingleton<MapManager>
     [SerializeField] private GameObject floorPrefab;
     [SerializeField] private Transform contentParent;
     [SerializeField] private TextMeshProUGUI currentFloorText;
+    [SerializeField] public GameObject mapPanel;
     
     [SerializeField] private List<MapGroup> _maps = new();
 

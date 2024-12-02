@@ -46,6 +46,9 @@ TagManager:
   - name: Map
     uniqueID: 895849581
     locked: 0
+  - name: Room
+    uniqueID: 3966851145
+    locked: 0
   - name: Player
     uniqueID: 4094118259
     locked: 0

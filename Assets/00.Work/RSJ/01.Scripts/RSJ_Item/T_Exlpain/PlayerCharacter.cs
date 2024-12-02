@@ -9,7 +9,7 @@ public class PlayerCharacter : MonoBehaviour
     public int HP;
     public int Attack;
 
-    public ItemSO EquipWeapon;
+    public EquipAbleItemSO EquipWeapon;
 
     public void EquipItem(int itemID)
     {

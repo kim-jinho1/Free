@@ -9,7 +9,7 @@ public class EnemySO : ScriptableObject
     public float attackSpeed;
     public float attackDamage;
     public int attackRate;
-    public int myAttackRNG;
+
 
     [Header("EnemyDamageSetting")]
     public float BodyDamage;
@@ -23,6 +23,7 @@ public class EnemySO : ScriptableObject
 
     [Header("For Boss Enemy")]
     public int MainSkillRng;
+    public int attackDamage2;
 
 }
 

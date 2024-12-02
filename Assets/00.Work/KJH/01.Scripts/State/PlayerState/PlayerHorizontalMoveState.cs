@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
 
@@ -16,6 +14,8 @@ public class PlayerHorizontalMoveState : PlayerState
     {
         base.Enter();
         Player.OnMoveHorizontal += Move;
+        HorizontalRoom.OnMove += Move;
+        VerticalRoom.OnMove += Move;
     }
     private void Move(Transform target)
     {
@@ -27,6 +27,7 @@ public class PlayerHorizontalMoveState : PlayerState
     {
         base.Exit();
         Player.OnMoveHorizontal -= Move;
+        HorizontalRoom.OnMove -= Move;
     }
 
     public override void Update()

@@ -1,12 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 public class VerticalRoom : MonoBehaviour
 {
+    [SerializeField] private GameObject roomPanel;
+    public static Action<Transform> OnMove;
+    public static Action OnClick;
+
     public bool _isEntered = false;
     public bool _isExiting = false;
-    public int _currentFloor;
 
     private void Update()
     {
@@ -38,5 +40,12 @@ public class VerticalRoom : MonoBehaviour
     private void SettingRoom()
     {
         
+    }
+
+    public void OnVerticalRoomClick()
+    {
+        OnMove?.Invoke(transform);
+        OnClick?.Invoke();
+        roomPanel.SetActive(true);
     }
 }

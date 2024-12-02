@@ -1,9 +1,8 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
+using TMPro;
 using UnityEngine;
-
+using UnityEngine.UI;
 
 [Serializable]
 public class MapGroup
@@ -15,32 +14,27 @@ public class MapGroup
 public enum MapType
 {
     BossMap,
-    NormalMap
+    NormalMap,
+    EventMap
 }
 
-public class MapManager : MonoBehaviour
+public class MapManager : MonoSingleton<MapManager>
 {
-    [SerializeField]
-    private List<MapGroup> _maps = new();
-   
-    private int _mapScale = 50;
+    [Header("UI Elements")]
+    [SerializeField] private GameObject floorPrefab;
+    [SerializeField] private Transform contentParent;
+    [SerializeField] private TextMeshProUGUI currentFloorText;
+    [SerializeField] public GameObject mapPanel;
     
-    public Dictionary<int,MapType> _map = new();
+    [SerializeField] private List<MapGroup> _maps = new();
 
+    private int _mapScale = 50;
+
+    private Dictionary<int, MapType> _map = new();    // 층 데이터 매핑
+    private int _currentFloor = 1;  
     private void Awake()
     {
-        for (int i = 1; i <= _mapScale; i++)    
-        {
-            if (i % 10 == 0)
-            {
-                _map.Add(i,MapType.BossMap);
-            }
-            else
-            {
-                _map.Add(i,MapType.NormalMap);
-            }
-        }
-        
+        CreateMap();
         _maps.Clear();
         foreach (var entry in _map)
         {
@@ -50,6 +44,58 @@ public class MapManager : MonoBehaviour
 
     private void Start()
     {
+        MoveToFloor(1);
+    }
+    
+    private void CreateMap()
+    {
+        int scale = 0;
+        int floor = 1;
+
+        while (scale < _mapScale)
+        {
+            int random = UnityEngine.Random.Range(0, 11);
+
+            if (floor % 10 == 0)
+            {
+                _map.Add(floor, MapType.BossMap);
+            }
+            else if (random >= 9)
+            {
+                _map.Add(floor, MapType.EventMap);
+            }
+            else
+            {
+                _map.Add(floor, MapType.NormalMap);
+            }
+            floor++;
+            scale++;
+        }
+    }
+    
+    public  void MoveToFloor(int floor)
+    {
+        if (!_map.ContainsKey(floor))
+        {
+            Debug.LogWarning($"Floor {floor} does not exist.");
+            return;
+        }
+
+        _currentFloor = floor;
         
+        UpdateFloorUI(floor);
+    }
+    private void UpdateFloorUI(int floor)
+    {
+        foreach (Transform child in contentParent)
+        {
+            Destroy(child.gameObject);
+        }
+        
+        var mapType = _map[floor];
+        GameObject floorUI = Instantiate(floorPrefab, contentParent);
+        //floorUI.GetComponentInChildren<TextMeshProUGUI>().text = $"Floor {floor}\nType: {mapType}";
+        
+        currentFloorText.text = $"Current Floor: {floor}";
     }
 }

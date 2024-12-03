@@ -14,7 +14,7 @@ public class PlayerUIState : PlayerState
         base.Enter();
     }
 
-    private void ExitState()
+    public void UIExit()
     {
         StateMachine.ChangeState(PlayerStateEnum.Idle);
     }

@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 [Serializable]
 public class MapGroup
@@ -30,7 +29,7 @@ public class MapManager : MonoSingleton<MapManager>
 
     private int _mapScale = 50;
 
-    private Dictionary<int, MapType> _map = new();    // 층 데이터 매핑
+    private Dictionary<int, MapType> _map = new();
     private int _currentFloor = 1;  
     private void Awake()
     {
@@ -94,7 +93,7 @@ public class MapManager : MonoSingleton<MapManager>
         
         var mapType = _map[floor];
         GameObject floorUI = Instantiate(floorPrefab, contentParent);
-        //floorUI.GetComponentInChildren<TextMeshProUGUI>().text = $"Floor {floor}\nType: {mapType}";
+        currentFloorText.GetComponentInChildren<TextMeshProUGUI>().text = $"Floor {floor}\nType: {mapType}";
         
         currentFloorText.text = $"Current Floor: {floor}";
     }

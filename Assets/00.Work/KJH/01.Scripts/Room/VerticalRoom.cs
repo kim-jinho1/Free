@@ -2,13 +2,18 @@ using System;
 using UnityEngine;
 
 public class VerticalRoom : MonoBehaviour
-{
-    [SerializeField] private GameObject roomPanel;
+{ 
+    private GameObject roomPanel;
     public static Action<Transform> OnMove;
     public static Action OnClick;
 
     public bool _isEntered = false;
     public bool _isExiting = false;
+
+    private void Awake()
+    {
+        roomPanel = MapManager.Instance.mapPanel;
+    }
 
     private void Update()
     {
@@ -47,5 +52,6 @@ public class VerticalRoom : MonoBehaviour
         OnMove?.Invoke(transform);
         OnClick?.Invoke();
         roomPanel.SetActive(true);
+        EnterRoom();
     }
 }

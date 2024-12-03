@@ -80,11 +80,41 @@ public class InventoryManager : MonoBehaviour
         SlotFullValue--;
     }
 
+    public void Equip(Slot mainSlot)
+    {
+        if (!mainSlot._slotData.equip)
+        {
+            List<Slot> equipSlot = _equipSlots;
+            if (!equipSlot.Exists(slot => slot._slotData.itemData.itemType == itemType.Equip                               //같은 Equip타입의 장착중인 아이템이 존재할 때
+                && slot._slotData.itemData.equipType == mainSlot._slotData.itemData.equipType))
+            {
+                mainSlot._slotData.equip = EquipItem(mainSlot);
+            }
+            else
+            {
+                Slot sameSlot = equipSlot.Find(slot => slot._slotData.itemData.itemType == itemType.Equip
+                && slot._slotData.itemData.equipType == mainSlot._slotData.itemData.equipType);
+
+                sameSlot._slotData.equip = UnEquipItem(sameSlot);
+                mainSlot._slotData.equip = EquipItem(mainSlot);
+            }
+        }
+        else
+        {
+            List<Slot> equipSlot = _equipSlots;
+            if (equipSlot.Exists(slot => slot._slotData.itemData.itemType == itemType.Equip
+                && slot._slotData.itemData.equipType == mainSlot._slotData.itemData.equipType))
+            {
+                mainSlot._slotData.equip = UnEquipItem(mainSlot);
+            }
+        }
+    }
+
     public bool EquipItem(Slot slot)       //아이템을 장착
     {
         _equipSlots.Add(slot);
         SetPlayerStat(slot._slotData.itemData, 1);
-        ShowEquipMark(slot);
+        slot._slotData.equip = true;
         return true;
     }
 
@@ -92,21 +122,8 @@ public class InventoryManager : MonoBehaviour
     {
         _equipSlots.Remove(slot);
         SetPlayerStat(slot._slotData.itemData, -1);
-        HideEquipMark(slot);
         slot._slotData.equip = false;
         return false;
-    }
-
-    public void ShowEquipMark(Slot Slot)
-    {
-        Slot._equipBorder.color = Color.red;
-        Slot._equipMark.SetActive(true);
-    }
-
-    public void HideEquipMark(Slot Slot)
-    {
-        Slot._equipBorder.color = Color.black;
-        Slot._equipMark.SetActive(false);
     }
 
     public void SetPlayerStat(ItemData item, int value)

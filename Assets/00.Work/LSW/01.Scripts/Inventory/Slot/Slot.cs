@@ -40,6 +40,18 @@ public class Slot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IP
             InventoryManager.Instance._inspector.SetActive(true);
             OnShowInspector?.Invoke(this);
         }
+
+        if (_slotData.equip)
+        {
+            _equipBorder.color = Color.red;
+            _equipMark.SetActive(true);
+
+        }
+        else
+        {
+            _equipBorder.color = Color.black;
+            _equipMark.SetActive(false);
+        }
     }
 
     public void AddItem(ItemData newitem)
@@ -66,11 +78,6 @@ public class Slot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IP
         _slotData.itemData = null;
         _itemMark.GetComponent<Image>().sprite = null;
         InventoryManager.Instance.DeleteItem(this);
-    }
-
-    private IEnumerator Coroutines(float item)
-    {
-        yield return new WaitForSeconds(item);
     }
 
     public void OnPointerEnter(PointerEventData eventData)

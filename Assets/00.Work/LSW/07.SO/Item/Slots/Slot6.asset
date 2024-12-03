@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a207ff5b7ae6bfc4b838f9f18beb6d07, type: 3}
   m_Name: Slot6
   m_EditorClassIdentifier: 
-  itemData: {fileID: 11400000, guid: 6f154448bd2b4134396eabc1b6de7fba, type: 2}
+  itemData: {fileID: 11400000, guid: 0a4a8a5d971e0e64fae251b3d774c8fc, type: 2}
   itemType: 0
   state: 1
   equip: 0

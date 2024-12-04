@@ -10,14 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a45fbfb607562464e8a26e5c1e11a039, type: 3}
-  m_Name: Item_Using_test
+  m_Name: Apple
   m_EditorClassIdentifier: 
-  ItemName: wdasd
-  ItemImage: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  itemType: 1
+  ItemName: "\uC0AC\uACFC"
+  ItemImage: {fileID: 21300000, guid: 6fb7c70c632af63478386fc137389423, type: 3}
+  itemType: 2
+  itemGrade: 0
   equipType: 0
-  AttackRateUp: 1
-  HealthRateUp: 1
-  SpeedRateUp: 1
-  RatioRateUp: 1
-  MaxDuplicateValue: 10
+  AttackUp: 0
+  CriticalUp: 0
+  HealthRateUp: 0.05
+  SpeedRateUp: 0
+  DodgeRateUp: 0
+  HungerRateUp: 0.05
+  MaxDuplicateValue: 0

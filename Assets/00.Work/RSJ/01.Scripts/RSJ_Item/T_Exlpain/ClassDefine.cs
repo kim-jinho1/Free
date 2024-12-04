@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ItemInfomation
 {
-    public ItemGrade Grade;
+    public ItemSort Grade;
 }
 
 public class PlayerInfomation

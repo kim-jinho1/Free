@@ -12,8 +12,6 @@ public class SJ_UIDataReader : MonoBehaviour
 
     [SerializeField] private Player _player;
 
-    //[SerializeField] private AbilityData _playerData; 
-
     private void Update()
     {
         floor.text = _player.CurrentFloor.ToString() + "F";

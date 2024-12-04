@@ -18,11 +18,9 @@ public class AbilityData : ScriptableObject
     public float critical;
     public float criticalAttack;
 
-    public float hp;
     public float currentHp;
     public float maxHp;
 
-    public float hungry;
     public float currentHungry;
     public float maxHungry;
     

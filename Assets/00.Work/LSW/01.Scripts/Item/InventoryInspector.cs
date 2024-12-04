@@ -41,8 +41,6 @@ public class InventoryInspector : MonoBehaviour
             if (Input.GetMouseButtonUp(0) && !mainSlot._isMousePointIn)
                 Disable();
         }
-
-
     }
 
     private void ShowInspector(Slot slot)

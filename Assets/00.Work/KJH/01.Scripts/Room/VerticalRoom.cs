@@ -46,7 +46,6 @@ public class VerticalRoom : MonoBehaviour
 
     private void StartRoom()
     {
-        Debug.Log("StartRoom");
         var color = _image.color;
         color.a = 0.95f;
         _image.color = color;
@@ -68,7 +67,6 @@ public class VerticalRoom : MonoBehaviour
 
     public void OnVerticalRoomClick()
     {
-        Debug.Log("OnVerticalRoomClick");
         OnClick?.Invoke();
         OnMove?.Invoke(transform);
         EnterRoom();

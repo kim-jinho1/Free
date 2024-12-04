@@ -30,14 +30,14 @@ public class PlayerState
 
     public virtual void Enter()
     {
-        //Animator.SetBool(AnimBoolHash,true);
+        Animator.SetBool(AnimBoolHash,true);
         IsTirggcalled = false;
     }
 
 
     public virtual void Exit()
     {
-        //Animator.SetBool(AnimBoolHash, false);
+        Animator.SetBool(AnimBoolHash, false);
     }
 
     public void Tirggercalled()

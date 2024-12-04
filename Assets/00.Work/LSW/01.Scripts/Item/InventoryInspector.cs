@@ -62,9 +62,9 @@ public class InventoryInspector : MonoBehaviour
                     UnEquip(mainSlot);
                 else
                     EquipItem();
-            if (mainSlot._slotData.itemData.itemType == itemType.Healing)
+            else if (mainSlot._slotData.itemData.itemType == itemType.Healing)
                 HealItem();
-            if (mainSlot._slotData.itemData.itemType == itemType.Using)
+            else if (mainSlot._slotData.itemData.itemType == itemType.Using)
                 UseItem();
         }
     }

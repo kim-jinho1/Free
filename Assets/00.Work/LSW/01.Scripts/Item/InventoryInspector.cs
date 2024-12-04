@@ -110,9 +110,9 @@ public class InventoryInspector : MonoBehaviour
     {
         //힐관련 플레이어 스텟 변화
         MonoSingleton<PlayerAbility>.Instance.IncreaseCurrentHp(
-            mainSlot._slotData.itemData.HealthRateUp);
+            mainSlot._slotData.itemData.HealthRateUp * MonoSingleton<PlayerAbility>.Instance.MaxHealth);
         MonoSingleton<PlayerAbility>.Instance.IncreaseCurrentHungry(
-            mainSlot._slotData.itemData.HungerRateUp);
+            mainSlot._slotData.itemData.HungerRateUp * MonoSingleton<PlayerAbility>.Instance.MaxHungry);
         mainSlot.Delete();
         Disable();
     }

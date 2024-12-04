@@ -26,8 +26,8 @@ public class PlayerAttackState : PlayerState
         base.Exit();
     }
 
-    public override void Update()
+    public override void PlayerUpdate()
     {
-        base.Update();
+        base.PlayerUpdate();
     }
 }

@@ -1,8 +1,25 @@
 using UnityEngine;
 
-public class Towerbuild : MonoBehaviour
+public class Towerbuild : MonoSingleton<Towerbuild>
 {
-    private void BuildTower(MapType mapType)
+    [SerializeField] private GameObject[] floors;
+    
+    public GameObject BuildEventFloor()
+    {
+        return floors[0];
+    }
+    
+    public void BuildNormalFloor()
+    {
+        
+    }
+    
+    public void BuildFinalBossFloor()
+    {
+        
+    }
+    
+    public void BuildMiddleBossFloor()
     {
         
     }

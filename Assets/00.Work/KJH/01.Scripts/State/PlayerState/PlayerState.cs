@@ -21,7 +21,9 @@ public class PlayerState
         Animator = player.Animator;
     }
     
-    public virtual void Update()
+    
+    
+    public virtual void PlayerUpdate()
     {
 
     }

@@ -5,7 +5,7 @@ public class Player : MonoBehaviour
 {
     [SerializeField] private Transform _pos;
     [SerializeField] private AbilityData _abilityData;
-    
+    [SerializeField] public GameObject _panel;
     
     public Action<Transform> OnMoveVertical;
     public Action<Transform> OnMoveHorizontal;
@@ -22,8 +22,6 @@ public class Player : MonoBehaviour
     public int CurrentFloor { get; set; }
 
     private PlayerStateMachine StateMachine { get; set; }
-    
-    public Collider2D Collider { get;  set; }
 
     private bool _dirRight = true;
 
@@ -36,6 +34,7 @@ public class Player : MonoBehaviour
         StateMachine.AddState(PlayerStateEnum.Attack, new PlayerAttackState(this, StateMachine, "Attack"));
         StateMachine.AddState(PlayerStateEnum.HorizontalMove, new PlayerHorizontalMoveState(this, StateMachine, "HorizontalMove"));
         StateMachine.AddState(PlayerStateEnum.VerticalMove, new PlayerVerticalMoveState(this, StateMachine, "VerticalMove"));
+        StateMachine.AddState(PlayerStateEnum.UI, new PlayerUIState(this, StateMachine, "VerticalMove"));
         
     }
     
@@ -51,25 +50,12 @@ public class Player : MonoBehaviour
         CenterPosition = _pos;
         IsCenter = true;
     }
+
     private void Update()
     {
-        StateMachine.currentState.Update();
-
-        if (Input.GetMouseButtonDown(0))
-        {
-            Vector2 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            RaycastHit2D hit = Physics2D.Raycast(pos, Vector2.zero);
-            
-            if (hit.collider != null)
-                ClickRoom(hit.collider);
-        }
+        StateMachine.currentState.PlayerUpdate();
     }
 
-    public void ClickRoom(Collider2D hitCollider)
-    {
-        Collider = hitCollider;
-    }
-    
     public void FiIpController()
     {
         if (Rigid.velocity.x > 0 && _dirRight == false) 
@@ -87,4 +73,6 @@ public class Player : MonoBehaviour
         _dirRight = !_dirRight;
         transform.Rotate(0, 180, 0);
     }
+    
+    
 }

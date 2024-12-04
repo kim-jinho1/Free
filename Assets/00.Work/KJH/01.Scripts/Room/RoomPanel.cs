@@ -3,29 +3,32 @@ using UnityEngine;
 
 public class RoomPanel : MonoBehaviour
 {
-    private GameObject roomPanel;
-    private int currentFloor = 1;
+    
+    [SerializeField] private Player _player;
 
-    private void Awake()
-    {
-        roomPanel = MapManager.Instance.mapPanel;
-    }
+    public static Action OnClick;
 
+    private int currentFloor;
+    
     public void OnClickDown()
     {
-        if (currentFloor > 1) 
+        OnClick?.Invoke();
+        currentFloor = MapManager.Instance._currentFloor;
+        if (currentFloor >= 1) 
         {
-            MapManager.Instance.MoveToFloor(currentFloor--);
+            MapManager.Instance.ChangeFloor(false);
+            gameObject.SetActive(false);
         }
-        roomPanel.SetActive(false);
     }
     
     public void OnClickUp()
     {
-        if (currentFloor <= 50) 
+        OnClick?.Invoke();
+        currentFloor = MapManager.Instance._currentFloor;
+        if (currentFloor < 50) 
         {
-            MapManager.Instance.MoveToFloor(currentFloor++);
+            MapManager.Instance.ChangeFloor(true);
+            gameObject.SetActive(false);
         }
-        roomPanel.SetActive(false);
     }
 }

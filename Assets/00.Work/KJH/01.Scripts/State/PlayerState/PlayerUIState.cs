@@ -12,9 +12,10 @@ public class PlayerUIState : PlayerState
     public override void Enter()
     {
         base.Enter();
+        RoomPanel.OnClick += UIExit;
     }
 
-    public void UIExit()
+    private void UIExit()
     {
         StateMachine.ChangeState(PlayerStateEnum.Idle);
     }
@@ -22,10 +23,11 @@ public class PlayerUIState : PlayerState
     public override void Exit()
     {
         base.Exit();
+        RoomPanel.OnClick -= UIExit;
     }
 
-    public override void Update()
+    public override void PlayerUpdate()
     {
-        base.Update();
+        base.PlayerUpdate();
     }
 }

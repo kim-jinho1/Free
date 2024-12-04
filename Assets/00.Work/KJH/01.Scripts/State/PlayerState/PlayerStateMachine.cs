@@ -11,7 +11,7 @@ public enum PlayerStateEnum
 
 public class PlayerStateMachine
 {
-    public PlayerState currentState;
+    public PlayerState  currentState;
 
     public Dictionary<PlayerStateEnum, PlayerState> PlayerStates = new();
 

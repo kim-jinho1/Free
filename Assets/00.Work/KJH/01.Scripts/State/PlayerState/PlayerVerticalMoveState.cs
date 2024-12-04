@@ -30,9 +30,9 @@ public class PlayerVerticalMoveState : PlayerState
         VerticalRoom.OnMove -= Move;
     }
 
-    public override void Update()
+    public override void PlayerUpdate()
     {
-        base.Update();
+        base.PlayerUpdate();
         if (Mathf.Approximately(Player.CenterPosition.position.y, Player.transform.position.y))
         {
             StateMachine.ChangeState(PlayerStateEnum.Idle);

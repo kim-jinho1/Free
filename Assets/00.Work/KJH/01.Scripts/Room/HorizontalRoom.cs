@@ -67,7 +67,6 @@ public class HorizontalRoom : MonoBehaviour
 
     public void OnHorizontalRoomClick()
     {
-        Debug.Log("11s");
         OnClick?.Invoke();
         OnMove?.Invoke(transform);
         EnterRoom();

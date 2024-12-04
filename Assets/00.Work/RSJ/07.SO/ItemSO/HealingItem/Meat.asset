@@ -19,8 +19,8 @@ MonoBehaviour:
   equipType: 0
   AttackUp: 0
   CriticalUp: 0
-  HealthRateUp: 0
+  HealthRateUp: 0.02
   SpeedRateUp: 0
   DodgeRateUp: 0
-  HungerRateUp: 0
+  HungerRateUp: 0.1
   MaxDuplicateValue: 0

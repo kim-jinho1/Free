@@ -59,6 +59,11 @@ public class InventoryManager : MonoBehaviour
                  item.state = State.Empty;
             else
                  item.state = State.Full;
+
+        if (MonoSingleton<PlayerAbility>.Instance.CurrentHungry > MonoSingleton<PlayerAbility>.Instance.MaxHungry)
+            MonoSingleton<PlayerAbility>.Instance.CurrentHungry = 100;
+        if (MonoSingleton<PlayerAbility>.Instance.CurrentHp > MonoSingleton<PlayerAbility>.Instance.MaxHealth)
+            MonoSingleton<PlayerAbility>.Instance.CurrentHp = 100;
     }
 
     public void AddItem(ItemData newItem)       //아이템을 인벤토리에 추가

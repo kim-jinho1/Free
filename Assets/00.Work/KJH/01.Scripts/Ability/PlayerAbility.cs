@@ -58,13 +58,13 @@ public class PlayerAbility : MonoSingleton<PlayerAbility>
     //현재체력
     public float CurrentHp
     {
-        get => _player.AbilityData.maxHp;
+        get => _player.AbilityData.currentHp;
         set => _player.AbilityData.currentHp = value; 
     }
     //현재배고픔
     public float CurrentHungry
     {
-        get => _player.AbilityData.maxHungry;
+        get => _player.AbilityData.currentHungry;
         set => _player.AbilityData.currentHungry = value; 
     }
     //최대배고픔수치

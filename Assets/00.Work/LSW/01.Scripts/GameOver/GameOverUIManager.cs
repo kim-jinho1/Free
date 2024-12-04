@@ -6,24 +6,38 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class GameOverUIManager : MonoSingleton<GameOverUIManager>
+public class GameOverUIManager : MonoBehaviour
 {
     //만약 UI전체를 관리하는 스크립트가 존재하면 그 립트와 합칠 것(효율을 위해)
 
+    public static GameOverUIManager Instance;
+
     public int _mainMenuSceneNum;
 
-    [SerializeField] private GameObject GameOverUIPanel;
+    [SerializeField] private GameObject _gameOverUIPanel, _exitButton, _restartButton;
     [SerializeField] private GameObject _alpha;
+
+    private void Awake()
+    {
+        if (Instance == null)
+            Instance = this;
+    }
 
     private void Start()
     {
-        GameOverUIPanel.SetActive(false);
+        _gameOverUIPanel.SetActive(false);
     }
 
     public void ShowGameOverUI()        //게임 오버 시 실행(어디서 실행하도록!!)
     {
-        GameOverUIPanel.SetActive(true);
-        _alpha.GetComponent<Image>().DOFade(0.55f, 2);
+        _gameOverUIPanel.SetActive(true);
+        _exitButton.SetActive(false);
+        _restartButton.SetActive(false);
+        _alpha.GetComponent<Image>().DOFade(0.5f, 3).OnComplete(() =>
+        {
+            _exitButton.SetActive(true);
+            _restartButton.SetActive(true);
+        });
     }
 
     public void OnRestartButtonClick()

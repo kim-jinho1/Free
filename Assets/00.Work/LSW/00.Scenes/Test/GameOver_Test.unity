@@ -278,7 +278,7 @@ GameObject:
   - component: {fileID: 906650181}
   - component: {fileID: 906650180}
   m_Layer: 5
-  m_Name: Button
+  m_Name: Test
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -478,6 +478,16 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1499326210 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7892955421615804804, guid: 7c6d9e999781a614aacbb164b333f724, type: 3}
+  m_PrefabInstance: {fileID: 4426923238019935850}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1544952239 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 796413406646627819, guid: 7c6d9e999781a614aacbb164b333f724, type: 3}
+  m_PrefabInstance: {fileID: 4426923238019935850}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1621098195 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8448561419184806195, guid: 7c6d9e999781a614aacbb164b333f724, type: 3}
@@ -711,7 +721,19 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 28700196}
     - target: {fileID: 6958447858909027118, guid: ca3ba96d21bb54a4e899ad8a6b0d3bad, type: 3}
+      propertyPath: _exitButton
+      value: 
+      objectReference: {fileID: 1499326210}
+    - target: {fileID: 6958447858909027118, guid: ca3ba96d21bb54a4e899ad8a6b0d3bad, type: 3}
+      propertyPath: _restartButton
+      value: 
+      objectReference: {fileID: 1544952239}
+    - target: {fileID: 6958447858909027118, guid: ca3ba96d21bb54a4e899ad8a6b0d3bad, type: 3}
       propertyPath: GameOverUIPanel
+      value: 
+      objectReference: {fileID: 1621098195}
+    - target: {fileID: 6958447858909027118, guid: ca3ba96d21bb54a4e899ad8a6b0d3bad, type: 3}
+      propertyPath: _gameOverUIPanel
       value: 
       objectReference: {fileID: 1621098195}
     - target: {fileID: 7924512332326731164, guid: ca3ba96d21bb54a4e899ad8a6b0d3bad, type: 3}

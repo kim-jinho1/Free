@@ -109,7 +109,10 @@ public class InventoryInspector : MonoBehaviour
     private void HealItem()
     {
         //힐관련 플레이어 스텟 변화
-        
+        MonoSingleton<PlayerAbility>.Instance.IncreaseCurrentHp(
+            mainSlot._slotData.itemData.HealthRateUp);
+        MonoSingleton<PlayerAbility>.Instance.IncreaseCurrentHungry(
+            mainSlot._slotData.itemData.HungerRateUp);
         mainSlot.Delete();
         Disable();
     }
@@ -117,6 +120,7 @@ public class InventoryInspector : MonoBehaviour
     private void UseItem()
     {
         //디버프관련
+
         mainSlot.Delete();
         Disable();
     }

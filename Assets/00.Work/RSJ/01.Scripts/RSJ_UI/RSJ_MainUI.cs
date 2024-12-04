@@ -6,8 +6,6 @@ using UnityEngine.SceneManagement;
 
 public class RSJ_MainUI : MonoBehaviour
 {
-    [SerializeField] private GameObject pannel;
-
     public void StartBtn()
     {
         //∞‘¿”æ¿ ¿Ãµø
@@ -28,7 +26,7 @@ public class RSJ_MainUI : MonoBehaviour
         //∑Œ∫Ò∑Œ ∫π±Õ
     }
 
-    public void SettingBtn()
+    public void PannelOpen(GameObject pannel)
     {
         pannel.SetActive(true);
     }
@@ -39,7 +37,7 @@ public class RSJ_MainUI : MonoBehaviour
         Debug.Log("≤˝");
     }
 
-    public void PannelClose()
+    public void PannelClose(GameObject pannel)
     {
         pannel.SetActive(false);
     }

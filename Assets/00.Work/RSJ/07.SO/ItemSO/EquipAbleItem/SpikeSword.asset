@@ -10,14 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a45fbfb607562464e8a26e5c1e11a039, type: 3}
-  m_Name: Item_Using_test
+  m_Name: SpikeSword
   m_EditorClassIdentifier: 
-  ItemName: wdasd
-  ItemImage: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  itemType: 1
-  equipType: 0
-  AttackRateUp: 1
-  HealthRateUp: 1
-  SpeedRateUp: 1
-  RatioRateUp: 1
-  MaxDuplicateValue: 10
+  ItemName: "\uAC00\uC2DC\uAC80"
+  ItemImage: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
+  itemType: 0
+  itemGrade: 1
+  equipType: 1
+  AttackUp: 6
+  CriticalUp: 5
+  HealthRateUp: 0
+  SpeedRateUp: 0
+  DodgeRateUp: 0
+  HungerRateUp: 0
+  MaxDuplicateValue: 0

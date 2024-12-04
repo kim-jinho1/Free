@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d290cdb20668c754890962a3c3686c88, type: 3}
-  m_Name: RealAbilityData
+  m_Name: RealAbilityData_Save
   m_EditorClassIdentifier: 
   itemName: RealAbilityData
   attack: 5

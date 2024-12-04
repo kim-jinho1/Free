@@ -62,9 +62,9 @@ public class InventoryInspector : MonoBehaviour
                     UnEquip(mainSlot);
                 else
                     EquipItem();
-            if (mainSlot._slotData.itemData.itemType == itemType.Healing)
+            else if (mainSlot._slotData.itemData.itemType == itemType.Healing)
                 HealItem();
-            if (mainSlot._slotData.itemData.itemType == itemType.Using)
+            else if (mainSlot._slotData.itemData.itemType == itemType.Using)
                 UseItem();
         }
     }
@@ -109,6 +109,7 @@ public class InventoryInspector : MonoBehaviour
     private void HealItem()
     {
         //힐관련 플레이어 스텟 변화
+        
         mainSlot.Delete();
         Disable();
     }

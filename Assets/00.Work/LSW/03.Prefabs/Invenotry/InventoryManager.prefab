@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6540714153538531336}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -46,9 +46,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _player: {fileID: 0}
   _inventory: {fileID: 0}
-  _inventory_EnableButton: {fileID: 0}
   _inventory_DisableButton: {fileID: 0}
-  _inspector: {fileID: 0}
+  _inspector: {fileID: 6540714153538531336}
   _UseTxt: {fileID: 0}
   _slotData:
   - {fileID: 11400000, guid: 64ad88c9bed5eaf469cd8fdce6a78008, type: 2}

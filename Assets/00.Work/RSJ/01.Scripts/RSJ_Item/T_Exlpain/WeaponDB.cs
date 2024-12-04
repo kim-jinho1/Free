@@ -4,7 +4,7 @@ using UnityEngine;
 
 public static class WeaponDB
 {
-    public static Dictionary<int, EquipAbleItemSO> ItemIDItemSODictionary = new Dictionary<int, EquipAbleItemSO>();
+    /*public static Dictionary<int, EquipAbleItemSO> ItemIDItemSODictionary = new Dictionary<int, EquipAbleItemSO>();
 
     public static void Instantiate()
     {
@@ -20,7 +20,7 @@ public static class WeaponDB
     public static void ChangeState(float ChangeStat)
     {
 
-    }
+    }*/
 }
 
 

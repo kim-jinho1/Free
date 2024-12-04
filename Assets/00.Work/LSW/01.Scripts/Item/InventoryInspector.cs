@@ -109,6 +109,7 @@ public class InventoryInspector : MonoBehaviour
     private void HealItem()
     {
         //힐관련 플레이어 스텟 변화
+        
         mainSlot.Delete();
         Disable();
     }

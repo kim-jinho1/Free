@@ -4,9 +4,10 @@ using UnityEngine;
 
 public enum ItemSort
 {
+    None,
     Equip,
-    Using,
-    Healing
+    Use,
+    Heal
 }
 
 public enum ItemGrade
@@ -18,9 +19,5 @@ public enum ItemGrade
     Myth
 }
 
-public enum ItemEquipSort
-{
-    Weapon,
-    Armor
-}
+
 

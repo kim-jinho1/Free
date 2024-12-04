@@ -9,12 +9,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a48458f23571f144d9c516e8f0b7eb02, type: 3}
-  m_Name: EggFry
+  m_Script: {fileID: 11500000, guid: a45fbfb607562464e8a26e5c1e11a039, type: 3}
+  m_Name: Eggfry
   m_EditorClassIdentifier: 
-  ItemImg: {fileID: 0}
   ItemName: "\uACC4\uB780\uD6C4\uB77C\uC774"
-  ItemExplan: 
-  Grade: 0
-  HealPercent: 0
-  HungerPercent: 0
+  ItemImage: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  itemType: 2
+  itemGrade: 0
+  equipType: 0
+  AttackUp: 0
+  CriticalUp: 0
+  HealthRateUp: 0
+  SpeedRateUp: 0
+  DodgeRateUp: 0
+  HungerRateUp: 0
+  MaxDuplicateValue: 0

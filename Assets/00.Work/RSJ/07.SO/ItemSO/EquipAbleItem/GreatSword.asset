@@ -9,16 +9,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0bb714bb5ded266478ce4c2e90285393, type: 3}
+  m_Script: {fileID: 11500000, guid: a45fbfb607562464e8a26e5c1e11a039, type: 3}
   m_Name: GreatSword
   m_EditorClassIdentifier: 
-  ItemImg: {fileID: 0}
   ItemName: "\uB300\uAC80"
-  ItemExplan: 
-  Grade: 0
-  Attack: 0
-  Speed: 0
-  Critical: 0
-  Dodge: 0
-  PlusHP: 0
-  PlusHunger: 0
+  ItemImage: {fileID: -7957278214813060823, guid: 30effb26e7b1a6c4f8e713e64b90894f, type: 3}
+  itemType: 0
+  itemGrade: 0
+  equipType: 1
+  AttackUp: 8
+  CriticalUp: 0
+  HealthRateUp: 0
+  SpeedRateUp: -2
+  DodgeRateUp: 0
+  HungerRateUp: 0
+  MaxDuplicateValue: 0

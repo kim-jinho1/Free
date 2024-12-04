@@ -2,29 +2,55 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class RSJ_GetItem : MonoBehaviour, IPointerClickHandler
 {
-    [SerializeField] private ItemList _itemList;
+    [SerializeField] private List<ItemData> _ItemList;
+    private List<ItemData> _getItemList = new List<ItemData>();
 
     public void OnPointerClick(PointerEventData eventData)
     {
         int RandomInt = Random.Range(0, 3);
 
-        switch (RandomInt)
+        InventoryManager.Instance.AddItem(ItemChoose(RandomGrade(RandomInt)));
+
+        _getItemList.Clear();
+    }
+
+    private ItemGrade RandomGrade(int percent)
+    {
+        switch (percent)
         {
             case 0:
-                int RandomEquip = Random.Range(0, _itemList._EquipList.Count);
-                Debug.Log("È¹µæ" + _itemList._EquipList[RandomEquip].ItemName);
-                break;
+                return ItemGrade.Common;
             case 1:
-                int RandomUse = Random.Range(0, _itemList._UseList.Count);
-                Debug.Log("È¹µæ" + _itemList._UseList[RandomUse].ItemName);
-                break;
+                return ItemGrade.Uncommon;
             case 2:
-                int RandomHeal = Random.Range(0, _itemList._HealList.Count);
-                Debug.Log("È¹µæ" + _itemList._HealList[RandomHeal].ItemName);
-                break;
+                return ItemGrade.Rare;
+            case 3:
+                return ItemGrade.Hero;
+            case 4:
+                return ItemGrade.Myth;
+            default:
+                return ItemGrade.Common;
         }
     }
+
+    private ItemData ItemChoose(ItemGrade grade)
+    {
+        foreach (ItemData ran in _ItemList)
+        {
+            if (ran.itemGrade == grade)
+            {
+                _getItemList.Add(ran);
+            }
+        }
+
+        int randomList = Random.Range(0, _getItemList.Count);
+        Debug.Log(randomList);
+        return _getItemList[randomList];
+    }
+
+   
 }

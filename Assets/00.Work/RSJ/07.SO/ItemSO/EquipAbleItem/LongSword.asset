@@ -9,16 +9,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0bb714bb5ded266478ce4c2e90285393, type: 3}
+  m_Script: {fileID: 11500000, guid: a45fbfb607562464e8a26e5c1e11a039, type: 3}
   m_Name: LongSword
   m_EditorClassIdentifier: 
-  ItemImg: {fileID: 0}
   ItemName: "\uC7A5\uAC80"
-  ItemExplan: 
-  Grade: 0
-  Attack: 0
-  Speed: 0
-  Critical: 0
-  Dodge: 0
-  PlusHP: 0
-  PlusHunger: 0
+  ItemImage: {fileID: 4976274401295337057, guid: d3d12272ac65d56418ac13eb9f915707, type: 3}
+  itemType: 0
+  itemGrade: 1
+  equipType: 1
+  AttackUp: 4
+  CriticalUp: 1
+  HealthRateUp: 0
+  SpeedRateUp: 0
+  DodgeRateUp: 3
+  HungerRateUp: 0
+  MaxDuplicateValue: 0

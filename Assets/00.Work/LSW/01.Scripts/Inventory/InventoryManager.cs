@@ -42,7 +42,7 @@ public class InventoryManager : MonoBehaviour
 
     private void Start()
     {
-        for(int i = 0; i < 20; i ++)
+        for(int i = 0; i < 20; i++)
         {
             GameObject slot = Instantiate(_slotPrefabs, _slotParent.transform);
             Slot slotScr = slot.GetComponentInChildren<Slot>();
@@ -85,15 +85,15 @@ public class InventoryManager : MonoBehaviour
     public bool EquipItem(Slot slot)       //아이템을 장착
     {
         _equipSlots.Add(slot);
-        SetPlayerStat(slot._slotData.itemData, 1);
+        SetPlayerStat(slot._slotData.itemData);
         ShowEquipMark(slot);
         return true;
     }
 
     public bool UnEquipItem(Slot slot)      //아이템을 장착 해제
     {
+        RollBackPlayerStat(slot._slotData.itemData);
         _equipSlots.Remove(slot);
-        SetPlayerStat(slot._slotData.itemData, -1);
         HideEquipMark(slot);
         slot._slotData.equip = false;
         return false;
@@ -111,9 +111,24 @@ public class InventoryManager : MonoBehaviour
         Slot._equipMark.SetActive(false);
     }
 
-    public void SetPlayerStat(ItemData item, int value)
+    public void SetPlayerStat(ItemData item)
     {
-        Debug.Log("T");
+        _player.AbilityData.attack += item.AttackUp;
+        _player.AbilityData.dodge += item.DodgeRateUp;
+        _player.AbilityData.accuracy += item.SpeedRateUp;
+        _player.AbilityData.critical += item.CriticalUp;
+        _player.AbilityData.maxHp += item.HealthRateUp;
+        _player.AbilityData.maxHungry += item.HungerRateUp;
+    }
+
+    public void RollBackPlayerStat(ItemData item)
+    {
+        _player.AbilityData.attack -= item.AttackUp;
+        _player.AbilityData.dodge -= item.DodgeRateUp;
+        _player.AbilityData.accuracy -= item.SpeedRateUp;
+        _player.AbilityData.critical -= item.CriticalUp;
+        _player.AbilityData.maxHp -= item.HealthRateUp;
+        _player.AbilityData.maxHungry -= item.HungerRateUp;
     }
 
     public Vector2 GetMousePos()

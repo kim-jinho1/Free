@@ -12,9 +12,10 @@ public class MapGroup
 
 public enum MapType
 {
-    BossMap,
+    MiddleBossMap,
     NormalMap,
-    EventMap
+    EventMap,
+    FinalBossMap
 }
 
 public class MapManager : MonoSingleton<MapManager>

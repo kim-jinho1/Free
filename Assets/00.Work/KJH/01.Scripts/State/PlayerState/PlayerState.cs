@@ -1,7 +1,6 @@
-using PurrNet;
 using UnityEngine;
 
-public class PlayerState : NetworkBehaviour
+public class PlayerState
 {
     public PlayerStateMachine StateMachine;
     public Player Player;

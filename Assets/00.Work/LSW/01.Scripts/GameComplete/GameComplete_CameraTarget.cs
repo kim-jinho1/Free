@@ -10,15 +10,25 @@ public class GameComplete_CameraTarget : MonoBehaviour
         if(collision.gameObject == GameCompleteUI.instance._stopCameraPos.gameObject)
         {
             _stopCameraPos_x = collision.transform.position.x;
-            GameCompleteUI.instance._isStop = true;
+            GameCompleteUI.instance._isCameraStop = true;
+        }
+        if(collision.gameObject == GameCompleteUI.instance._portal)
+        {
+            GameCompleteUI.instance.ForthAction();
         }
     }
 
     private void Update()
     {
-        if (GameCompleteUI.instance._isStop)
-            transform.position = new Vector2(_stopCameraPos_x, transform.position.y);
+        if (GameCompleteUI.instance._isCameraStop)
+        {
+            GameCompleteUI.instance._cameraVirtual.Follow = null;
+            GameCompleteUI.instance._cameraVirtual.LookAt = null;
+        }
         else
-            transform.position = GameCompleteUI.instance._player.transform.position;
+        {
+            GameCompleteUI.instance._cameraVirtual.Follow = GameCompleteUI.instance._player.transform;
+            GameCompleteUI.instance._cameraVirtual.LookAt = GameCompleteUI.instance._player.transform;
+        }
     }
 }

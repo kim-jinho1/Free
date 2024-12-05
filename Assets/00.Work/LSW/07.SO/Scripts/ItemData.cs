@@ -18,6 +18,7 @@ public class ItemData : ScriptableObject
     [Header("Effect_Equip")]
     public float AttackUp;
     public float CriticalUp;
+    public float CriticalDamageUp;
     public float HealthRateUp;
     public float SpeedRateUp;
     public float DodgeRateUp;

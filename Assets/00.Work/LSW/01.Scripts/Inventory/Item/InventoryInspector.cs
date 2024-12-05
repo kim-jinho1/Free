@@ -41,8 +41,6 @@ public class InventoryInspector : MonoBehaviour
             if (Input.GetMouseButtonUp(0) && !mainSlot._isMousePointIn)
                 Disable();
         }
-
-
     }
 
     private void ShowInspector(Slot slot)
@@ -55,20 +53,17 @@ public class InventoryInspector : MonoBehaviour
 
     public void InspectorButton()
     {
-        if(mainSlot != null)
+        if (InventoryManager.Instance._inspector.activeSelf && mainSlot._slotData.state != State.Empty)
         {
-            if (InventoryManager.Instance._inspector.activeSelf && mainSlot._slotData.state != State.Empty)
-            {
-                if (mainSlot._slotData.itemData.itemType == itemType.Equip)
-                    if (mainSlot._slotData.equip)
-                        UnEquip(mainSlot);
-                    else
-                        EquipItem();
-                if (mainSlot._slotData.itemData.itemType == itemType.Healing)
-                    HealItem();
-                if (mainSlot._slotData.itemData.itemType == itemType.Using)
-                    UseItem();
-            }
+            if (mainSlot._slotData.itemData.itemType == itemType.Equip)
+                if (mainSlot._slotData.equip)
+                    UnEquip(mainSlot);
+                else
+                    EquipItem();
+            else if (mainSlot._slotData.itemData.itemType == itemType.Healing)
+                HealItem();
+            else if (mainSlot._slotData.itemData.itemType == itemType.Using)
+                UseItem();
         }
     }
 
@@ -80,19 +75,42 @@ public class InventoryInspector : MonoBehaviour
 
     public void EquipItem()
     {
-        InventoryManager.Instance.Equip(mainSlot);
+        if (!mainSlot._slotData.equip)
+        {
+            List<Slot> equipSlot = InventoryManager.Instance._equipSlots;
+            if (!equipSlot.Exists(slot => slot._slotData.itemData.itemType == itemType.Equip                               //같은 Equip타입의 장착중인 아이템이 존재할 때
+                && slot._slotData.itemData.equipType == mainSlot._slotData.itemData.equipType))
+            {
+                mainSlot._slotData.equip = InventoryManager.Instance.EquipItem(mainSlot);
+            }
+            else
+            {
+                Slot sameSlot = equipSlot.Find(slot => slot._slotData.itemData.itemType == itemType.Equip
+                && slot._slotData.itemData.equipType == mainSlot._slotData.itemData.equipType);
+
+                sameSlot._slotData.equip = InventoryManager.Instance.UnEquipItem(sameSlot);
+                mainSlot._slotData.equip = InventoryManager.Instance.EquipItem(mainSlot);
+            }
+        }
         Disable();
     }
 
     public void UnEquip(Slot slot)
     {
-        InventoryManager.Instance.UnEquipItem(slot);
-        Disable();
+        if(slot._slotData.equip)
+        {
+            InventoryManager.Instance.UnEquipItem(slot);
+            Disable();
+        }
     }
 
     private void HealItem()
     {
         //힐관련 플레이어 스텟 변화
+        MonoSingleton<PlayerAbility>.Instance.IncreaseCurrentHp(
+            mainSlot._slotData.itemData.HealthRateUp * MonoSingleton<PlayerAbility>.Instance.MaxHealth);
+        MonoSingleton<PlayerAbility>.Instance.IncreaseCurrentHungry(
+            mainSlot._slotData.itemData.HungerRateUp * MonoSingleton<PlayerAbility>.Instance.MaxHungry);
         mainSlot.Delete();
         Disable();
     }
@@ -100,6 +118,7 @@ public class InventoryInspector : MonoBehaviour
     private void UseItem()
     {
         //디버프관련
+
         mainSlot.Delete();
         Disable();
     }

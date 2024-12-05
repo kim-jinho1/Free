@@ -15,7 +15,7 @@ public class InventoryManager : MonoBehaviour
 {
     public Player _player;
     public static InventoryManager Instance;
-    public GameObject _inventory, _inventory_EnableButton, _inventory_DisableButton, _inspector;
+    public GameObject _inventory, _inventory_DisableButton, _inspector;
     public TextMeshProUGUI _UseTxt;
 
     [Header("Slot")]
@@ -34,13 +34,15 @@ public class InventoryManager : MonoBehaviour
 
     private void Awake()
     {
-        if(Instance == null)
+        if (Instance == null)
             Instance = this;
+        else
+            Destroy(this);
     }
 
     private void Start()
     {
-        for(int i = 0; i < 20; i ++)
+        for(int i = 0; i < 20; i++)
         {
             GameObject slot = Instantiate(_slotPrefabs, _slotParent.transform);
             Slot slotScr = slot.GetComponentInChildren<Slot>();
@@ -57,6 +59,11 @@ public class InventoryManager : MonoBehaviour
                  item.state = State.Empty;
             else
                  item.state = State.Full;
+
+        if (MonoSingleton<PlayerAbility>.Instance.CurrentHungry > MonoSingleton<PlayerAbility>.Instance.MaxHungry)
+            MonoSingleton<PlayerAbility>.Instance.CurrentHungry = 100;
+        if (MonoSingleton<PlayerAbility>.Instance.CurrentHp > MonoSingleton<PlayerAbility>.Instance.MaxHealth)
+            MonoSingleton<PlayerAbility>.Instance.CurrentHp = 100;
     }
 
     public void AddItem(ItemData newItem)       //아이템을 인벤토리에 추가
@@ -80,55 +87,53 @@ public class InventoryManager : MonoBehaviour
         SlotFullValue--;
     }
 
-    public void Equip(Slot mainSlot)
-    {
-        if (!mainSlot._slotData.equip)
-        {
-            List<Slot> equipSlot = _equipSlots;
-            if (!equipSlot.Exists(slot => slot._slotData.itemData.itemType == itemType.Equip                               //같은 Equip타입의 장착중인 아이템이 존재할 때
-                && slot._slotData.itemData.equipType == mainSlot._slotData.itemData.equipType))
-            {
-                mainSlot._slotData.equip = EquipItem(mainSlot);
-            }
-            else
-            {
-                Slot sameSlot = equipSlot.Find(slot => slot._slotData.itemData.itemType == itemType.Equip
-                && slot._slotData.itemData.equipType == mainSlot._slotData.itemData.equipType);
-
-                sameSlot._slotData.equip = UnEquipItem(sameSlot);
-                mainSlot._slotData.equip = EquipItem(mainSlot);
-            }
-        }
-        else
-        {
-            List<Slot> equipSlot = _equipSlots;
-            if (equipSlot.Exists(slot => slot._slotData.itemData.itemType == itemType.Equip
-                && slot._slotData.itemData.equipType == mainSlot._slotData.itemData.equipType))
-            {
-                mainSlot._slotData.equip = UnEquipItem(mainSlot);
-            }
-        }
-    }
-
     public bool EquipItem(Slot slot)       //아이템을 장착
     {
         _equipSlots.Add(slot);
-        SetPlayerStat(slot._slotData.itemData, 1);
-        slot._slotData.equip = true;
+        SetPlayerStat(slot._slotData.itemData);
+        ShowEquipMark(slot);
         return true;
     }
 
     public bool UnEquipItem(Slot slot)      //아이템을 장착 해제
     {
+        RollBackPlayerStat(slot._slotData.itemData);
         _equipSlots.Remove(slot);
-        SetPlayerStat(slot._slotData.itemData, -1);
+        HideEquipMark(slot);
         slot._slotData.equip = false;
         return false;
     }
 
-    public void SetPlayerStat(ItemData item, int value)
+    public void ShowEquipMark(Slot Slot)
     {
-        Debug.Log("T");
+        Slot._equipBorder.color = Color.red;
+        Slot._equipMark.SetActive(true);
+    }
+
+    public void HideEquipMark(Slot Slot)
+    {
+        Slot._equipBorder.color = Color.black;
+        Slot._equipMark.SetActive(false);
+    }
+
+    public void SetPlayerStat(ItemData item)
+    {
+        _player.AbilityData.attack += item.AttackUp;
+        _player.AbilityData.dodge += item.DodgeRateUp;
+        _player.AbilityData.accuracy += item.SpeedRateUp;
+        _player.AbilityData.critical += item.CriticalUp;
+        _player.AbilityData.maxHp += item.HealthRateUp;
+        _player.AbilityData.maxHungry += item.HungerRateUp;
+    }
+
+    public void RollBackPlayerStat(ItemData item)
+    {
+        _player.AbilityData.attack -= item.AttackUp;
+        _player.AbilityData.dodge -= item.DodgeRateUp;
+        _player.AbilityData.accuracy -= item.SpeedRateUp;
+        _player.AbilityData.critical -= item.CriticalUp;
+        _player.AbilityData.maxHp -= item.HealthRateUp;
+        _player.AbilityData.maxHungry -= item.HungerRateUp;
     }
 
     public Vector2 GetMousePos()

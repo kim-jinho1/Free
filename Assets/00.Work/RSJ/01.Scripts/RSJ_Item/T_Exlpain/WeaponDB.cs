@@ -4,11 +4,11 @@ using UnityEngine;
 
 public static class WeaponDB
 {
-    public static Dictionary<int, ItemSO> ItemIDItemSODictionary = new Dictionary<int, ItemSO>();
+    /*public static Dictionary<int, EquipAbleItemSO> ItemIDItemSODictionary = new Dictionary<int, EquipAbleItemSO>();
 
     public static void Instantiate()
     {
-        var Item0 = new ItemSO();
+        var Item0 = new EquipAbleItemSO();
         Item0.ItemName = "대검";
         Item0.ItemExplan = "설명이 들어갑니다";
 
@@ -20,7 +20,7 @@ public static class WeaponDB
     public static void ChangeState(float ChangeStat)
     {
 
-    }
+    }*/
 }
 
 

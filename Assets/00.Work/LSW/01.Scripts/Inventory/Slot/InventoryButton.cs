@@ -11,7 +11,6 @@ public class InventoryButton : MonoBehaviour
 
     public void OnClose()
     {
-        InventoryManager.Instance._inventory_EnableButton.SetActive(true);
         InventoryManager.Instance._inventory.SetActive(false);
         InventoryManager.Instance._inspector.SetActive(false);
     }
@@ -19,6 +18,5 @@ public class InventoryButton : MonoBehaviour
     public void OnOpen()
     {
         InventoryManager.Instance._inventory.SetActive(true);
-        InventoryManager.Instance._inventory_EnableButton.SetActive(false);
     }
 }

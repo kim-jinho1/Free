@@ -12,13 +12,11 @@ public class SJ_UIDataReader : MonoBehaviour
 
     [SerializeField] private Player _player;
 
-    //[SerializeField] private AbilityData _playerData; 
-
     private void Update()
     {
         floor.text = _player.CurrentFloor.ToString() + "F";
 
-        HP.text = _player.AbilityData.currentHp.ToString() + "/" + _player.AbilityData.maxHp.ToString();
-        Hunger.text = _player.AbilityData.currentHungry.ToString() + "/" + _player.AbilityData.maxHungry.ToString();
+        HP.text = _player.AbilityData.currentHp.ToString("F1") + " / " + _player.AbilityData.maxHp.ToString("F1");
+        Hunger.text = _player.AbilityData.currentHungry.ToString("F1") + " / " + _player.AbilityData.maxHungry.ToString("F1");
     }
 }

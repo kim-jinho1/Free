@@ -7,7 +7,7 @@ public class VerticalRoom : MonoBehaviour
     public static Action<Transform> OnMove;
     public static Action OnClick;
 
-    public bool _isEntered = false;
+    public bool _isEntered = true;
     public bool _isExiting = false;
 
     private Image _image;
@@ -15,11 +15,6 @@ public class VerticalRoom : MonoBehaviour
     private void Awake()
     {
         _image = GetComponent<Image>();
-    }
-
-    private void Start()
-    {
-        StartRoom();
     }
     
     private void Update()
@@ -42,13 +37,6 @@ public class VerticalRoom : MonoBehaviour
     public void ExitRoom()
     {
         _isExiting = true;
-    }
-
-    private void StartRoom()
-    {
-        var color = _image.color;
-        color.a = 0.95f;
-        _image.color = color;
     }
     
     private void ResetRoom()

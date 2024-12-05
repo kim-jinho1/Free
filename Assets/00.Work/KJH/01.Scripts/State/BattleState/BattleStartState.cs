@@ -9,9 +9,25 @@ public class BattleStartState : BattleState
         
     }
 
-    private bool FirstAttack(int a, int b)
+    public override void Enter()
     {
-        return a > b ? true : false;
+        base.Enter();
+        FirstAttack(battle.target.GetComponent<Enemy>().enemyData.AttackSpeed, _player.AbilityData.speed);
+    }
+
+
+    private void FirstAttack(float a, float b)
+    {
+        if (a>b)
+        {
+            battle.PlayerAttack();
+            battle.StateMachine.ChangeState(BattleStateEnum.MiddleState);
+        }
+        else
+        {
+            battle.EnemyAttack();
+            battle.StateMachine.ChangeState(BattleStateEnum.MiddleState);
+        }
     }
 
     public void Exit()

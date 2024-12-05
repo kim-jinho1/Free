@@ -12,15 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21ea3cc9b8c44ee419281f8a1f5d6f6c, type: 3}
   m_Name: SO_Enemy
   m_EditorClassIdentifier: 
-  hp: 0
-  attackSpeed: 0
-  attackDamage: 0
-  attackRate: 0
-  BodyDamage: 0
-  ArmDamage: 0
-  HeadDamage: 0
-  BodyRNG: 0
-  ArmRNG: 0
-  HeadRNG: 0
-  MainSkillRng: 0
-  attackDamage2: 0
+  hp: 10
+  attackSpeed: 5
+  attackDamage: 5
+  attackRate: 5
+  BodyDamage: 5
+  ArmDamage: 5
+  HeadDamage: 5
+  BodyRNG: 5
+  ArmRNG: 5
+  HeadRNG: 5
+  MainSkillRng: 5
+  attackDamage2: 5

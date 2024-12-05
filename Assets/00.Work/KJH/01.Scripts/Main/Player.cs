@@ -21,7 +21,7 @@ public class Player : MonoBehaviour
     public Transform CenterPosition { get; set; }
     public int CurrentFloor { get; set; }
 
-    private PlayerStateMachine StateMachine { get; set; }
+    public PlayerStateMachine StateMachine { get; set; }
 
     private bool _dirRight = true;
 
@@ -33,18 +33,19 @@ public class Player : MonoBehaviour
         StateMachine.AddState(PlayerStateEnum.Idle, new PlayerIdleState(this, StateMachine, "Idle"));
         StateMachine.AddState(PlayerStateEnum.Attack, new PlayerAttackState(this, StateMachine, "Attack"));
         StateMachine.AddState(PlayerStateEnum.HorizontalMove, new PlayerHorizontalMoveState(this, StateMachine, "HorizontalMove"));
-        StateMachine.AddState(PlayerStateEnum.VerticalMove, new PlayerVerticalMoveState(this, StateMachine, "VerticalMove"));
-        StateMachine.AddState(PlayerStateEnum.UI, new PlayerUIState(this, StateMachine, "VerticalMove"));
+        StateMachine.AddState(PlayerStateEnum.VerticalMove, new PlayerVerticalMoveState(this, StateMachine, "Idle"));
+        StateMachine.AddState(PlayerStateEnum.UI, new PlayerUIState(this, StateMachine, "Idle"));
+        StateMachine.AddState(PlayerStateEnum.Battle, new PlayerBattleState(this, StateMachine, "Idle"));
         
     }
     
     private void Start()
     {
         StateMachine.Initialize(PlayerStateEnum.Idle);
-        Reset();
+        GameReset();
     }
 
-    private void Reset()
+    private void GameReset()
     {
         CurrentFloor = 1;
         CenterPosition = _pos;

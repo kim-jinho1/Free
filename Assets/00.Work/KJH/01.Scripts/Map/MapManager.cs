@@ -22,7 +22,6 @@ public class MapManager : MonoSingleton<MapManager>
 {
     [Header("UI Elements")]
     [SerializeField] private Transform contentParent;
-    [SerializeField] private TextMeshProUGUI currentFloorText;
     [SerializeField] private GameObject pool;
 
     
@@ -62,27 +61,14 @@ public class MapManager : MonoSingleton<MapManager>
         {
             int random = UnityEngine.Random.Range(0, 11);
             if (floor == 50)
-            {
-                _map.Add(floor, MapType.FinalBossMap);
                 MapBuild(floor, MapType.FinalBossMap);
-            }
             else if (floor % 10 == 0)
-            {
-                _map.Add(floor, MapType.MiddleBossMap);
                 MapBuild(floor, MapType.MiddleBossMap);
-            }
             else if (random >= 9)
-            {
-                _map.Add(floor, MapType.EventMap);
                 MapBuild(floor, MapType.EventMap);
-            }
             else
-            {
-                _map.Add(floor, MapType.NormalMap);
                 MapBuild(floor, MapType.NormalMap);
-            }
             
-           
             floor++;
             scale++;
         }
@@ -90,7 +76,7 @@ public class MapManager : MonoSingleton<MapManager>
 
     private void MapBuild(int floor, MapType mapType)
     {
-        GameObject map = Instantiate(Towerbuild.Instance.BuildEventFloor(), pool.transform);
+        GameObject map = Instantiate(Towerbuild.Instance.BuildNormalFloor(), pool.transform);
         map.SetActive(false);
         tower.Add(map);
     }
@@ -128,13 +114,6 @@ public class MapManager : MonoSingleton<MapManager>
     private void UpdateFloorUI(int floor)
     {
         foreach (Transform child in contentParent)
-        {
             Destroy(child.gameObject);
-        }
-        
-        var mapType = _map[floor];
-        currentFloorText.GetComponentInChildren<TextMeshProUGUI>().text = $"Floor {floor}\nType: {mapType}";
-        
-        currentFloorText.text = $"Current Floor: {floor}";
     }
 }

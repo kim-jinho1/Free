@@ -1,17 +1,20 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class Towerbuild : MonoSingleton<Towerbuild>
 {
-    [SerializeField] private GameObject[] floors;
+    [SerializeField] private GameObject[] normalFloors; 
+    [SerializeField] private GameObject[] eventFloors;
     
     public GameObject BuildEventFloor()
     {
-        return floors[0];
+        return eventFloors[0];
     }
     
-    public void BuildNormalFloor()
+    public GameObject BuildNormalFloor()
     {
         
+        return normalFloors[0];
     }
     
     public void BuildFinalBossFloor()

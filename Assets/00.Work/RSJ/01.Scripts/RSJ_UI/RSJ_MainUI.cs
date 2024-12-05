@@ -3,14 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.SceneManagement;
 
 public class RSJ_MainUI : MonoBehaviour
 {
-    [SerializeField] private GameObject pannel;
-
     public void StartBtn()
     {
-        //∞‘¿”æ¿ ¿Ãµø
+        SceneManager.LoadScene("MainGameScene");
     }
 
     public void LoadBtn()
@@ -28,7 +27,7 @@ public class RSJ_MainUI : MonoBehaviour
         //∑Œ∫Ò∑Œ ∫π±Õ
     }
 
-    public void SettingBtn()
+    public void PanelOpen(GameObject pannel)
     {
         pannel.SetActive(true);
     }
@@ -39,7 +38,7 @@ public class RSJ_MainUI : MonoBehaviour
         Debug.Log("≤˝");
     }
 
-    public void PannelClose()
+    public void PanelClose(GameObject pannel)
     {
         pannel.SetActive(false);
     }

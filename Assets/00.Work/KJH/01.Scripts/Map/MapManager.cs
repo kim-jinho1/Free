@@ -2,49 +2,42 @@ using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
-
-[Serializable]
-public class MapGroup
-{
-    public int floor;
-    public MapType mapType;
-}
 
 public enum MapType
 {
-    BossMap,
+    MiddleBossMap,
     NormalMap,
-    EventMap
+    EventMap,
+    FinalBossMap
 }
 
 public class MapManager : MonoSingleton<MapManager>
 {
     [Header("UI Elements")]
-    [SerializeField] private GameObject floorPrefab;
     [SerializeField] private Transform contentParent;
-    [SerializeField] private TextMeshProUGUI currentFloorText;
-    [SerializeField] public GameObject mapPanel;
+    [SerializeField] private GameObject pool;
+
     
-    [SerializeField] private List<MapGroup> _maps = new();
+    [SerializeField] private Player _player;
+    
+
+    [SerializeField] public GameObject mapPanel;
 
     private int _mapScale = 50;
 
-    private Dictionary<int, MapType> _map = new();    // 층 데이터 매핑
-    private int _currentFloor = 1;  
+    public int _currentFloor;
+
+    public List<GameObject> tower = new(); 
+        
     private void Awake()
     {
         CreateMap();
-        _maps.Clear();
-        foreach (var entry in _map)
-        {
-            _maps.Add(new MapGroup { floor = entry.Key, mapType = entry.Value });
-        }
     }
 
     private void Start()
     {
-        MoveToFloor(1);
+        _currentFloor = _player.CurrentFloor;
+        tower[_currentFloor].SetActive(true);
     }
     
     private void CreateMap()
@@ -55,47 +48,49 @@ public class MapManager : MonoSingleton<MapManager>
         while (scale < _mapScale)
         {
             int random = UnityEngine.Random.Range(0, 11);
-
-            if (floor % 10 == 0)
-            {
-                _map.Add(floor, MapType.BossMap);
-            }
+            if (floor == 50)
+                MapBuild(floor, MapType.FinalBossMap);
+            else if (floor % 10 == 0)
+                MapBuild(floor, MapType.MiddleBossMap);
             else if (random >= 9)
-            {
-                _map.Add(floor, MapType.EventMap);
-            }
+                MapBuild(floor, MapType.EventMap);
             else
-            {
-                _map.Add(floor, MapType.NormalMap);
-            }
+                MapBuild(floor, MapType.NormalMap);
+            
             floor++;
             scale++;
         }
     }
-    
-    public  void MoveToFloor(int floor)
-    {
-        if (!_map.ContainsKey(floor))
-        {
-            Debug.LogWarning($"Floor {floor} does not exist.");
-            return;
-        }
 
-        _currentFloor = floor;
-        
-        UpdateFloorUI(floor);
+    private void MapBuild(int floor, MapType mapType)
+    {
+        GameObject map = Instantiate(Towerbuild.Instance.BuildNormalFloor(), pool.transform);
+        map.SetActive(false);
+        tower.Add(map);
+    }
+    
+    public void ChangeFloor(bool isChange)
+    {
+        if (isChange)
+        {
+            tower[_currentFloor].SetActive(false);
+            _currentFloor++;
+            tower[_currentFloor].SetActive(true);
+            _player.CurrentFloor = _currentFloor;
+            Debug.Log($"CurrentFloor : {_currentFloor}");
+        }
+        else
+        {
+            tower[_currentFloor].SetActive(false);
+            _currentFloor--;
+            tower[_currentFloor].SetActive(true);
+            _player.CurrentFloor = _currentFloor;
+            Debug.Log($"CurrentFloor : {_currentFloor}");
+        }
     }
     private void UpdateFloorUI(int floor)
     {
         foreach (Transform child in contentParent)
-        {
             Destroy(child.gameObject);
-        }
-        
-        var mapType = _map[floor];
-        GameObject floorUI = Instantiate(floorPrefab, contentParent);
-        //floorUI.GetComponentInChildren<TextMeshProUGUI>().text = $"Floor {floor}\nType: {mapType}";
-        
-        currentFloorText.text = $"Current Floor: {floor}";
     }
 }

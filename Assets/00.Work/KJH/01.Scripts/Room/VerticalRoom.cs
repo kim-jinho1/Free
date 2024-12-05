@@ -1,15 +1,22 @@
 using System;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class VerticalRoom : MonoBehaviour
-{
-    [SerializeField] private GameObject roomPanel;
+{ 
     public static Action<Transform> OnMove;
     public static Action OnClick;
 
-    public bool _isEntered = false;
+    public bool _isEntered = true;
     public bool _isExiting = false;
 
+    private Image _image;
+    
+    private void Awake()
+    {
+        _image = GetComponent<Image>();
+    }
+    
     private void Update()
     {
         if (_isEntered && !_isExiting)
@@ -31,21 +38,25 @@ public class VerticalRoom : MonoBehaviour
     {
         _isExiting = true;
     }
-
+    
     private void ResetRoom()
     {
-        
+        var color = _image.color;
+        color.a = 0f;
+        _image.color = color;
     }
 
     private void SettingRoom()
     {
-        
+        var color = _image.color;
+        color.a = 0.4f;
+        _image.color = color;
     }
 
     public void OnVerticalRoomClick()
     {
-        OnMove?.Invoke(transform);
         OnClick?.Invoke();
-        roomPanel.SetActive(true);
+        OnMove?.Invoke(transform);
+        EnterRoom();
     }
 }

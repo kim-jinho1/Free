@@ -3,41 +3,49 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
+[Serializable]
+public class MapGroup
+{
+    public int floor;
+    public MapType mapType;
+}
+
 public enum MapType
 {
-    MiddleBossMap,
+    BossMap,
     NormalMap,
-    EventMap,
-    FinalBossMap
+    EventMap
 }
 
 public class MapManager : MonoSingleton<MapManager>
 {
     [Header("UI Elements")]
+    [SerializeField] private GameObject floorPrefab;
     [SerializeField] private Transform contentParent;
     [SerializeField] private GameObject pool;
 
     
     [SerializeField] private Player _player;
     
-
-    [SerializeField] public GameObject mapPanel;
+    [SerializeField] private List<MapGroup> _maps = new();
 
     private int _mapScale = 50;
 
-    public int _currentFloor;
-
-    public List<GameObject> tower = new(); 
-        
+    private Dictionary<int, MapType> _map = new();
+    private int _currentFloor = 1;  
     private void Awake()
     {
         CreateMap();
+        _maps.Clear();
+        foreach (var entry in _map)
+        {
+            _maps.Add(new MapGroup { floor = entry.Key, mapType = entry.Value });
+        }
     }
 
     private void Start()
     {
-        _currentFloor = _player.CurrentFloor;
-        tower[_currentFloor].SetActive(true);
+        MoveToFloor(1);
     }
     
     private void CreateMap()
@@ -69,24 +77,17 @@ public class MapManager : MonoSingleton<MapManager>
         tower.Add(map);
     }
     
-    public void ChangeFloor(bool isChange)
+    public  void MoveToFloor(int floor)
     {
-        if (isChange)
+        if (!_map.ContainsKey(floor))
         {
-            tower[_currentFloor].SetActive(false);
-            _currentFloor++;
-            tower[_currentFloor].SetActive(true);
-            _player.CurrentFloor = _currentFloor;
-            Debug.Log($"CurrentFloor : {_currentFloor}");
+            Debug.LogWarning($"Floor {floor} does not exist.");
+            return;
         }
-        else
-        {
-            tower[_currentFloor].SetActive(false);
-            _currentFloor--;
-            tower[_currentFloor].SetActive(true);
-            _player.CurrentFloor = _currentFloor;
-            Debug.Log($"CurrentFloor : {_currentFloor}");
-        }
+
+        _currentFloor = floor;
+        
+        UpdateFloorUI(floor);
     }
     private void UpdateFloorUI(int floor)
     {

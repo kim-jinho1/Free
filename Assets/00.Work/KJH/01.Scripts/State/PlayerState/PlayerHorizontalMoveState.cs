@@ -30,6 +30,7 @@ public class PlayerHorizontalMoveState : PlayerState
         HorizontalRoom.OnMove -= Move;
     }
 
+
     public override void Update()
     {
         base.Update();

@@ -8,9 +8,8 @@ using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class GameCompleteUI : MonoBehaviour
+public class GameCompleteManager : MonoSingleton<GameCompleteManager>
 {
-    public static GameCompleteUI instance;
 
     public CinemachineVirtualCamera _cameraVirtual;
     [SerializeField] private Transform[] _movePoints;
@@ -26,7 +25,6 @@ public class GameCompleteUI : MonoBehaviour
 
     private void Awake()
     {
-        instance = this;
         _animator = _player.GetComponentInChildren<Animator>();
     }
 

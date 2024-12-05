@@ -6,22 +6,14 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class GameOverUIManager : MonoBehaviour
+public class GameOverUIManager : MonoSingleton<GameOverUIManager>
 {
     //만약 UI전체를 관리하는 스크립트가 존재하면 그 립트와 합칠 것(효율을 위해)
-
-    public static GameOverUIManager Instance;
 
     public int _mainMenuSceneNum;
 
     [SerializeField] private GameObject _gameOverUIPanel, _exitButton, _restartButton;
     [SerializeField] private GameObject _alpha;
-
-    private void Awake()
-    {
-        if (Instance == null)
-            Instance = this;
-    }
 
     private void Start()
     {

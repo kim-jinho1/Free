@@ -7,30 +7,30 @@ public class GameComplete_CameraTarget : MonoBehaviour
     private float _stopCameraPos_x;
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject == GameCompleteUI.instance._stopCameraPos.gameObject)
+        if (collision.gameObject == GameCompleteManager.Instance._stopCameraPos.gameObject)
         {
             _stopCameraPos_x = collision.transform.position.x;
-            GameCompleteUI.instance._isCameraStop = true;
-            StartCoroutine(GameCompleteUI.instance.Coroutine(1.5f));
-            GameCompleteUI.instance.SecondAction();
+            GameCompleteManager.Instance._isCameraStop = true;
+            StartCoroutine(GameCompleteManager.Instance.Coroutine(1.5f));
+            GameCompleteManager.Instance.SecondAction();
         }
-        if(collision.gameObject == GameCompleteUI.instance._portal)
+        if(collision.gameObject == GameCompleteManager.Instance._portal)
         {
-            GameCompleteUI.instance.ForthAction();
+            GameCompleteManager.Instance.ForthAction();
         }
     }
 
     private void Update()
     {
-        if (GameCompleteUI.instance._isCameraStop)
+        if (GameCompleteManager.Instance._isCameraStop)
         {
-            GameCompleteUI.instance._cameraVirtual.Follow = null;
-            GameCompleteUI.instance._cameraVirtual.LookAt = null;
+            GameCompleteManager.Instance._cameraVirtual.Follow = null;
+            GameCompleteManager.Instance._cameraVirtual.LookAt = null;
         }
         else
         {
-            GameCompleteUI.instance._cameraVirtual.Follow = GameCompleteUI.instance._player.transform;
-            GameCompleteUI.instance._cameraVirtual.LookAt = GameCompleteUI.instance._player.transform;
+            GameCompleteManager.Instance._cameraVirtual.Follow = GameCompleteManager.Instance._player.transform;
+            GameCompleteManager.Instance._cameraVirtual.LookAt = GameCompleteManager.Instance._player.transform;
         }
     }
 }

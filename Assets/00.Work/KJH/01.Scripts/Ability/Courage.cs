@@ -56,7 +56,7 @@ public class Courage : Virtue
         if (SecondStackPoint && critical)
         {
             float a = CalculatePercentage(stats.MaxHealth, 2);
-            stats.IncreaseCurrentHp(a);
+            stats.IncreaseHp(a);
             Debug.Log($"{stats.MaxHealth}의 {2}%는 {a}입니다.");
             critical = false;
         }

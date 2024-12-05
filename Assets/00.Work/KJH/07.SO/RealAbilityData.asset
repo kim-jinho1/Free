@@ -21,9 +21,8 @@ MonoBehaviour:
   critical: 5
   criticalAttack: 2
   hp: 100
-  currentHp: 80
+  currentHp: 100
   maxHp: 100
-  hungry: 100
-  currentHungry: 80
+  hungry: 0
+  currentHungry: 100
   maxHungry: 100
-  damageDown: 0

@@ -21,7 +21,6 @@ public class PlayerHorizontalMoveState : PlayerState
     {
         Player.Rigid.DOMoveX(target.position.x, 1f);
         _target = target;
-        Debug.Log(_target);
     }
 
     public override void Exit()
@@ -29,11 +28,12 @@ public class PlayerHorizontalMoveState : PlayerState
         base.Exit();
         Player.OnMoveHorizontal -= Move;
         HorizontalRoom.OnMove -= Move;
-        VerticalRoom.OnMove -= Move;
     }
 
-    public override void PlayerUpdate()
-    { 
+    public override void Update()
+    {
+        base.Update();
+
         if (_target != null)
         {
             if (Mathf.Approximately(_target.position.x, Player.transform.position.x) && !Mathf.Approximately(_target.position.x, Player.CenterPosition.position.x))
@@ -47,6 +47,5 @@ public class PlayerHorizontalMoveState : PlayerState
                 Player.IsCenter = true;
             }
         }
-        
     }
 }

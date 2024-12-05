@@ -47,6 +47,7 @@ public class HorizontalRoom : MonoBehaviour
 
     private void StartRoom()
     {
+        Debug.Log("StartRoom");
         var color = _image.color;
         color.a = 0.95f;
         _image.color = color;
@@ -68,6 +69,7 @@ public class HorizontalRoom : MonoBehaviour
 
     public void OnHorizontalRoomClick()
     {
+        Debug.Log("11s");
         OnClick?.Invoke();
         OnMove?.Invoke(transform);
         EnterRoom();

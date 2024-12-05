@@ -7,10 +7,12 @@ public class GameComplete_CameraTarget : MonoBehaviour
     private float _stopCameraPos_x;
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject == GameCompleteUI.instance._stopCameraPos.gameObject)
+        if (collision.gameObject == GameCompleteUI.instance._stopCameraPos.gameObject)
         {
             _stopCameraPos_x = collision.transform.position.x;
             GameCompleteUI.instance._isCameraStop = true;
+            StartCoroutine(GameCompleteUI.instance.Coroutine(1.5f));
+            GameCompleteUI.instance.SecondAction();
         }
         if(collision.gameObject == GameCompleteUI.instance._portal)
         {

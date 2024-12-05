@@ -16,6 +16,7 @@ public class GameCompleteUI : MonoBehaviour
     [SerializeField] private Transform[] _movePoints;
     [SerializeField] private GameObject _teleportPoint;
     [SerializeField] private Image _darkPanel;
+    [SerializeField] private Animator _animator;
 
     public int _mainMenuSceneNum;
     public GameObject _player;
@@ -26,6 +27,7 @@ public class GameCompleteUI : MonoBehaviour
     private void Awake()
     {
         instance = this;
+        _animator = _player.GetComponentInChildren<Animator>();
     }
 
     private void Start()
@@ -35,11 +37,14 @@ public class GameCompleteUI : MonoBehaviour
 
     private void FirstAction()
     {
-        _player.transform.DOMoveX(_movePoints[0].position.x, 3f).OnComplete(() => Invoke("SecondAction", 1.5f));
+        _animator.SetBool("Run", true);
+        _player.transform.position = Vector2.MoveTowards(_player.transform.position,                    //여긴 dotween 안 씀(자연스러운 이동X)
+            new Vector2(_movePoints[0].position.x, _player.transform.position.y), 2f * Time.deltaTime);
     }
 
-    private void SecondAction()
+    public void SecondAction()
     {
+        _animator.SetBool("Run", false);
         _isCameraStop = false;
         Invoke("ThirdAction", 1.5f);
     }
@@ -76,14 +81,14 @@ public class GameCompleteUI : MonoBehaviour
 
     private void SixAction()
     {
-        _player.GetComponent<SpriteRenderer>().flipX = true;
+        _player.GetComponentInChildren<SpriteRenderer>().flipX = true;
         StartCoroutine(Coroutine(2f));
         SevenAction();
     }
 
     private void SevenAction()
     {
-        _player.GetComponent<SpriteRenderer>().flipX = false;
+        _player.GetComponentInChildren<SpriteRenderer>().flipX = false;
         _player.transform.DOMoveX(_movePoints[2].position.x, 5f);
         _isCameraStop = true;
         GameEnded();
@@ -100,7 +105,7 @@ public class GameCompleteUI : MonoBehaviour
         _darkPanel.DOFade(1f, 1.5f);
     }
 
-    private IEnumerator Coroutine(float t)
+    public IEnumerator Coroutine(float t)
     {
         yield return new WaitForSeconds(t);
     }

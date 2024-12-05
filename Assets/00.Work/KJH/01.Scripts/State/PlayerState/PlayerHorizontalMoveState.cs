@@ -1,4 +1,5 @@
 using DG.Tweening;
+using PurrNet;
 using UnityEngine;
 
 public class PlayerHorizontalMoveState : PlayerState
@@ -16,6 +17,7 @@ public class PlayerHorizontalMoveState : PlayerState
         Player.OnMoveHorizontal += Move;
         HorizontalRoom.OnMove += Move;
         VerticalRoom.OnMove += Move;
+        Roomclick.OnBtnClick += Move;
     }
     private void Move(Transform target)
     {
@@ -28,8 +30,11 @@ public class PlayerHorizontalMoveState : PlayerState
         base.Exit();
         Player.OnMoveHorizontal -= Move;
         HorizontalRoom.OnMove -= Move;
+        Roomclick.OnBtnClick -= Move;
     }
 
+
+    [ServerRpc]
     public override void Update()
     {
         base.Update();

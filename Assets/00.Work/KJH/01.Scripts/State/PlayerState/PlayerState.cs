@@ -1,8 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
+using PurrNet;
 using UnityEngine;
 
-public class PlayerState
+public class PlayerState : NetworkBehaviour
 {
     public PlayerStateMachine StateMachine;
     public Player Player;

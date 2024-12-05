@@ -33,16 +33,19 @@ public class PlayerHorizontalMoveState : PlayerState
     public override void Update()
     {
         base.Update();
-        
-        if (Mathf.Approximately(_target.position.x, Player.transform.position.x) && !Mathf.Approximately(_target.position.x, Player.CenterPosition.position.x))
+
+        if (_target != null)
         {
-            StateMachine.ChangeState(PlayerStateEnum.Idle);
-            Player.IsCenter = false;
-        }
-        else if (Mathf.Approximately(_target.position.x, Player.transform.position.x) && Mathf.Approximately(_target.position.x, Player.CenterPosition.position.x))
-        {
-            StateMachine.ChangeState(PlayerStateEnum.Idle);
-            Player.IsCenter = true;
+            if (Mathf.Approximately(_target.position.x, Player.transform.position.x) && !Mathf.Approximately(_target.position.x, Player.CenterPosition.position.x))
+            {
+                StateMachine.ChangeState(PlayerStateEnum.Idle);
+                Player.IsCenter = false;
+            }
+            else if (Mathf.Approximately(_target.position.x, Player.transform.position.x) && Mathf.Approximately(_target.position.x, Player.CenterPosition.position.x))
+            {
+                StateMachine.ChangeState(PlayerStateEnum.Idle);
+                Player.IsCenter = true;
+            }
         }
     }
 }

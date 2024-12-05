@@ -1,21 +1,31 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class BattleMiddleState : BattleState
 {
     public BattleMiddleState(Battle battle, BattleStateMachine stateMachine, string animBoolHash) : base(battle, stateMachine, animBoolHash)
     {
-        
+
     }
-    
-    private void Attack()
+
+
+    public override void Enter()
     {
+        base.Enter();
+        Enemy_JH.OnClick += Attack;
+    }
+
+    private void Attack(GameObject en)
+    {
+        if (battle.turn == 0)
+        {
+            return;
+        }
+
         if (Battle.Attack)
         {
             PlayerAttack();
         }
-        else
+        else if (!Battle.Attack)
         {
             EnemyAttack();
         }

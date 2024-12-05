@@ -16,13 +16,20 @@ public class PlayerIdleState : PlayerState
 
     private void CheckVerticalRoom()
     {
+        if (Player.IsCenter)
+        {
+            StateMachine.ChangeState(PlayerStateEnum.UI);
+        }
+        else if (!Player.IsCenter) 
+        {
+            StateMachine.ChangeState(PlayerStateEnum.HorizontalMove);
+        }
         StateMachine.ChangeState(PlayerStateEnum.HorizontalMove);
     }
     
     private void CheckHorizontalRoom()
     {
         StateMachine.ChangeState(PlayerStateEnum.HorizontalMove);
-
     }
     
     private void CheckRoom(Collider2D hitCollider)

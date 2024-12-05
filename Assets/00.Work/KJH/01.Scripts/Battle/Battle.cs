@@ -3,18 +3,28 @@ using UnityEngine;
 
 public class Battle : MonoBehaviour
 {
+    [SerializeField] private GameObject _battlePanel;
+
     public Action OnPlayerAttack;
     public Action OnEnemyAttack;
-    
-    public bool Attack {get; set;}
-    
+
+    public GameObject target { get; set; }
+
+    public Player _player;
+
+    public bool Attack { get; set; }
+
     public Animator Animator { get; private set; }
-    
+
     public BattleStateMachine StateMachine { get; private set; }
+
+    public int turn { get; set; }
 
 
     private void Awake()
     {
+        turn = 0;
+
         OnPlayerAttack += PlayerAttack;
         OnEnemyAttack += EnemyAttack;
 
@@ -24,13 +34,29 @@ public class Battle : MonoBehaviour
         StateMachine.AddState(BattleStateEnum.NotState, new BattleNotState(this, StateMachine, "HorizontalMove"));
     }
 
-    private void PlayerAttack()
+    private void Update()
     {
-        
+        StateMachine.currentState.Update();
+        if (turn%1==0)
+        {
+            Attack = true;
+        }
+        else if (turn % 2 == 0)
+        {
+            Attack = false;
+        }
     }
 
-    private void EnemyAttack()
+    public void PlayerAttack()
     {
-        
+        _battlePanel.SetActive(true);
+        turn++;
+        //적의 체력을 깍는다
+    }
+
+    public void EnemyAttack()
+    {
+        turn++;
+        //나의 체력을 깍는다
     }
 }

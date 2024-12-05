@@ -20,8 +20,9 @@ MonoBehaviour:
   escape: 20
   critical: 10
   criticalAttack: 2
-  currentHp: 102.2
-  maxHp: 110
+  hp: 100
+  currentHp: 100
+  maxHp: 100
+  hungry: 0
   currentHungry: 100
   maxHungry: 100
-  damageDown: 0

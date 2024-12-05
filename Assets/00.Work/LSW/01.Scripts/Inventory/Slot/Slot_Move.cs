@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -31,21 +32,35 @@ public class Slot_Move : MonoBehaviour
     {
         if (_changeTargetSlot._slotData.state == State.Empty)
         {
+            ChangeEquipState();
             _changeTargetSlot.AddItem(_originSlot._slotData.itemData);
             _originSlot.ResetData();
             Destroy();
         }
         else
+        {
             ChangeSlotEach();
+        }
     }
 
     public void ChangeSlotEach()
     {
+        ChangeEquipState();
         ItemData tempSlotData = _changeTargetSlot._slotData.itemData;
         _changeTargetSlot.AddItem(_originSlot._slotData.itemData);
-        //_originSlot._slotData.itemData = tempSlotData;
         _originSlot.AddItem(tempSlotData);
+
         Destroy();
+    }
+
+    private void ChangeEquipState()
+    {
+        if (_originSlot._slotData.equip != _changeTargetSlot._slotData.equip)
+        {
+            bool tempequip = _originSlot._slotData.equip;
+            _originSlot._slotData.equip = _changeTargetSlot._slotData.equip;
+            _changeTargetSlot._slotData.equip = tempequip;
+        }
     }
 
     public void CancelItemMove()

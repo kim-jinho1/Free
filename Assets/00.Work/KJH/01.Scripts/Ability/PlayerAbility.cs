@@ -14,6 +14,18 @@ public class PlayerAbility : MonoSingleton<PlayerAbility>
         get => _player.AbilityData.attack;
         set => _player.AbilityData.attack = value;
     }
+    //체력
+    public float Hp
+    {
+        get => _player.AbilityData.hp;
+        set => _player.AbilityData.hp = value;
+    }
+
+    public float Hungry
+    {
+        get => _player.AbilityData.hungry;
+        set => _player.AbilityData.hungry = value;
+    }
     //속도
     public float Speed
     {
@@ -58,14 +70,14 @@ public class PlayerAbility : MonoSingleton<PlayerAbility>
     //현재체력
     public float CurrentHp
     {
-        get => _player.AbilityData.currentHp;
-        set => _player.AbilityData.currentHp = value; 
+        get => _player.AbilityData.maxHp;
+        set => _player.AbilityData.maxHp = value; 
     }
     //현재배고픔
     public float CurrentHungry
     {
-        get => _player.AbilityData.currentHungry;
-        set => _player.AbilityData.currentHungry = value; 
+        get => _player.AbilityData.maxHungry;
+        set => _player.AbilityData.maxHungry = value; 
     }
     //최대배고픔수치
     public float MaxHungry
@@ -85,15 +97,16 @@ public class PlayerAbility : MonoSingleton<PlayerAbility>
     #region 능력치 증가 합수
     
     public void IncreaseAttack(float amount) => Attack += amount;
+    public void IncreaseHp(float amount) => Hp += amount;
     public void IncreaseSpeed(float amount) => Speed += amount;
     public void IncreaseDodge(float amount) => Dodge += amount;
     public void IncreaseAccuracy(float amount) => Accuracy += amount;
     public void IncreaseEscape(float amount) => Escape += amount;
     public void IncreaseCritical(float amount) => Critical += amount;
     public void IncreaseCriticalAttack(float amount) => CriticalAttack += amount;
-    public void IncreaseCurrentHp(float amount) => CurrentHp += amount;
+    public void IncreaseCurrentHp(float amount) => Hp += amount;
     public void IncreaseMaxHealth(float amount) => MaxHealth += amount;
-    public void IncreaseCurrentHungry(float amount) => CurrentHungry += amount;
+    public void IncreaseCurrentHungry(float amount) => Hungry += amount;
     public void IncreaseMaxHungry(float amount) => MaxHungry += amount;
     public void IncreaseDamageDown(float amount) => DamageDown += amount;
 

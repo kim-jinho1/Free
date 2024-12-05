@@ -12,7 +12,7 @@ public class Map : MonoSingleton<Map>
     public GameObject _enemy;
     private void Start()
     {
-        GameObject en =  Instantiate(_enemies[0],_rightEnemypos);
+        GameObject en = Instantiate(_enemies[0], _rightEnemypos);
         en.transform.Rotate(0, 180, 0);
         _enemy = en;
         en.SetActive(false);

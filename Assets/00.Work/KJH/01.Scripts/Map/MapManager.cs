@@ -3,13 +3,6 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-[Serializable]
-public class MapGroup
-{
-    public int floor;
-    public MapType mapType;
-}
-
 public enum MapType
 {
     MiddleBossMap,
@@ -27,13 +20,11 @@ public class MapManager : MonoSingleton<MapManager>
     
     [SerializeField] private Player _player;
     
-    [SerializeField] private List<MapGroup> _maps = new();
 
     [SerializeField] public GameObject mapPanel;
 
     private int _mapScale = 50;
-    
-    private Dictionary<int, MapType> _map = new();
+
     public int _currentFloor;
 
     public List<GameObject> tower = new(); 
@@ -41,11 +32,6 @@ public class MapManager : MonoSingleton<MapManager>
     private void Awake()
     {
         CreateMap();
-        _maps.Clear();
-        foreach (var entry in _map)
-        {
-            _maps.Add(new MapGroup { floor = entry.Key, mapType = entry.Value });
-        }
     }
 
     private void Start()
@@ -83,19 +69,6 @@ public class MapManager : MonoSingleton<MapManager>
         tower.Add(map);
     }
     
-    public  void MoveToFloor(int floor)
-    {
-        if (!_map.ContainsKey(floor))
-        {
-            Debug.LogWarning($"Floor {floor} does not exist.");
-            return;
-        }
-
-        _currentFloor = floor;
-        
-        UpdateFloorUI(floor);
-    }
-
     public void ChangeFloor(bool isChange)
     {
         if (isChange)
@@ -104,6 +77,7 @@ public class MapManager : MonoSingleton<MapManager>
             _currentFloor++;
             tower[_currentFloor].SetActive(true);
             _player.CurrentFloor = _currentFloor;
+            Debug.Log($"CurrentFloor : {_currentFloor}");
         }
         else
         {
@@ -111,6 +85,7 @@ public class MapManager : MonoSingleton<MapManager>
             _currentFloor--;
             tower[_currentFloor].SetActive(true);
             _player.CurrentFloor = _currentFloor;
+            Debug.Log($"CurrentFloor : {_currentFloor}");
         }
     }
     private void UpdateFloorUI(int floor)

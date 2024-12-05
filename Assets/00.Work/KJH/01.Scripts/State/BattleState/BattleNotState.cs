@@ -13,7 +13,7 @@ public class BattleNotState : BattleState
         Enemy_JH.OnClick += Battle;
     }
 
-    private void Battle(GameObject obj)
+    private new void Battle(GameObject obj)
     {
         battle.target = obj;
         StateMachine.ChangeState(BattleStateEnum.StartState);

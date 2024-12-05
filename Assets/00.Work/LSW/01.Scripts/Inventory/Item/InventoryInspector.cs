@@ -55,17 +55,20 @@ public class InventoryInspector : MonoBehaviour
 
     public void InspectorButton()
     {
-        if (InventoryManager.Instance._inspector.activeSelf && mainSlot._slotData.state != State.Empty)
+        if(mainSlot != null)
         {
-            if (mainSlot._slotData.itemData.itemType == itemType.Equip)
-                if (mainSlot._slotData.equip)
-                    UnEquip(mainSlot);
-                else
-                    EquipItem();
-            if (mainSlot._slotData.itemData.itemType == itemType.Healing)
-                HealItem();
-            if (mainSlot._slotData.itemData.itemType == itemType.Using)
-                UseItem();
+            if (InventoryManager.Instance._inspector.activeSelf && mainSlot._slotData.state != State.Empty)
+            {
+                if (mainSlot._slotData.itemData.itemType == itemType.Equip)
+                    if (mainSlot._slotData.equip)
+                        UnEquip(mainSlot);
+                    else
+                        EquipItem();
+                if (mainSlot._slotData.itemData.itemType == itemType.Healing)
+                    HealItem();
+                if (mainSlot._slotData.itemData.itemType == itemType.Using)
+                    UseItem();
+            }
         }
     }
 
@@ -77,33 +80,14 @@ public class InventoryInspector : MonoBehaviour
 
     public void EquipItem()
     {
-        if (!mainSlot._slotData.equip)
-        {
-            List<Slot> equipSlot = InventoryManager.Instance._equipSlots;
-            if (!equipSlot.Exists(slot => slot._slotData.itemData.itemType == itemType.Equip                               //같은 Equip타입의 장착중인 아이템이 존재할 때
-                && slot._slotData.itemData.equipType == mainSlot._slotData.itemData.equipType))
-            {
-                mainSlot._slotData.equip = InventoryManager.Instance.EquipItem(mainSlot);
-            }
-            else
-            {
-                Slot sameSlot = equipSlot.Find(slot => slot._slotData.itemData.itemType == itemType.Equip
-                && slot._slotData.itemData.equipType == mainSlot._slotData.itemData.equipType);
-
-                sameSlot._slotData.equip = InventoryManager.Instance.UnEquipItem(sameSlot);
-                mainSlot._slotData.equip = InventoryManager.Instance.EquipItem(mainSlot);
-            }
-        }
+        InventoryManager.Instance.Equip(mainSlot);
         Disable();
     }
 
     public void UnEquip(Slot slot)
     {
-        if(slot._slotData.equip)
-        {
-            InventoryManager.Instance.UnEquipItem(slot);
-            Disable();
-        }
+        InventoryManager.Instance.UnEquipItem(slot);
+        Disable();
     }
 
     private void HealItem()

@@ -1,10 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class GameComplete_CameraTarget : MonoBehaviour
 {
     private float _stopCameraPos_x;
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject == GameCompleteManager.Instance._stopCameraPos.gameObject)

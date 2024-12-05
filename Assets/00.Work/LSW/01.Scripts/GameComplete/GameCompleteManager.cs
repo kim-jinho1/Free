@@ -1,10 +1,7 @@
 using Cinemachine;
 using DG.Tweening;
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -22,6 +19,7 @@ public class GameCompleteManager : MonoSingleton<GameCompleteManager>
     public GameObject _stopCameraPos, _portal;
 
     public bool _isCameraStop;
+    private bool _isMove;
 
     private void Awake()
     {
@@ -36,21 +34,30 @@ public class GameCompleteManager : MonoSingleton<GameCompleteManager>
     private void FirstAction()
     {
         _animator.SetBool("Run", true);
-        _player.transform.position = Vector2.MoveTowards(_player.transform.position,                    //여긴 dotween 안 씀(자연스러운 이동X)
-            new Vector2(_movePoints[0].position.x, _player.transform.position.y), 2f * Time.deltaTime);
+        _isMove = true;
     }
 
     public void SecondAction()
     {
         _animator.SetBool("Run", false);
+        _isMove = false;
         _isCameraStop = false;
         Invoke("ThirdAction", 1.5f);
     }
 
     private void ThirdAction()
     {
-        _player.transform.DOMoveY(_movePoints[1].position.y, 1f);
         _player.transform.DOMoveX(_movePoints[1].position.x, 1f);
+        _animator.SetBool("Run", true);
+    }
+
+    private void Update()
+    {
+        if(_isMove)
+        {
+            _player.transform.position = Vector2.MoveTowards(_player.transform.position,                    //여긴 dotween 안 씀(자연스러운 이동X)
+                new Vector2(_movePoints[0].position.x, _player.transform.position.y), 2f * Time.deltaTime);
+        }
     }
 
     public void ForthAction()
@@ -79,6 +86,7 @@ public class GameCompleteManager : MonoSingleton<GameCompleteManager>
 
     private void SixAction()
     {
+        _animator.SetBool("Run", false);
         _player.GetComponentInChildren<SpriteRenderer>().flipX = true;
         StartCoroutine(Coroutine(2f));
         SevenAction();
@@ -87,6 +95,7 @@ public class GameCompleteManager : MonoSingleton<GameCompleteManager>
     private void SevenAction()
     {
         _player.GetComponentInChildren<SpriteRenderer>().flipX = false;
+        _animator.SetBool("Run", true);
         _player.transform.DOMoveX(_movePoints[2].position.x, 5f);
         _isCameraStop = true;
         GameEnded();
@@ -95,7 +104,10 @@ public class GameCompleteManager : MonoSingleton<GameCompleteManager>
 
     private void Quit()
     {
-        SceneManager.LoadScene(_mainMenuSceneNum);
+        _darkPanel.DOFade(1f, 1.5f).OnComplete(() =>
+        {
+            SceneManager.LoadScene(_mainMenuSceneNum);
+        });
     }
 
     private void GameEnded()

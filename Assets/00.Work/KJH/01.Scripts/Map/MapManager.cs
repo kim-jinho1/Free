@@ -29,12 +29,14 @@ public class MapManager : MonoSingleton<MapManager>
     
     [SerializeField] private List<MapGroup> _maps = new();
 
+    [SerializeField] public GameObject mapPanel;
+
     private int _mapScale = 50;
     
     private Dictionary<int, MapType> _map = new();
     public int _currentFloor;
 
-    public List<GameObject> tower = new List<GameObject>(); 
+    public List<GameObject> tower = new(); 
         
     private void Awake()
     {

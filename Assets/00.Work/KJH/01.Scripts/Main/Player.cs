@@ -21,7 +21,7 @@ public class Player : MonoBehaviour
     public Transform CenterPosition { get; set; }
     public int CurrentFloor { get; set; }
 
-    private PlayerStateMachine StateMachine { get; set; }
+    public PlayerStateMachine StateMachine { get; set; }
     
     public Collider2D Collider { get;  set; }
 

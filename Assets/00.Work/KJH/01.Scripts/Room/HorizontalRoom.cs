@@ -35,11 +35,13 @@ public class HorizontalRoom : MonoBehaviour
     
     public void EnterRoom()
     {
+        Map.Instance._enemy.SetActive(true);
         _isEntered = true;
     }
 
     public void ExitRoom()
     {
+        Map.Instance._enemy.SetActive(false);
         _isExiting = true;
     }
 

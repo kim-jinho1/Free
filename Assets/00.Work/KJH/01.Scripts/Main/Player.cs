@@ -18,6 +18,7 @@ public class Player : MonoBehaviour
     public Rigidbody2D Rigid { get; private set; }
     
     public bool IsCenter {get; set;}
+    public int CurrentRoom { get; set; }
     public Transform CenterPosition { get; set; }
     public int CurrentFloor { get; set; }
 
@@ -29,9 +30,11 @@ public class Player : MonoBehaviour
 
     private void Awake()
     {
+
         Animator = GetComponentInChildren<Animator>();
         Rigid = GetComponent<Rigidbody2D>();
         StateMachine = new PlayerStateMachine();
+
         StateMachine.AddState(PlayerStateEnum.Idle, new PlayerIdleState(this, StateMachine, "Idle"));
         StateMachine.AddState(PlayerStateEnum.Attack, new PlayerAttackState(this, StateMachine, "Attack"));
         StateMachine.AddState(PlayerStateEnum.HorizontalMove, new PlayerHorizontalMoveState(this, StateMachine, "HorizontalMove"));
@@ -43,11 +46,12 @@ public class Player : MonoBehaviour
     private void Start()
     {
         StateMachine.Initialize(PlayerStateEnum.Idle);
-        Reset();
+        PlayerReset();
     }
 
-    private void Reset()
+    private void PlayerReset()
     {
+        CurrentRoom = 0;
         CurrentFloor = 1;
         CenterPosition = _pos;
         IsCenter = true;

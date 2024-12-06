@@ -8,7 +8,7 @@ public class HorizontalRoom : MonoBehaviour
     public static Action OnClick;
     public bool _isEntered = false;
     public bool _isExiting = false;
-    
+
     private Image _image;
 
     private void Awake()
@@ -32,7 +32,7 @@ public class HorizontalRoom : MonoBehaviour
             SettingRoom();
         }
     }
-    
+
     public void EnterRoom()
     {
         Map.Instance._enemy.SetActive(true);
@@ -52,7 +52,7 @@ public class HorizontalRoom : MonoBehaviour
         color.a = 0.95f;
         _image.color = color;
     }
-    
+
     private void ResetRoom()
     {
         var color = _image.color;
@@ -69,7 +69,6 @@ public class HorizontalRoom : MonoBehaviour
 
     public void OnHorizontalRoomClick()
     {
-        Debug.Log("11s");
         OnClick?.Invoke();
         OnMove?.Invoke(transform);
         EnterRoom();

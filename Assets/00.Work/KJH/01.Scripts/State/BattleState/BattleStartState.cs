@@ -30,7 +30,7 @@ public class BattleStartState : BattleState
         }
     }
 
-    public void Exit()
+    public void ExitState()
     {
         StateMachine.ChangeState(BattleStateEnum.MiddleState);
     }

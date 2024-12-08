@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class PlayerState
 {
-    public PlayerStateMachine StateMachine;
+    public static PlayerStateMachine StateMachine;
     public Player Player;
     public int AnimBoolHash;
 

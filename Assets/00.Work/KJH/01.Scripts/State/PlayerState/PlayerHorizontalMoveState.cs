@@ -15,8 +15,10 @@ public class PlayerHorizontalMoveState : PlayerState
     public override void Enter()
     {
         base.Enter();
-        HorizontalRoom.OnMove += Move;
-        VerticalRoom.OnMove += Move;
+        Debug.Log("enter state");
+        RightRoom.OnRightMove += Move;
+        LeftRoom.OnLeftMove += Move;
+        CenterRoom.OnCenterMove += Move;
     }
     private void Move(Transform target)
     {
@@ -31,8 +33,9 @@ public class PlayerHorizontalMoveState : PlayerState
     public override void Exit()
     {
         base.Exit();
-
-        HorizontalRoom.OnMove -= Move;
+        RightRoom.OnRightMove -= Move;
+        LeftRoom.OnLeftMove -= Move;
+        CenterRoom.OnCenterMove -= Move;
     }
 
 

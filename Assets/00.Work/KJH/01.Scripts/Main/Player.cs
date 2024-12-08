@@ -18,7 +18,9 @@ public class Player : MonoBehaviour
     public Rigidbody2D Rigid { get; private set; }
     
     public bool IsCenter {get; set;}
-    public int CurrentRoom { get; set; }
+
+    /// <summary>0이면 센터 1이면 오른쪽 2면 왼쪽</summary>
+    public static int CurrentRoom { get; set; }
     public Transform CenterPosition { get; set; }
     public int CurrentFloor { get; set; }
 
@@ -38,7 +40,6 @@ public class Player : MonoBehaviour
         StateMachine.AddState(PlayerStateEnum.Idle, new PlayerIdleState(this, StateMachine, "Idle"));
         StateMachine.AddState(PlayerStateEnum.Attack, new PlayerAttackState(this, StateMachine, "Attack"));
         StateMachine.AddState(PlayerStateEnum.HorizontalMove, new PlayerHorizontalMoveState(this, StateMachine, "HorizontalMove"));
-        StateMachine.AddState(PlayerStateEnum.VerticalMove, new PlayerVerticalMoveState(this, StateMachine, "VerticalMove"));
         StateMachine.AddState(PlayerStateEnum.UI, new PlayerUIState(this, StateMachine, "VerticalMove"));
         
     }

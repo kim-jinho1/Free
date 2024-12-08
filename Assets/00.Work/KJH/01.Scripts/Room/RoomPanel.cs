@@ -19,6 +19,7 @@ public class RoomPanel : MonoBehaviour
         {
             MapManager.Instance.ChangeFloor(false);
         }
+        PlayerUIState.UIExit();
         roomPanel.SetActive(false);
     }
     
@@ -30,6 +31,7 @@ public class RoomPanel : MonoBehaviour
         {
             MapManager.Instance.ChangeFloor(true);
         }
+        PlayerUIState.UIExit();
         roomPanel.SetActive(false);
     }
 }

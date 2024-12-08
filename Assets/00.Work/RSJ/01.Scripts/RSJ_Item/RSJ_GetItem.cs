@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class RSJ_GetItem : MonoBehaviour, IPointerClickHandler
+public class RSJ_GetItem : MonoBehaviour, IPointerClickHandler, IAttackAble
 {
     [SerializeField] private List<ItemData> _ItemList;
     private List<ItemData> _getItemList = new List<ItemData>();
@@ -51,5 +51,9 @@ public class RSJ_GetItem : MonoBehaviour, IPointerClickHandler
         return _getItemList[randomList];
     }
 
-   
+    public void AttackEnemy(EnemyData enemy, ItemData item)
+    {
+        Debug.Log("사용시 공격 가능");
+        //enemy -= item.AttackUp;
+    }
 }

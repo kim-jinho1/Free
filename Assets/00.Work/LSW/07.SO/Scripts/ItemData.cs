@@ -24,6 +24,10 @@ public class ItemData : ScriptableObject
     public float DodgeRateUp;
     public float HungerRateUp;
 
+    [Header("Use_Etc")]
+    public float Damage;
+
+
     [Header("Slot")]
     public int MaxDuplicateValue;
 }

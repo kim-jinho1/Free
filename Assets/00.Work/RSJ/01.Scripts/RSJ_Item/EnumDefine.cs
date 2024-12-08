@@ -4,8 +4,9 @@ public enum ItemSort
 {
     None,
     Equip,
-    Use,
-    Heal
+    Attack,
+    Heal,
+    PurifyDebuff
 }
 
 public enum ItemGrade
@@ -16,6 +17,5 @@ public enum ItemGrade
     Hero,
     Myth
 }
-
 
 

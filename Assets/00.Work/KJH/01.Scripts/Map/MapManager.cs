@@ -15,7 +15,8 @@ public class MapManager : MonoSingleton<MapManager>
 {
     [Header("UI Elements")]
     [SerializeField] private Transform contentParent;
-    [SerializeField] private GameObject pool;
+    [SerializeField] private GameObject _mapPool;
+    [SerializeField] public GameObject _enemyPool;
 
 
     [SerializeField] private Player _player;
@@ -64,7 +65,7 @@ public class MapManager : MonoSingleton<MapManager>
 
     private void MapBuild(int floor, MapType mapType)
     {
-        GameObject map = Instantiate(Towerbuild.Instance.BuildNormalFloor(), pool.transform);
+        GameObject map = Instantiate(Towerbuild.Instance.BuildNormalFloor(), _mapPool.transform);
         map.SetActive(false);
         tower.Add(map);
     }
@@ -77,7 +78,6 @@ public class MapManager : MonoSingleton<MapManager>
             _currentFloor++;
             tower[_currentFloor].SetActive(true);
             _player.CurrentFloor = _currentFloor;
-            Debug.Log($"CurrentFloor : {_currentFloor}");
         }
         else
         {
@@ -85,7 +85,6 @@ public class MapManager : MonoSingleton<MapManager>
             _currentFloor--;
             tower[_currentFloor].SetActive(true);
             _player.CurrentFloor = _currentFloor;
-            Debug.Log($"CurrentFloor : {_currentFloor}");
         }
     }
     private void UpdateFloorUI(int floor)

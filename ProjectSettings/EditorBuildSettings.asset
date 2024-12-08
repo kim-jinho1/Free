@@ -6,12 +6,15 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/00.Work/KJH/00.Scenes/Net.unity
-    guid: 5a13c6f1d8b76c24f84f2e3d09d407a4
+    path: Assets/00.Work/KJH/00.Scenes/Main.unity
+    guid: df1b584a1801bb74a863186234b910bd
   - enabled: 1
     path: Assets/00.Work/RSJ/00.Scenes/RSJScene.unity
     guid: 63be6679a54f3714b80c6c3f7d4d456d
   - enabled: 1
     path: Assets/00.Work/KJH/00.Scenes/MainGameScene.unity
     guid: 0ef7b08635330034c8fcf139d357fe50
+  - enabled: 1
+    path: Assets/00.Work/KJH/00.Scenes/New Scene.unity
+    guid: 4ea25c3ef87a8a0459b922145aeba618
   m_configObjects: {}

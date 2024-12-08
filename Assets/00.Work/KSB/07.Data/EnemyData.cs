@@ -22,14 +22,36 @@ public class EnemyData : MonoBehaviour
     private float bodyDamage;
     private float armDamage;
 
+    [Header("Passive Skill")]
+    public int powerUp;
+    public int dodgeUp;
+
+
     [Header("For Boss")]
     private int _mainSkillRng;
 
-    // Properties
+    private void Awake()
+    {
+        Hp = enemySO.hp;
+        Debug.Log(Hp);
+        AttackDamage = enemySO.attackDamage;
+        AttackSpeed = enemySO.attackSpeed;
+        AttackSucRate = enemySO.attackRate;
+
+        headRNG = enemySO.HeadRNG;
+        bodyRNG = enemySO.BodyRNG;
+        armRNG = enemySO.ArmRNG;
+
+        headDamage = enemySO.HeadDamage;
+        bodyDamage = enemySO.BodyDamage;
+        armDamage = enemySO.ArmDamage;
+
+        _mainSkillRng = enemySO.MainSkillRng;
+    }
     public int Hp
     {
         get => _hp;
-        set => _hp = Mathf.Max(0, value); // Ensure HP is not less than 0
+        set => _hp = Mathf.Max(0, value); 
     }
 
     public float AttackDamage
@@ -51,9 +73,7 @@ public class EnemyData : MonoBehaviour
         }
 
     }
-    /* 선공 후공 결정을 매턴마다 플레이어와 에너미의 AttackSpeed를
-    비교해서 나중에 공속 증가 버프가 들어오면 선공 후공 변경이 가능하게
-    그리고 나중에 구현할 reverse 스테이지도 이걸로 가능할 거 같음*/
+   
     public float AttackSpeed
     {
         get
@@ -91,28 +111,12 @@ public class EnemyData : MonoBehaviour
             }
         }
     }
-
-
-
-    private void Start()
+    public void ActivatePassiveSkill()
     {
-        Hp = enemySO.hp;
-        Debug.Log(Hp);
-        AttackDamage = enemySO.attackDamage;
-        AttackSpeed = enemySO.attackSpeed;
-        AttackSucRate = enemySO.attackRate;
-
-        headRNG = enemySO.HeadRNG;
-        bodyRNG = enemySO.BodyRNG;
-        armRNG = enemySO.ArmRNG;
-
-        headDamage = enemySO.HeadDamage;
-        bodyDamage = enemySO.BodyDamage;
-        armDamage = enemySO.ArmDamage;
-
-        _mainSkillRng = enemySO.MainSkillRng;
+        headRNG *= (1 - dodgeUp / 100);
+        bodyRNG *= (1 - dodgeUp / 100);
+        armRNG *= (1 - dodgeUp / 100);
     }
-
     public (float Damage, int Rng) GetData(AttackPart attackPart)
     {
         switch (attackPart)

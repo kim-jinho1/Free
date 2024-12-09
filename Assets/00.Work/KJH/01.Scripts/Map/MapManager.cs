@@ -1,6 +1,4 @@
-using System;
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 
 public enum MapType
@@ -17,6 +15,7 @@ public class MapManager : MonoSingleton<MapManager>
     [SerializeField] private Transform contentParent;
     [SerializeField] private GameObject _mapPool;
     [SerializeField] public GameObject _enemyPool;
+    [SerializeField] public GameObject _battlePanel;
 
 
     [SerializeField] private Player _player;
@@ -86,10 +85,5 @@ public class MapManager : MonoSingleton<MapManager>
             tower[_currentFloor].SetActive(true);
             _player.CurrentFloor = _currentFloor;
         }
-    }
-    private void UpdateFloorUI(int floor)
-    {
-        foreach (Transform child in contentParent)
-            Destroy(child.gameObject);
     }
 }

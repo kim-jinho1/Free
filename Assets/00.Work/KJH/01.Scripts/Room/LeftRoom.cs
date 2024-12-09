@@ -47,7 +47,6 @@ public class LeftRoom : MonoBehaviour
 
     private void StartRoom()
     {
-        Debug.Log("StartRoom");
         var color = _image.color;
         color.a = 0.95f;
         _image.color = color;

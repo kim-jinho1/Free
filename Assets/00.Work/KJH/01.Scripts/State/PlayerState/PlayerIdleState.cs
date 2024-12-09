@@ -17,7 +17,6 @@ public class PlayerIdleState : PlayerState
 
     private void CheckRoom()
     {
-        Debug.Log("enter state");
         StateMachine.ChangeState(PlayerStateEnum.HorizontalMove);
         Player.IsCenter = false;
     }

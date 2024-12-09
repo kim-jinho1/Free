@@ -15,7 +15,6 @@ public class PlayerHorizontalMoveState : PlayerState
     public override void Enter()
     {
         base.Enter();
-        Debug.Log("enter state");
         RightRoom.OnRightMove += Move;
         LeftRoom.OnLeftMove += Move;
         CenterRoom.OnCenterMove += Move;

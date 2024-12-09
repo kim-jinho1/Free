@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2667831185196212911}
   - component: {fileID: 1272966226841385458}
   - component: {fileID: 490318778131495278}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -124,7 +124,7 @@ GameObject:
   - component: {fileID: 940454695783168602}
   - component: {fileID: 3827755333870022072}
   - component: {fileID: 6377758303535756203}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -138,12 +138,13 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2031437937807308932}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.2369001, y: 6.0988097, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 8001698009344310444}
+  m_Children:
+  - {fileID: 8001698009344310444}
+  m_Father: {fileID: 8552788991613158456}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -171,7 +172,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -266,7 +267,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8552788991613158456}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: Enemy1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -285,7 +286,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 8001698009344310444}
+  - {fileID: 7214154235280460831}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -304,7 +305,7 @@ GameObject:
   - component: {fileID: 8001698009344310444}
   - component: {fileID: 5834196800836709958}
   - component: {fileID: 7332270793915628280}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -318,20 +319,19 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6082777751497103540}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.8084727, y: 0.16396642, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 7214154235280460831}
   - {fileID: 649287878089705472}
   - {fileID: 8570878574170298206}
   - {fileID: 8369978187262741051}
-  m_Father: {fileID: 8552788991613158456}
+  m_Father: {fileID: 7214154235280460831}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 2.2791371}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &5834196800836709958
@@ -376,7 +376,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8369978187262741051}
   - component: {fileID: 5678152006776223276}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: data
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -426,7 +426,7 @@ GameObject:
   - component: {fileID: 5540876504111472916}
   - component: {fileID: 6687116923833676662}
   - component: {fileID: 8445831510728284017}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: state
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -1,29 +1,33 @@
 using UnityEngine;
-using UnityEngine.Serialization;
 
 public class Towerbuild : MonoSingleton<Towerbuild>
 {
-    [SerializeField] private GameObject[] normalFloors; 
-    [SerializeField] private GameObject[] eventFloors;
+    [SerializeField] private GameObject[] _normalFloors; 
+    [SerializeField] private GameObject[] _eventFloors;
+    [SerializeField] private GameObject[] _middleBosFloors;
+    [SerializeField] private GameObject[] _finalBossFloors;
     
     public GameObject BuildEventFloor()
     {
-        return eventFloors[0];
+        int rand = Random.Range(0, _eventFloors.Length);
+        return _eventFloors[rand];
     }
     
     public GameObject BuildNormalFloor()
     {
-        
-        return normalFloors[0];
+        int rand = Random.Range(0, _normalFloors.Length);
+        return _normalFloors[rand];
     }
     
-    public void BuildFinalBossFloor()
+    public GameObject BuildFinalBossFloor()
     {
-        
+        int rand = Random.Range(0, _finalBossFloors.Length);
+        return _finalBossFloors[rand];
     }
     
-    public void BuildMiddleBossFloor()
+    public GameObject BuildMiddleBossFloor()
     {
-        
+        int rand = Random.Range(0, _middleBosFloors.Length);
+        return _middleBosFloors[rand];
     }
 }

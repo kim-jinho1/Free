@@ -1321,6 +1321,11 @@ MonoBehaviour:
   _centerEnemyPos: {fileID: 5121044484084123553}
   _leftEnemypos: {fileID: 7706848936607681398}
   _rightEnemypos: {fileID: 1061486258070868026}
+  _floor: {fileID: 7304392940128019278}
   _enemies:
   - {fileID: 3977259927036062991, guid: 04d31fcfa884e804a891d3af980c4789, type: 3}
+  Room:
+  - {fileID: 855415652343022216}
+  - {fileID: 1602846491234031477}
+  - {fileID: 4681421286194134240}
   _enemy: {fileID: 0}

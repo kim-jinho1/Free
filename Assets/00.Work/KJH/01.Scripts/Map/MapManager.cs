@@ -17,9 +17,7 @@ public class MapManager : MonoSingleton<MapManager>
     [SerializeField] public GameObject _enemyPool;
     [SerializeField] public GameObject _battlePanel;
 
-
     [SerializeField] private Player _player;
-
 
     [SerializeField] public GameObject mapPanel;
 

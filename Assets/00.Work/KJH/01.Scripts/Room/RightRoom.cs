@@ -4,10 +4,13 @@ using UnityEngine.UI;
 
 public class RightRoom : MonoBehaviour
 {
+    [SerializeField] private Transform _enemyPos;
+
     public static Action<Transform> OnRightMove;
     public static Action OnRightClick;
     public bool _isEntered = false;
     public bool _isExiting = false;
+    private Map _map = Map.Instance;
 
     private Image _image;
 

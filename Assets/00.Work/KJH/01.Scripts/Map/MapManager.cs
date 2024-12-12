@@ -1,14 +1,5 @@
-using System;
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
-
-[Serializable]
-public class MapGroup
-{
-    public int floor;
-    public MapType mapType;
-}
 
 public enum MapType
 {
@@ -22,28 +13,25 @@ public class MapManager : MonoSingleton<MapManager>
 {
     [Header("UI Elements")]
     [SerializeField] private Transform contentParent;
-    [SerializeField] private GameObject pool;
+    [SerializeField] private GameObject _mapPool;
+    [SerializeField] public GameObject _enemyPool;
+    [SerializeField] public GameObject _battlePanel;
 
-    
+
     [SerializeField] private Player _player;
-    
-    [SerializeField] private List<MapGroup> _maps = new();
+
+
+    [SerializeField] public GameObject mapPanel;
 
     private int _mapScale = 50;
-    
-    private Dictionary<int, MapType> _map = new();
+
     public int _currentFloor;
 
-    public List<GameObject> tower = new List<GameObject>(); 
-        
+    public List<GameObject> tower = new();
+
     private void Awake()
     {
         CreateMap();
-        _maps.Clear();
-        foreach (var entry in _map)
-        {
-            _maps.Add(new MapGroup { floor = entry.Key, mapType = entry.Value });
-        }
     }
 
     private void Start()
@@ -51,7 +39,7 @@ public class MapManager : MonoSingleton<MapManager>
         _currentFloor = _player.CurrentFloor;
         tower[_currentFloor].SetActive(true);
     }
-    
+
     private void CreateMap()
     {
         int scale = 0;
@@ -68,7 +56,7 @@ public class MapManager : MonoSingleton<MapManager>
                 MapBuild(floor, MapType.EventMap);
             else
                 MapBuild(floor, MapType.NormalMap);
-            
+
             floor++;
             scale++;
         }
@@ -76,22 +64,9 @@ public class MapManager : MonoSingleton<MapManager>
 
     private void MapBuild(int floor, MapType mapType)
     {
-        GameObject map = Instantiate(Towerbuild.Instance.BuildNormalFloor(), pool.transform);
+        GameObject map = Instantiate(Towerbuild.Instance.BuildNormalFloor(), _mapPool.transform);
         map.SetActive(false);
         tower.Add(map);
-    }
-    
-    public  void MoveToFloor(int floor)
-    {
-        if (!_map.ContainsKey(floor))
-        {
-            Debug.LogWarning($"Floor {floor} does not exist.");
-            return;
-        }
-
-        _currentFloor = floor;
-        
-        UpdateFloorUI(floor);
     }
 
     public void ChangeFloor(bool isChange)
@@ -110,10 +85,5 @@ public class MapManager : MonoSingleton<MapManager>
             tower[_currentFloor].SetActive(true);
             _player.CurrentFloor = _currentFloor;
         }
-    }
-    private void UpdateFloorUI(int floor)
-    {
-        foreach (Transform child in contentParent)
-            Destroy(child.gameObject);
     }
 }

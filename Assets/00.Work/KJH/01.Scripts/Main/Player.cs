@@ -18,10 +18,13 @@ public class Player : MonoBehaviour
     public Rigidbody2D Rigid { get; private set; }
     
     public bool IsCenter {get; set;}
+
+    /// <summary>0이면 센터 1이면 오른쪽 2면 왼쪽</summary>
+    public static int CurrentRoom { get; set; }
     public Transform CenterPosition { get; set; }
     public int CurrentFloor { get; set; }
 
-    private PlayerStateMachine StateMachine { get; set; }
+    public PlayerStateMachine StateMachine { get; set; }
     
     public Collider2D Collider { get;  set; }
 
@@ -29,24 +32,27 @@ public class Player : MonoBehaviour
 
     private void Awake()
     {
+
         Animator = GetComponentInChildren<Animator>();
         Rigid = GetComponent<Rigidbody2D>();
         StateMachine = new PlayerStateMachine();
+
         StateMachine.AddState(PlayerStateEnum.Idle, new PlayerIdleState(this, StateMachine, "Idle"));
         StateMachine.AddState(PlayerStateEnum.Attack, new PlayerAttackState(this, StateMachine, "Attack"));
         StateMachine.AddState(PlayerStateEnum.HorizontalMove, new PlayerHorizontalMoveState(this, StateMachine, "HorizontalMove"));
-        StateMachine.AddState(PlayerStateEnum.VerticalMove, new PlayerVerticalMoveState(this, StateMachine, "VerticalMove"));
+        StateMachine.AddState(PlayerStateEnum.UI, new PlayerUIState(this, StateMachine, "VerticalMove"));
         
     }
     
     private void Start()
     {
         StateMachine.Initialize(PlayerStateEnum.Idle);
-        Reset();
+        PlayerReset();
     }
 
-    private void Reset()
+    private void PlayerReset()
     {
+        CurrentRoom = 0;
         CurrentFloor = 1;
         CenterPosition = _pos;
         IsCenter = true;

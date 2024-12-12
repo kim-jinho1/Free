@@ -41,7 +41,7 @@ public class BattleMiddleState : BattleState
         Battle.OnEnemyAttack?.Invoke();
     }
 
-    public void Exit()
+    public void BattleEnd()
     {
         StateMachine.ChangeState(BattleStateEnum.EndState);
     }

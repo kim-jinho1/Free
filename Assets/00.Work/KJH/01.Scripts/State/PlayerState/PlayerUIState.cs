@@ -12,9 +12,10 @@ public class PlayerUIState : PlayerState
     public override void Enter()
     {
         base.Enter();
+        MapManager.Instance.mapPanel.SetActive(true);
     }
 
-    public void UIExit()
+    public static void UIExit()
     {
         StateMachine.ChangeState(PlayerStateEnum.Idle);
     }

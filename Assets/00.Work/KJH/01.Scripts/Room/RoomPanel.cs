@@ -13,19 +13,25 @@ public class RoomPanel : MonoBehaviour
 
     public void OnClickDown()
     {
-        if (currentFloor > 1) 
+        currentFloor = MapManager.Instance._currentFloor;
+
+        if (currentFloor > 1)
         {
-            MapManager.Instance.MoveToFloor(currentFloor--);
+            MapManager.Instance.ChangeFloor(false);
         }
+        PlayerUIState.UIExit();
         roomPanel.SetActive(false);
     }
     
     public void OnClickUp()
     {
-        if (currentFloor <= 50) 
+        currentFloor = MapManager.Instance._currentFloor;
+
+        if (currentFloor <= 50)
         {
-            MapManager.Instance.MoveToFloor(currentFloor++);
+            MapManager.Instance.ChangeFloor(true);
         }
+        PlayerUIState.UIExit();
         roomPanel.SetActive(false);
     }
 }

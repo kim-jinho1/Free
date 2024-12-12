@@ -13,6 +13,7 @@ public class GameCompleteManager : MonoSingleton<GameCompleteManager>
     [SerializeField] private GameObject _teleportPoint;
     [SerializeField] private Image _darkPanel;
     [SerializeField] private Animator _animator;
+    [SerializeField] private GameObject _clearUI, _clearTitle, _exitButton;
 
     public int _mainMenuSceneNum;
     public GameObject _player;
@@ -98,21 +99,25 @@ public class GameCompleteManager : MonoSingleton<GameCompleteManager>
         _animator.SetBool("Run", true);
         _player.transform.DOMoveX(_movePoints[2].position.x, 5f);
         _isCameraStop = true;
-        GameEnded();
+        _darkPanel.DOFade(1f, 1.5f);
         Invoke("Quit", 2f);
     }
 
     private void Quit()
     {
-        _darkPanel.DOFade(1f, 1.5f).OnComplete(() =>
+        _clearUI.GetComponent<Image>().DOFade(1f, 1.5f);
+        _clearTitle.GetComponent<Image>().DOFade(1f, 1.5f);
+        _exitButton.GetComponent<Image>().DOFade(1f, 1.5f);
+    }
+
+    public void ExitButton()
+    {
+        _clearTitle.GetComponent<Image>().DOFade(1f, 1.5f);
+        _exitButton.GetComponent<Image>().DOFade(1f, 1.5f);
+        _clearUI.GetComponent<Image>().DOFade(0f, 1.5f).OnComplete(() =>
         {
             SceneManager.LoadScene(_mainMenuSceneNum);
         });
-    }
-
-    private void GameEnded()
-    {
-        _darkPanel.DOFade(1f, 1.5f);
     }
 
     public IEnumerator Coroutine(float t)

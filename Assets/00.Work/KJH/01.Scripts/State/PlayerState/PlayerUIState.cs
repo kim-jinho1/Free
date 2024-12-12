@@ -15,7 +15,7 @@ public class PlayerUIState : PlayerState
         MapManager.Instance.mapPanel.SetActive(true);
     }
 
-    public void UIExit()
+    public static void UIExit()
     {
         StateMachine.ChangeState(PlayerStateEnum.Idle);
     }

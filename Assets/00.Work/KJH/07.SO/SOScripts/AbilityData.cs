@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-[CreateAssetMenu(fileName = "NewAbilityData", menuName = " Ability/AbilityData")]
+[CreateAssetMenu(fileName = "NewAbilityData", menuName = "Ability/AbilityData")]
 public class AbilityData : ScriptableObject
 {
     public string itemName;

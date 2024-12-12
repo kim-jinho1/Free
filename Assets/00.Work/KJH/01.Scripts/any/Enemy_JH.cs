@@ -8,6 +8,8 @@ public class Enemy_JH : MonoBehaviour
 
     public void OnBtnClick()
     {
+        Debug.Log("OnClick");
+        MapManager.Instance._battlePanel.SetActive(true);
         OnClick?.Invoke(enemy);
     }
 }

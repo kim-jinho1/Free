@@ -123,7 +123,7 @@ GameObject:
   - component: {fileID: 3220472789614399148}
   - component: {fileID: 5949586790427754658}
   - component: {fileID: 4939482050013906066}
-  - component: {fileID: 8157433389139461906}
+  - component: {fileID: 6116971751871440067}
   - component: {fileID: 6885091701760388934}
   - component: {fileID: 4925153278196936431}
   m_Layer: 5
@@ -234,9 +234,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8157433389139461906}
-        m_TargetAssemblyTypeName: HorizontalRoom, Assembly-CSharp
-        m_MethodName: OnHorizontalRoomClick
+      - m_Target: {fileID: 6116971751871440067}
+        m_TargetAssemblyTypeName: LeftRoom, Assembly-CSharp
+        m_MethodName: OnLeftRoomClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -246,7 +246,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &8157433389139461906
+--- !u!114 &6116971751871440067
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -255,7 +255,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 855415652343022216}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9dbed551fc0b04347a6f0e01671404f8, type: 3}
+  m_Script: {fileID: 11500000, guid: dc46661359fd8334a80c5f56ec9b1063, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _isEntered: 0
@@ -344,7 +344,7 @@ GameObject:
   - component: {fileID: 428043855392055210}
   - component: {fileID: 2357072524472750938}
   - component: {fileID: 235340440201577711}
-  - component: {fileID: 6606616519266960798}
+  - component: {fileID: 6756510752035929730}
   - component: {fileID: 6347273948404569684}
   - component: {fileID: 5471818512205296944}
   m_Layer: 5
@@ -455,9 +455,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6606616519266960798}
-        m_TargetAssemblyTypeName: VerticalRoom, Assembly-CSharp
-        m_MethodName: OnVerticalRoomClick
+      - m_Target: {fileID: 6756510752035929730}
+        m_TargetAssemblyTypeName: CenterRoom, Assembly-CSharp
+        m_MethodName: OnCenterRoomClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -467,7 +467,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &6606616519266960798
+--- !u!114 &6756510752035929730
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -476,10 +476,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1602846491234031477}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 13b7e7eb6469220469ab7cf3ddc65d37, type: 3}
+  m_Script: {fileID: 11500000, guid: b3fb67347d4683e4fa3ef3078e624c0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isEntered: 0
+  _isEntered: 1
   _isExiting: 0
 --- !u!61 &6347273948404569684
 BoxCollider2D:
@@ -751,7 +751,7 @@ GameObject:
   - component: {fileID: 15729639829222492}
   - component: {fileID: 8275569842688523319}
   - component: {fileID: 3241056329212403608}
-  - component: {fileID: 8131627151637235219}
+  - component: {fileID: 745265521528441342}
   - component: {fileID: 7176750772650390311}
   - component: {fileID: 3382764909914869220}
   m_Layer: 5
@@ -862,9 +862,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8131627151637235219}
-        m_TargetAssemblyTypeName: HorizontalRoom, Assembly-CSharp
-        m_MethodName: OnHorizontalRoomClick
+      - m_Target: {fileID: 745265521528441342}
+        m_TargetAssemblyTypeName: RightRoom, Assembly-CSharp
+        m_MethodName: OnRightRoomClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -874,7 +874,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &8131627151637235219
+--- !u!114 &745265521528441342
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -883,7 +883,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4681421286194134240}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9dbed551fc0b04347a6f0e01671404f8, type: 3}
+  m_Script: {fileID: 11500000, guid: fe7528889f9c1624788590c1f44ff1a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _isEntered: 0
@@ -1236,7 +1236,7 @@ GameObject:
   - component: {fileID: 1725293178711802210}
   - component: {fileID: 6967464727145131541}
   m_Layer: 5
-  m_Name: NormalMap
+  m_Name: Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1323,3 +1323,4 @@ MonoBehaviour:
   _rightEnemypos: {fileID: 1061486258070868026}
   _enemies:
   - {fileID: 3977259927036062991, guid: 04d31fcfa884e804a891d3af980c4789, type: 3}
+  _enemy: {fileID: 0}

@@ -1673,7 +1673,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!224 &617624357
 RectTransform:
@@ -2242,6 +2242,7 @@ MonoBehaviour:
   contentParent: {fileID: 419249748}
   _mapPool: {fileID: 202898496}
   _enemyPool: {fileID: 1297037289}
+  _battlePanel: {fileID: 2094844988}
   _player: {fileID: 1875677447}
   mapPanel: {fileID: 301114329}
   _currentFloor: 0
@@ -2258,9 +2259,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f237548fe6701ec4dbc1ea2c25af7683, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  normalFloors:
+  _normalFloors:
   - {fileID: 8357705307607891797, guid: 65025ef96c7f1a94c9b40e124fde14e9, type: 3}
-  eventFloors: []
+  _eventFloors: []
+  _middleBosFloors: []
+  _finalBossFloors: []
 --- !u!1 &824305201
 GameObject:
   m_ObjectHideFlags: 0

@@ -35,20 +35,22 @@ public class LeftRoom : MonoBehaviour
 
     public void EnterRoom()
     {
-        Map.Instance._enemy.SetActive(true);
-        _isEntered = true;
+        var color = _image.color;
+        color.a = 0f;
+        _image.color = color;
     }
 
     public void ExitRoom()
     {
-        Map.Instance._enemy.SetActive(false);
-        _isExiting = true;
+        var color = _image.color;
+        color.a = 0.5f;
+        _image.color = color;
     }
 
     private void StartRoom()
     {
         var color = _image.color;
-        color.a = 0.95f;
+        color.a = 1f;
         _image.color = color;
     }
 

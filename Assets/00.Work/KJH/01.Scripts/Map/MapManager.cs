@@ -13,7 +13,7 @@ public class MapManager : MonoSingleton<MapManager>
 {
     [Header("UI Elements")]
     [SerializeField] private Transform contentParent;
-    [SerializeField] private GameObject _mapPool;
+    [SerializeField] public GameObject _mapPool;
     [SerializeField] public GameObject _enemyPool;
     [SerializeField] public GameObject _battlePanel;
 
@@ -62,9 +62,7 @@ public class MapManager : MonoSingleton<MapManager>
 
     private void MapBuild(int floor, MapType mapType)
     {
-        GameObject map = Instantiate(Towerbuild.Instance.BuildNormalFloor(), _mapPool.transform);
-        map.SetActive(false);
-        tower.Add(map);
+         Towerbuild.Instance.Tower(floor, mapType);
     }
 
     public void ChangeFloor(bool isChange)

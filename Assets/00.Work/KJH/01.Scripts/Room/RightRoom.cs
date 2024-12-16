@@ -2,23 +2,23 @@ using System;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class RightRoom : MonoBehaviour
+public class RightRoom : MonoBehaviour , IMap
 {
+    [SerializeField] private Transform _enemyPos;
+
     public static Action<Transform> OnRightMove;
     public static Action OnRightClick;
     public bool _isEntered = false;
     public bool _isExiting = false;
+    public GameObject _enemy;
+
+    public int floor;
 
     private Image _image;
 
     private void Awake()
     {
         _image = GetComponent<Image>();
-    }
-
-    private void Start()
-    {
-        StartRoom();
     }
 
     private void Update()
@@ -29,26 +29,23 @@ public class RightRoom : MonoBehaviour
         }
         else if (_isEntered && _isExiting)
         {
-            SettingRoom();
+            ExitRoom();
         }
     }
 
     public void EnterRoom()
     {
-        Map.Instance._enemy.SetActive(true);
-        _isEntered = true;
+        _enemy.SetActive(true);
+        var color = _image.color;
+        color.a = 0f;
+        _image.color = color;
     }
 
     public void ExitRoom()
     {
-        Map.Instance._enemy.SetActive(false);
-        _isExiting = true;
-    }
 
-    private void StartRoom()
-    {
         var color = _image.color;
-        color.a = 0.95f;
+        color.a = 0.5f;
         _image.color = color;
     }
 
@@ -59,17 +56,21 @@ public class RightRoom : MonoBehaviour
         _image.color = color;
     }
 
-    private void SettingRoom()
-    {
-        var color = _image.color;
-        color.a = 0.4f;
-        _image.color = color;
-    }
+
 
     public void OnRightRoomClick()
     {
         OnRightClick?.Invoke();
         OnRightMove?.Invoke(transform);
         EnterRoom();
+    }
+
+    void IMap.SettingRoom(int a,GameObject en)
+    {
+        floor = a;
+        _enemy = en;
+        var color = _image.color;
+        color.a = 1f;
+        _image.color = color;
     }
 }

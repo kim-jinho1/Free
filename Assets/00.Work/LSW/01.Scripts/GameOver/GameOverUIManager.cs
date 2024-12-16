@@ -12,12 +12,7 @@ public class GameOverUIManager : MonoSingleton<GameOverUIManager>
     [SerializeField] private GameObject _gameOverUIPanel, _exitButton, _restartButton;
     [SerializeField] private GameObject _alpha;
 
-    private void Start()
-    {
-        _gameOverUIPanel.SetActive(false);
-    }
-
-    public void ShowGameOverUI()        //게임 오버 시 실행(어디서 실행하도록!!)
+    public void Awake()        //게임 오버 시 실행(어디서 실행하도록!!)
     {
         _gameOverUIPanel.SetActive(true);
         _exitButton.SetActive(false);

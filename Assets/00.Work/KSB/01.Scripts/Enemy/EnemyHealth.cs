@@ -73,6 +73,7 @@ public class EnemyHealth : MonoBehaviour
     {
         prePassiveTrigger = true;
         _enemy.enemyData.ActivatePassiveSkill();
+
       
     }
 }

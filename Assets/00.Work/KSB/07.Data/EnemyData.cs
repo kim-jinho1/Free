@@ -276,10 +276,15 @@ public class EnemyData : MonoBehaviour
     }
     public void ActivatePassiveSkill()
     {
+       
         HeadRNG -= (int)(headDamage * 0.5f);
-        BodyRNG -= (int)(_bodyRNG * 0.5f); ;
-        ArmRNG -= (int)(_armRNG * 0.5f); ;
-        _attackDamage += (int)(AttackDamage * 0.3f); ;
+        print(HeadRNG);
+        BodyRNG -= (int)(_bodyRNG * 0.5f);
+        print(BodyRNG);
+        ArmRNG -= (int)(_armRNG * 0.5f);
+        print(ArmRNG);
+        _attackDamage += (int)(AttackDamage * 0.3f);
+        print(_attackDamage);
     }
     public void Speed_Passive_Skill()
     {

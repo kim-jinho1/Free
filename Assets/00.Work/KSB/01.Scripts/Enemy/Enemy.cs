@@ -10,13 +10,11 @@ public class Enemy : MonoBehaviour
     public EnemyHealth enemyHealth;
     public bool myTurn = false;
     private void Awake()
-    {
-        
+    {    
         stateCompo = GetComponentInChildren<StateCompo>();
         animationCompo = GetComponentInChildren<AnimationCompo_SB>();
         enemyHealth = GetComponent<EnemyHealth>();
         enemyData = GetComponentInChildren<EnemyData>();
-
     }
     void Start()
     {
@@ -26,10 +24,6 @@ public class Enemy : MonoBehaviour
     void Update()
     {
         currentState.StateUpdate();
-        if (Input.GetMouseButtonDown(0))
-        {
-           HitTest();
-        }
     }
 
     private void FixedUpdate()
@@ -71,12 +65,5 @@ public class Enemy : MonoBehaviour
             return AnimationType.Attack;
         }
 
-    }
-
-    public void HitTest()
-    {
-        print("Èý");
-        enemyHealth.HpChange(10);
-        print(enemyHealth.GetCurrentHp());
     }
 }

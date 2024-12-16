@@ -44,7 +44,9 @@ public class AttackState_Enemy : Enemy_State
         print("Attack¡¢±Ÿ");
         _enemy.animationCompo.PlayAnimation(AnimationType.Attack);
         yield return new WaitForSeconds(_enemy.animationCompo.GetDuration("Attack"));
+        _enemy.enemyData.Hp_Passive_Skill();
         _enemy.TransitionState(_enemy.stateCompo.GetState(StateType.Idle));
+      
     }
     private void AttackMiss()
     {

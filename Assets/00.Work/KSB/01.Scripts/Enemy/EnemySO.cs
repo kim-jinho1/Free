@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "SO/Enemy", menuName = "SO/Enemy")]
@@ -24,6 +23,11 @@ public class EnemySO : ScriptableObject
     [Header("For Boss Enemy")]
     public int MainSkillRng;
     public int attackDamage2;
+
+    [Header("Passive_Skill_Rng")]
+    public int _attack_Passive_Rng;
+    public int _speed_Passive_Rng;
+
 
 }
 

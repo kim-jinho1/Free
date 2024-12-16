@@ -6,7 +6,7 @@ public class EnemySO : ScriptableObject
     [Header("EnemyNormalSetting")]
     public int hp;
     public float attackSpeed;
-    public float attackDamage;
+    public int attackDamage;
     public int attackRate;
 
 

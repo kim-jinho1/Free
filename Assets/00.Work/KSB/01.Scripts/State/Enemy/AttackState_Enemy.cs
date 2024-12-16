@@ -5,11 +5,9 @@ public class AttackState_Enemy : Enemy_State
 {
 
     private int attackSucRate;
-    Coroutine tempStatus;
-
-    protected override void EnterState()
+    protected override void EnterState() //attack 스테이트 실행될때 AttackTry메서드를 실행 시킴 
+                                         //만약  attackSucRate 확률에 따라 attack을 하거나 Miss가 남
     {
-        print("JdfLKSDkfn");
         attackSucRate = _enemy.enemyData.AttackSucRate;
         _enemy.myTurn = false;
 
@@ -22,17 +20,10 @@ public class AttackState_Enemy : Enemy_State
 
     private void AttackTry(int attackSucRng)
     {
-
-        if (tempStatus != null)
-        {
-            return;
-        }
         int Randnum = Random.Range(0, 100);
-
         if (Randnum < attackSucRng)
         {
-            tempStatus = StartCoroutine(Attack());
-            tempStatus = null;
+            StartCoroutine(Attack());
         }
         else
         {
@@ -44,6 +35,7 @@ public class AttackState_Enemy : Enemy_State
         print("Attack접근");
         _enemy.animationCompo.PlayAnimation(AnimationType.Attack);
         yield return new WaitForSeconds(_enemy.animationCompo.GetDuration("Attack"));
+        _enemy.enemyData.GetDamage(AnimationType.Attack);//이거 가지고 플레이어 데미지 감소
         _enemy.enemyData.Hp_Passive_Skill();
         _enemy.TransitionState(_enemy.stateCompo.GetState(StateType.Idle));
       

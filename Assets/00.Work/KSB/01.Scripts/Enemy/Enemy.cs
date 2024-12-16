@@ -18,7 +18,8 @@ public class Enemy : MonoBehaviour
     }
     void Start()
     {
-        TransitionState(stateCompo.GetState(StateType.Idle));
+        TransitionState(stateCompo.GetState(StateType.Idle));//시작할때 idle로 시작하거든 거기서 이 스크립트에 있는
+                                                           //myTurn을 true로 만들어 주면 Attack으로 넘어감
         print(enemyHealth.GetCurrentHp());
     }
     void Update()
@@ -53,7 +54,7 @@ public class Enemy : MonoBehaviour
 
     }
 
-    public AnimationType ChooseAttack(int mainAttackRate)
+    public AnimationType ChooseAttack(int mainAttackRate)//Attack이 2개인 보스들을 위한
     {
         int RanNum = Random.Range(0, 100);
         if (RanNum >= mainAttackRate)

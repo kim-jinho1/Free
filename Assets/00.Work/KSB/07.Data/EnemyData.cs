@@ -8,7 +8,7 @@ public class EnemyData : MonoBehaviour
     [Header("About normalSetting")]
     private int _hp;
     private int _fullHp;
-    private float _attackDamage;
+    private int _attackDamage;
     private float _attackSpeed;
     private int _attackSucRate;
     public bool _isStunned;
@@ -29,10 +29,14 @@ public class EnemyData : MonoBehaviour
        
 
     [Header("For Boss")]
-    private int _mainSkillRng;
-
+    private int _mainAttackRng;
+    private int _mainAttackDamage;
     private void Awake()
     {
+        _fullHp = enemySO.hp;
+        Hp = enemySO.hp;
+       
+      
         Attack_Passive_Rng = enemySO._attack_Passive_Rng;
         Speed_Passive_Rng = enemySO._speed_Passive_Rng;
      
@@ -48,16 +52,10 @@ public class EnemyData : MonoBehaviour
         bodyDamage = enemySO.BodyDamage;
         armDamage = enemySO.ArmDamage;
 
-        _mainSkillRng = enemySO.MainSkillRng;
+        _mainAttackRng = enemySO.MainSkillRng;
     }
 
-    private void Start()
-    {
-        Hp = enemySO.hp;
-        _fullHp = enemySO.hp;
-        Debug.Log(Hp);
-      
-    }
+  
     public int Hp
     {
         get => _hp;
@@ -68,13 +66,13 @@ public class EnemyData : MonoBehaviour
             {
                 _attackDamage = 0;
             }
-            else if(value < _fullHp)
+            else if(value > _fullHp)
             {
                 _attackDamage = _fullHp;
             }
             else
             {
-                Hp = value;
+                _hp = value;
             }
         }
     }
@@ -149,7 +147,7 @@ public class EnemyData : MonoBehaviour
         }
 
     }
-    public float AttackDamage
+    public int AttackDamage
     {
         get
         {
@@ -169,6 +167,25 @@ public class EnemyData : MonoBehaviour
 
     }
 
+    public  int MainAttackDamage
+    {
+        get
+        {
+            return _mainAttackDamage;
+        }
+        set
+        {
+            if (value < 0)
+            {
+                _mainAttackDamage = 0;
+            }
+            else
+            {
+                _mainAttackDamage = value;
+            }
+        }
+
+    }
     public float AttackSpeed
     {
         get
@@ -179,11 +196,11 @@ public class EnemyData : MonoBehaviour
         {
             if (value < 0)
             {
-                _attackDamage = 0;
+                _attackSpeed = 0;
             }
             else
             {
-                _attackDamage = value;
+                _attackSpeed = value;
             }
         }
     }
@@ -280,7 +297,7 @@ public class EnemyData : MonoBehaviour
             Hp += (int)(Hp * 0.4f);
         }
     }
-    public (float Damage, int Rng) GetData(AttackPart attackPart)
+    public (float Damage, int Rng) GetData(AttackPart attackPart)//부위별 데미지,성공확률 가져올때 호출하세요
     {
         switch (attackPart)
         {
@@ -296,9 +313,21 @@ public class EnemyData : MonoBehaviour
         }
     }
 
+    public int GetDamage(AnimationType type)
+    {
+        switch (type)
+        {
+            case AnimationType.Attack2:
+                return AttackDamage;
+            case AnimationType.Attack:
+                return MainAttackDamage;
+            default:
+                return 0;
+        }
+    }
     public int GetBossMainSkillRng()
     {
-        return _mainSkillRng;
+        return _mainAttackRng;
     }
 
 
@@ -310,3 +339,5 @@ public enum AttackPart
     Head,
     Arm
 }
+
+

@@ -7,32 +7,147 @@ public class EnemyData : MonoBehaviour
 
     [Header("About normalSetting")]
     private int _hp;
-    private float _attackDamage;
+    private int _fullHp;
+    private int _attackDamage;
     private float _attackSpeed;
     private int _attackSucRate;
     public bool _isStunned;
 
     [Header("About Damage Rate")]
-    private int headRNG;
-    private int bodyRNG;
-    private int armRNG;
+    private int _headRNG;
+    private int _bodyRNG;
+    private int _armRNG;
 
     [Header("About Damage Of Part")]
     private float headDamage;
     private float bodyDamage;
     private float armDamage;
 
-    [Header("For Boss")]
-    private int _mainSkillRng;
+    [Header("Passive_Skill_Rng")]
+    private int _attack_Passive_Rng;
+    private int _speed_Passive_Rng;
+       
 
-    // Properties
+    [Header("For Boss")]
+    private int _mainAttackRng;
+    private int _mainAttackDamage;
+    private void Awake()
+    {
+        _fullHp = enemySO.hp;
+        Hp = enemySO.hp;
+       
+      
+        Attack_Passive_Rng = enemySO._attack_Passive_Rng;
+        Speed_Passive_Rng = enemySO._speed_Passive_Rng;
+     
+        AttackDamage = enemySO.attackDamage;
+        AttackSpeed = enemySO.attackSpeed;
+        AttackSucRate = enemySO.attackRate;
+
+        HeadRNG = enemySO.HeadRNG;
+        BodyRNG = enemySO.BodyRNG;
+        ArmRNG = enemySO.ArmRNG;
+
+        headDamage = enemySO.HeadDamage;
+        bodyDamage = enemySO.BodyDamage;
+        armDamage = enemySO.ArmDamage;
+
+        _mainAttackRng = enemySO.MainSkillRng;
+    }
+
+  
     public int Hp
     {
         get => _hp;
-        set => _hp = Mathf.Max(0, value); // Ensure HP is not less than 0
+        
+        set
+        {
+            if (value < 0)
+            {
+                _attackDamage = 0;
+            }
+            else if(value > _fullHp)
+            {
+                _attackDamage = _fullHp;
+            }
+            else
+            {
+                _hp = value;
+            }
+        }
     }
 
-    public float AttackDamage
+    public int HeadRNG
+    {
+        get
+        {
+            return _headRNG;
+        }
+        set
+        {
+            if (value < 0)
+            {
+                _headRNG = 0;
+            }
+            else if(value > 100)
+            {
+                _headRNG = 100;
+            }
+            else
+            {
+                _headRNG = value;
+            }
+        }
+
+    }
+
+    public int ArmRNG
+    {
+        get
+        {
+            return _armRNG;
+        }
+        set
+        {
+            if (value < 0)
+            {
+                _armRNG = 0;
+            }
+            else if (value > 100)
+            {
+                _armRNG = 100;
+            }
+            else
+            {
+                _armRNG = value;
+            }
+        }
+
+    }
+    public int BodyRNG
+    {
+        get
+        {
+            return _bodyRNG;
+        }
+        set
+        {
+            if (value < 0)
+            {
+                _bodyRNG = 0;
+            }
+            else if (value > 100)
+            {
+                _bodyRNG = 100;
+            }
+            else
+            {
+                _bodyRNG = value;
+            }
+        }
+
+    }
+    public int AttackDamage
     {
         get
         {
@@ -51,9 +166,26 @@ public class EnemyData : MonoBehaviour
         }
 
     }
-    /* 선공 후공 결정을 매턴마다 플레이어와 에너미의 AttackSpeed를
-    비교해서 나중에 공속 증가 버프가 들어오면 선공 후공 변경이 가능하게
-    그리고 나중에 구현할 reverse 스테이지도 이걸로 가능할 거 같음*/
+
+    public  int MainAttackDamage
+    {
+        get
+        {
+            return _mainAttackDamage;
+        }
+        set
+        {
+            if (value < 0)
+            {
+                _mainAttackDamage = 0;
+            }
+            else
+            {
+                _mainAttackDamage = value;
+            }
+        }
+
+    }
     public float AttackSpeed
     {
         get
@@ -64,11 +196,11 @@ public class EnemyData : MonoBehaviour
         {
             if (value < 0)
             {
-                _attackDamage = 0;
+                _attackSpeed = 0;
             }
             else
             {
-                _attackDamage = value;
+                _attackSpeed = value;
             }
         }
     }
@@ -85,6 +217,10 @@ public class EnemyData : MonoBehaviour
             {
                 _attackSucRate = 0;
             }
+            else if (value > 100)
+            {
+                _attackSucRate = 100;
+            }
             else
             {
                 _attackSucRate = value;
@@ -93,46 +229,113 @@ public class EnemyData : MonoBehaviour
     }
 
 
-
-    private void Start()
+    public int Attack_Passive_Rng
     {
-        Hp = enemySO.hp;
-        Debug.Log(Hp);
-        AttackDamage = enemySO.attackDamage;
-        AttackSpeed = enemySO.attackSpeed;
-        AttackSucRate = enemySO.attackRate;
-
-        headRNG = enemySO.HeadRNG;
-        bodyRNG = enemySO.BodyRNG;
-        armRNG = enemySO.ArmRNG;
-
-        headDamage = enemySO.HeadDamage;
-        bodyDamage = enemySO.BodyDamage;
-        armDamage = enemySO.ArmDamage;
-
-        _mainSkillRng = enemySO.MainSkillRng;
+        get
+        {
+            return _attack_Passive_Rng;
+        }
+        set
+        {
+            if(value < 0)
+            {
+                _attack_Passive_Rng = 0;
+            }
+            else if(value>100)
+            {
+                _attack_Passive_Rng = 100;
+            }
+            else
+            {
+                _attack_Passive_Rng = value;
+            }
+        }
     }
 
-    public (float Damage, int Rng) GetData(AttackPart attackPart)
+    public int Speed_Passive_Rng
+    {
+        get
+        {
+            return _speed_Passive_Rng;
+        }
+        set
+        {
+            if (value < 0)
+            {
+                _speed_Passive_Rng = 0;
+            }
+            else if (value > 100)
+            {
+                _speed_Passive_Rng = 100;
+            }
+            else
+            {
+                _speed_Passive_Rng = value;
+            }
+        }
+    }
+    public void ActivatePassiveSkill()
+    {
+       
+        HeadRNG -= (int)(headDamage * 0.5f);
+        print(HeadRNG);
+        BodyRNG -= (int)(_bodyRNG * 0.5f);
+        print(BodyRNG);
+        ArmRNG -= (int)(_armRNG * 0.5f);
+        print(ArmRNG);
+        _attackDamage += (int)(AttackDamage * 0.3f);
+        print(_attackDamage);
+    }
+    public void Speed_Passive_Skill()
+    {
+       int ranNum = Random.Range(0, 100);
+        if(ranNum<30)
+        {
+            AttackSpeed += 1;
+        }
+    }
+    public void Hp_Passive_Skill()
+    {
+        int ranNum = Random.Range(0, 100);
+        if (ranNum < 30)
+        {
+            Hp += (int)(Hp * 0.4f);
+        }
+    }
+    public (float Damage, int Rng) GetData(AttackPart attackPart)//부위별 데미지,성공확률 가져올때 호출하세요
     {
         switch (attackPart)
         {
             case AttackPart.Head:
-                return (headDamage, headRNG);
+                return (headDamage, HeadRNG);
             case AttackPart.Body:
-                return (bodyDamage, bodyRNG);
+                return (bodyDamage, BodyRNG);
             case AttackPart.Arm:
-                return (armDamage, armRNG);
+                return (armDamage, ArmRNG);
             default:
                 Debug.Log("지원하지 않는 부위입니다");
                 return (0, 0);
         }
     }
 
+    public int GetDamage(AnimationType type)
+    {
+        switch (type)
+        {
+            case AnimationType.Attack2:
+                return AttackDamage;
+            case AnimationType.Attack:
+                return MainAttackDamage;
+            default:
+                return 0;
+        }
+    }
     public int GetBossMainSkillRng()
     {
-        return _mainSkillRng;
+        return _mainAttackRng;
     }
+
+
 }
 
 public enum AttackPart
@@ -141,3 +344,5 @@ public enum AttackPart
     Head,
     Arm
 }
+
+

@@ -7,11 +7,18 @@ public class VirtueManager : MonoBehaviour
     [Header("PlayerAbility")]
     [SerializeField] private PlayerAbility _playerAbility;
 
-    [Header("Virtue")]
-    [SerializeField] private Concentration _concentration;
-    [SerializeField] private Patience _patience;
-    [SerializeField] private Wisdom _wisdom;
-    [SerializeField] private Courage _courage;
+     private Concentration _concentration;
+     private Patience _patience;
+     private Wisdom _wisdom;
+     private Courage _courage;
+
+    private void Awake()
+    {
+        _concentration = new Concentration();
+        _patience = new Patience();
+        _wisdom = new Wisdom();
+        _courage = new Courage();
+    }
 
     public void OnUpConcentration()
     {

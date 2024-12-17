@@ -741,7 +741,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1321996466
 Transform:
   m_ObjectHideFlags: 0
@@ -867,7 +867,7 @@ Animator:
   m_GameObject: {fileID: 1387455533}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 0dd93b2f4d85776458393413ae83fe61, type: 2}
+  m_Controller: {fileID: 9100000, guid: 638bf0d045dbca246a036c3d7d9ab648, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -887,13 +887,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1804804714}
+  - component: {fileID: 1804804715}
   m_Layer: 0
   m_Name: Enemy1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1804804714
 Transform:
   m_ObjectHideFlags: 0
@@ -910,6 +911,27 @@ Transform:
   - {fileID: 541070457}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &1804804715
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1804804713}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c5e23fbfc148f8f489c6be3a56a99a26, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1827831382
 GameObject:
   m_ObjectHideFlags: 0
@@ -954,7 +976,7 @@ Animator:
   m_GameObject: {fileID: 1827831382}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 0dd93b2f4d85776458393413ae83fe61, type: 2}
+  m_Controller: {fileID: 9100000, guid: 638bf0d045dbca246a036c3d7d9ab648, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1075,10 +1097,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemySO: {fileID: 11400000, guid: 7ed960964dbc2334ba2a1c1a945efead, type: 2}
-  hp: 100
-  attackDamage: 0
-  attackSpeed: 0
-  attackSucRate: 50
+  _isStunned: 0
 --- !u!1 &2084136710
 GameObject:
   m_ObjectHideFlags: 0
@@ -1123,11 +1142,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32d8302c252f527469b66f41dcc8b8ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemySO: {fileID: 11400000, guid: 4aca6356981664d43b00e95bb761ec1e, type: 2}
-  hp: 100
-  attackDamage: 0
-  attackSpeed: 0
-  attackSucRate: 0
+  enemySO: {fileID: 11400000, guid: 7ed960964dbc2334ba2a1c1a945efead, type: 2}
+  _isStunned: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

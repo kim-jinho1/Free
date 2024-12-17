@@ -115,7 +115,6 @@ public class Server : MonoBehaviour
         Broadcast("%NAME", new List<ServerClient>() { clients[^1] });
     }
 
-
     private void OnIncomingData(ServerClient c, string data)
     {
         if (data.Contains("&NAME")) 

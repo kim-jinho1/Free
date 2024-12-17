@@ -39,7 +39,8 @@ public class EnemyHealth : MonoBehaviour
         Debug.Log(CurrentHp);
 
     }
-
+  
+   
     public int GetCurrentHp()
     {
         return CurrentHp;

@@ -14,6 +14,7 @@ public class ItemData : ScriptableObject
     public itemType itemType;
     public ItemGrade itemGrade;
     public equipType equipType = equipType.None;
+    public ItemSort itemSort;
 
     [Header("Effect_Equip")]
     public float AttackUp;

@@ -1,11 +1,5 @@
-using System.Collections;
 using System.Collections.Generic;
-using System.Diagnostics;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.EventSystems;
-using System;
-using UnityEditor;
 
 public class InventoryInspector : MonoBehaviour
 {

@@ -6,31 +6,46 @@ public class PlayerAbility : MonoSingleton<PlayerAbility>
 {
     [SerializeField] private Player _player;
 
+    private float _attack = 0;
+    private float _speed = 0;
+    private float _dodge = 0;
+    private float _accuracy = 0;
+    private float _escape = 0;
+    private float _critical = 0;
+    private float _criticalAtack = 0;
+    private float _maxHp = 0;
+    private float _currentHp = 0;
+    private float _currentHungry = 0;
+    private float _maxHungry = 0;
+    private float _damageedown = 0;
+
+    private void Awake()
+    {
+        _attack = _player.AbilityData.attack;
+        _speed = _player.AbilityData.speed;
+        _dodge = _player.AbilityData.dodge;
+        _accuracy = _player.AbilityData.accuracy;
+        _escape = _player.AbilityData.escape;
+        _critical = _player.AbilityData.critical;
+        _criticalAtack = _player.AbilityData.criticalAttack;
+        _maxHp = _player.AbilityData.maxHp;
+        _currentHp = _player.AbilityData.currentHp;
+        _currentHungry = _player.AbilityData.currentHungry;
+        _maxHungry = _player.AbilityData.maxHungry;
+    }
+
     #region 능력치 세팅
-    
     //공격력
     public float Attack
     {
-        get => _player.AbilityData.attack;
-        set => _player.AbilityData.attack = value;
-    }
-    //체력
-    public float Hp
-    {
-        get => _player.AbilityData.hp;
-        set => _player.AbilityData.hp = value;
-    }
-
-    public float Hungry
-    {
-        get => _player.AbilityData.hungry;
-        set => _player.AbilityData.hungry = value;
+        get => _attack;
+        set => _attack = value;
     }
     //속도
     public float Speed
     {
-        get => _player.AbilityData.speed;
-        set => _player.AbilityData.speed = value;
+        get => _speed;
+        set => _speed = value;
     }
     //회피율
     public float Dodge
@@ -85,7 +100,7 @@ public class PlayerAbility : MonoSingleton<PlayerAbility>
         get => _player.AbilityData.maxHungry;
         set => _player.AbilityData.maxHungry = value; 
     }
-    
+    //받는 피해 감소
     public float DamageDown
     {
         get => _player.AbilityData.damageDown;
@@ -97,16 +112,15 @@ public class PlayerAbility : MonoSingleton<PlayerAbility>
     #region 능력치 증가 합수
     
     public void IncreaseAttack(float amount) => Attack += amount;
-    public void IncreaseHp(float amount) => Hp += amount;
     public void IncreaseSpeed(float amount) => Speed += amount;
     public void IncreaseDodge(float amount) => Dodge += amount;
     public void IncreaseAccuracy(float amount) => Accuracy += amount;
     public void IncreaseEscape(float amount) => Escape += amount;
     public void IncreaseCritical(float amount) => Critical += amount;
     public void IncreaseCriticalAttack(float amount) => CriticalAttack += amount;
-    public void IncreaseCurrentHp(float amount) => Hp += amount;
+    public void IncreaseCurrentHp(float amount) => CurrentHp += amount;
     public void IncreaseMaxHealth(float amount) => MaxHealth += amount;
-    public void IncreaseCurrentHungry(float amount) => Hungry += amount;
+    public void IncreaseCurrentHungry(float amount) => CurrentHungry += amount;
     public void IncreaseMaxHungry(float amount) => MaxHungry += amount;
     public void IncreaseDamageDown(float amount) => DamageDown += amount;
 

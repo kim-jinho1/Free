@@ -2,26 +2,27 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    
     public Enemy_State currentState;
     public AnimationCompo_SB animationCompo;
     public StateCompo stateCompo;
     public EnemyData enemyData;
     public EnemyHealth enemyHealth;
     public bool myTurn = false;
+
     private void Awake()
-    {    
+    {
         stateCompo = GetComponentInChildren<StateCompo>();
         animationCompo = GetComponentInChildren<AnimationCompo_SB>();
         enemyHealth = GetComponent<EnemyHealth>();
         enemyData = GetComponentInChildren<EnemyData>();
     }
+
     void Start()
     {
-        TransitionState(stateCompo.GetState(StateType.Idle));//시작할때 idle로 시작하거든 거기서 이 스크립트에 있는
-                                                           //myTurn을 true로 만들어 주면 Attack으로 넘어감
+        TransitionState(stateCompo.GetState(StateType.Idle));
         print(enemyHealth.GetCurrentHp());
     }
+
     void Update()
     {
         currentState.StateUpdate();
@@ -34,7 +35,6 @@ public class Enemy : MonoBehaviour
 
     public void TransitionState(Enemy_State InputState)
     {
-
         if (InputState == null)
         {
             Debug.LogError("없엉");
@@ -50,21 +50,20 @@ public class Enemy : MonoBehaviour
 
         currentState.InitializeState(this);
         currentState.Enter();
-
-
     }
 
-    public AnimationType ChooseAttack(int mainAttackRate)//Attack이 2개인 보스들을 위한
+    public AnimationType ChooseAttack(int Skill2_Rate, int Skill1_Rate)
     {
         int RanNum = Random.Range(0, 100);
-        if (RanNum >= mainAttackRate)
+        if (RanNum < Skill2_Rate)
         {
             return AnimationType.Attack2;
         }
-        else
+        else if (RanNum < Skill1_Rate)
         {
             return AnimationType.Attack;
         }
-
+        else
+        return AnimationType.Miss;
     }
 }

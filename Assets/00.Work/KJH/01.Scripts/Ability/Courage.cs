@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.PlayerLoop;
 
 public class Courage : Virtue
 {
@@ -13,7 +10,7 @@ public class Courage : Virtue
         FirstStatsPointName = "전투 경험";
         SecondStatsPointName = "블러드 웨폰";
     }
-    
+
     private bool critical = false;
     /// <summary>
     /// 포인트가 올라가면 플레이어의 스탯을 증가 시키는 메서드
@@ -44,7 +41,7 @@ public class Courage : Virtue
 
     protected override void ApplyFirstStatsPoint(PlayerAbility stats)
     {
-        if (FirstStackPoint && Stack <= 5) 
+        if (FirstStackPoint && Stack <= 5)
         {
             stats.IncreaseAttack(1);
             Stack++;
@@ -56,12 +53,12 @@ public class Courage : Virtue
         if (SecondStackPoint && critical)
         {
             float a = CalculatePercentage(stats.MaxHealth, 2);
-            stats.IncreaseHp(a);
+            //stats.IncreaseHp(a);
             Debug.Log($"{stats.MaxHealth}의 {2}%는 {a}입니다.");
             critical = false;
         }
     }
-    
+
     float CalculatePercentage(float number, float percentage)
     {
         return (number * percentage) / 100f;

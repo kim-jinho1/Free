@@ -1,7 +1,7 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using DG.Tweening;
 
 public class SJ_BattleUI : MonoBehaviour
 {
@@ -31,5 +31,6 @@ public class SJ_BattleUI : MonoBehaviour
             Debug.Log("°³¸ðÅÂ");
         }
         pannel.SetActive(false);
+        pannel.transform.DOMoveX(1200,1f);
     }
 }

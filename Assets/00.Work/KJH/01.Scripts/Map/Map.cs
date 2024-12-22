@@ -9,7 +9,7 @@ public class Map : MonoSingleton<Map>
     [SerializeField] public Transform _floor;
     
     [SerializeField] public GameObject[] _enemies;
-
+    
     public GameObject _enemy;
 
     public GameObject CreateEnemy()

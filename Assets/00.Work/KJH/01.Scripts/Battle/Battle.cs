@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using DG.Tweening;
 
 public class Battle : MonoBehaviour
 {
@@ -50,6 +51,7 @@ public class Battle : MonoBehaviour
     public void PlayerAttack()
     {
         _battlePanel.SetActive(true);
+        _battlePanel.transform.DOMove(new Vector3(960, 540), 1f).SetEase(Ease.OutExpo);
         turn++;
         //적의 체력을 깍는다
     }
@@ -59,4 +61,5 @@ public class Battle : MonoBehaviour
         turn++;
         //나의 체력을 깍는다
     }
+
 }

@@ -133,4 +133,18 @@ public class InventoryInspector : MonoBehaviour
         foreach (var item in InventoryManager.Instance.Slots)
             item.OnShowInspector -= ShowInspector;
     }
+
+    private void ChkUseItemSort(ItemSort itemSort, Slot usingItem)
+    {
+        switch(itemSort)
+        {
+            case ItemSort.Attack:
+                // 아이템 공격수치에 따른 현재 싸우는 적 체력 깍는 메소드
+                // usingItem._slotData.itemData.Damage -=
+                break;
+            case ItemSort.PurifyDebuff:
+                // 아이템 받아와서 아이템에 따라 디버프 해제하는 메소드
+                break;
+        }
+    }
 }

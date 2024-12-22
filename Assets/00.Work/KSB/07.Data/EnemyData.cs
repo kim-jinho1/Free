@@ -40,9 +40,9 @@ public class EnemyData : MonoBehaviour
         Attack_Passive_Rng = enemySO._attack_Passive_Rng;
         Speed_Passive_Rng = enemySO._speed_Passive_Rng;
      
-        AttackDamage = enemySO.attackDamage;
+        AttackDamage = enemySO.skill1_AttackDamage;
         AttackSpeed = enemySO.attackSpeed;
-        AttackSucRate = enemySO.attackRate;
+        AttackSucRate = enemySO.skill1_AttackRate;
 
         HeadRNG = enemySO.HeadRNG;
         BodyRNG = enemySO.BodyRNG;
@@ -52,7 +52,7 @@ public class EnemyData : MonoBehaviour
         bodyDamage = enemySO.BodyDamage;
         armDamage = enemySO.ArmDamage;
 
-        _mainAttackRng = enemySO.MainSkillRng;
+        _mainAttackRng = enemySO.skill2_AttackRate;
     }
 
   

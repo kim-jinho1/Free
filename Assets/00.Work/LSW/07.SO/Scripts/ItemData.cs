@@ -11,14 +11,20 @@ public class ItemData : ScriptableObject
     public itemType itemType;
     public ItemGrade itemGrade;
     public equipType equipType = equipType.None;
+    public ItemSort itemSort;
 
     [Header("Effect_Equip")]
     public float AttackUp;
     public float CriticalUp;
+    public float CriticalDamageUp;
     public float HealthRateUp;
     public float SpeedRateUp;
     public float DodgeRateUp;
     public float HungerRateUp;
+
+    [Header("Use_Etc")]
+    public float Damage;
+
 
     [Header("Slot")]
     public int MaxDuplicateValue;

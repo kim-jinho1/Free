@@ -1,13 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+
 
 public enum ItemSort
 {
     None,
     Equip,
-    Use,
-    Heal
+    Attack,
+    Heal,
+    PurifyDebuff
 }
 
 public enum ItemGrade
@@ -18,6 +17,5 @@ public enum ItemGrade
     Hero,
     Myth
 }
-
 
 

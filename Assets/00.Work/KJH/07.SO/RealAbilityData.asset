@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: RealAbilityData
   m_EditorClassIdentifier: 
   itemName: RealAbilityData
-  attack: 5
+  attack: 10
   speed: 3
   dodge: 15
-  accuracy: 60
+  accuracy: 67
   escape: 20
-  critical: 5
+  critical: 10
   criticalAttack: 2
   hp: 100
   currentHp: 100

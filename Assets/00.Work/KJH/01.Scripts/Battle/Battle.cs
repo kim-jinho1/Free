@@ -38,7 +38,7 @@ public class Battle : MonoBehaviour
     private void Update()
     {
         StateMachine.currentState.Update();
-        if (turn%1==0)
+        if (turn % 2 == 0)
         {
             Attack = true;
         }

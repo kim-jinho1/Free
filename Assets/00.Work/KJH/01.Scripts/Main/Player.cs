@@ -60,6 +60,7 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
+
         FiIpController();
         StateMachine.currentState.Update();
 
@@ -80,11 +81,11 @@ public class Player : MonoBehaviour
 
     public void FiIpController()
     {
-        if (Rigid.velocity.x > 0 && _dirRight == false)
+        if (CurrentRoom == 1 && _dirRight == false)
         {
             FiIp();
         }
-        else if (Rigid.velocity.x < 0 && _dirRight)
+        else if (CurrentRoom == 2 && _dirRight)
         {
             FiIp();
         }

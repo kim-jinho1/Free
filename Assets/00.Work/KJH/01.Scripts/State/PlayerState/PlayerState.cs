@@ -26,6 +26,7 @@ public class PlayerState
 
     public virtual void Enter()
     {
+        Player.FiIpController();
         Animator.SetBool(AnimBoolHash,true);
         IsTirggcalled = false;
     }

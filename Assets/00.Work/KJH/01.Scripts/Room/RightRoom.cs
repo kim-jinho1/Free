@@ -35,6 +35,7 @@ public class RightRoom : MonoBehaviour , IMap
 
     public void EnterRoom()
     {
+        Player.CurrentRoom = 1;
         _enemy.SetActive(true);
         var color = _image.color;
         color.a = 0f;

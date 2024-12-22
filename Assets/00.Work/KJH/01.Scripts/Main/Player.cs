@@ -57,6 +57,7 @@ public class Player : MonoBehaviour
         CenterPosition = _pos;
         IsCenter = true;
     }
+
     private void Update()
     {
         StateMachine.currentState.Update();

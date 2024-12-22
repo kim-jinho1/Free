@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Patience : Virtue
@@ -19,7 +17,7 @@ public class Patience : Virtue
     /// <param name="stats">플레이어 스탯을 가져와 증가시키는 함수를 실행</param>
     protected override void ApplyStatBonuses(PlayerAbility stats)
     {
-        stats.IncreaseHp(10);
+        //stats.IncreaseHp(10);
     }
     
     /// <summary>

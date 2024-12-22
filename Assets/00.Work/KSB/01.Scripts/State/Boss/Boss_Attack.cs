@@ -5,8 +5,6 @@ using UnityEngine;
 public class Boss_Attack : Enemy_State
 {
     private int attackSucRate;
-    Coroutine tempStatus;
-
     protected override void EnterState()
     {
         attackSucRate = _enemy.enemyData.AttackSucRate;
@@ -19,17 +17,11 @@ public class Boss_Attack : Enemy_State
 
     private void AttackTry(int attackSucRng)
     {
-
-        if (tempStatus != null)
-        {
-            return;
-        }
         int Randnum = Random.Range(0, 100);
 
         if (Randnum < attackSucRng)
         {
-            tempStatus = StartCoroutine(Attack());
-            tempStatus = null;
+            StartCoroutine(Attack());
         }
         else
         {
@@ -38,9 +30,13 @@ public class Boss_Attack : Enemy_State
     }
     IEnumerator Attack()
     {
-        print("Attack");
-        _enemy.animationCompo.PlayAnimation(_enemy.ChooseAttack(_enemy.enemyData.GetBossMainSkillRng()));
-        yield return new WaitForSeconds(_enemy.animationCompo.GetDuration("Attack"));
+        AnimationType type = _enemy.ChooseAttack(_enemy.enemyData.GetBossMainSkillRng());
+        print(type.ToString());
+        _enemy.animationCompo.PlayAnimation(type);//보스는 attack이 2개라 특정 조건에 따라 나갈 attack이 결정됨
+        yield return new WaitForSeconds(_enemy.animationCompo.GetDuration(type.ToString()));
+        _enemy.enemyData.GetDamage(type);
+        //_enemy.enemyData.GetDamage(type)이 데미지를 가지고 player 체력 감소 시키면 됨;
+        
         _enemy.TransitionState(_enemy.stateCompo.GetState(StateType.Idle));
     }
     private void AttackMiss()

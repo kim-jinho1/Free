@@ -55,10 +55,10 @@ public class EnemyHealth : MonoBehaviour
     {
         return CurrentHp;
     }
-    public void HpChange(int Damage)//ÀÌ°É·Î Ã¼·Â ±ğÀ¸¼Å
+    public void DamageApply(int Damage,int WeaponDamage)//ÀÌ°É·Î Ã¼·Â ±ğÀ¸¼Å
     {
 
-        CurrentHp -= Damage;
+        CurrentHp -= Damage+WeaponDamage;
 
         if (CurrentHp <= 0)
         {

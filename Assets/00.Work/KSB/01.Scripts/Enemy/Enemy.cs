@@ -7,7 +7,8 @@ public class Enemy : MonoBehaviour
     public StateCompo stateCompo;
     public EnemyData enemyData;
     public EnemyHealth enemyHealth;
-    public bool myTurn = false;
+    public bool myTurn = false;//선공 (이거 true 되면 공격 이후로 idle로 돌아오고 대기)
+                               //후공 EnemyHealth에서 damageApply 실행 
 
     private void Awake()
     {
@@ -64,6 +65,6 @@ public class Enemy : MonoBehaviour
             return AnimationType.Attack;
         }
         else
-        return AnimationType.Miss;
+        return AnimationType.Attack;
     }
 }

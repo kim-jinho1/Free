@@ -190,7 +190,7 @@ PrefabInstance:
     - target: {fileID: 4930480298077119936, guid: aa2281a3e3a21f646a36c1a0e08e5cc2, type: 3}
       propertyPath: _inventory_EnableButton
       value: 
-      objectReference: {fileID: 1579077366}
+      objectReference: {fileID: 0}
     - target: {fileID: 4930480298077119936, guid: aa2281a3e3a21f646a36c1a0e08e5cc2, type: 3}
       propertyPath: _inventory_DisableButton
       value: 
@@ -507,11 +507,6 @@ RectTransform:
 --- !u!1 &1464482669 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6036558891306587905, guid: f6731f771bb87d24f98a361638004348, type: 3}
-  m_PrefabInstance: {fileID: 930234104}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1579077366 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6864852566889896779, guid: f6731f771bb87d24f98a361638004348, type: 3}
   m_PrefabInstance: {fileID: 930234104}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &2054291245

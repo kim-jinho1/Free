@@ -1,34 +1,34 @@
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class AnimationCompo_SB : MonoBehaviour
 {
     public Animator _animator;
     RuntimeAnimatorController _controller;
+    Enemy _enemy;
 
 
 
-    public float GetDuration(string name)
-    {
-        AnimationClip clip = null;
-        foreach (var animClip in _controller.animationClips)
-        {
-            if (animClip.name == name)
-            {
-                clip = animClip;
-                break;
-            }
-        }
-        return clip.length;
-    }
 
+   
+  
 
 
 
     private void Awake()
     {
         _animator = GetComponent<Animator>();
-        _controller = _animator.runtimeAnimatorController;
+        _enemy = GetComponentInParent<Enemy>();
+       
+    }
 
+    public void EndPoint()
+    {
+        _enemy.TransitionState(_enemy.stateCompo.GetState(StateType.Idle));
+    }
+    public void StopAnimation()
+    {
+        _enemy.animationCompo._animator.speed = 0f;
     }
     public void PlayAnimation(AnimationType type)
     {
@@ -48,6 +48,9 @@ public class AnimationCompo_SB : MonoBehaviour
                 break;
             case AnimationType.Hit:
                 Play("Hit");
+                break;
+            case AnimationType.Miss:
+                Play("Idle");
                 break;
             default:
                 Debug.Log("Not Defined");

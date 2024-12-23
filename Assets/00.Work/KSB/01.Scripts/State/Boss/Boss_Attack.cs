@@ -6,6 +6,7 @@ public class Boss_Attack : Enemy_State
 {
     private int attackSucRate;
 
+    
     protected override void EnterState()
     {
         attackSucRate = _enemy.enemyData.AttackSucRate;
@@ -23,7 +24,7 @@ public class Boss_Attack : Enemy_State
 
         if (Randnum < attackSucRng)
         {
-            StartCoroutine(Attack());
+           Attack();
         }
         else
         {
@@ -31,13 +32,23 @@ public class Boss_Attack : Enemy_State
         }
     }
 
-    IEnumerator Attack()
+    private void Attack()
     {
         AnimationType type = _enemy.ChooseAttack(_enemy.enemyData._skill2_Rng, _enemy.enemyData._skill1_Rng);
-        _enemy.animationCompo.PlayAnimation(type);
-        yield return new WaitForSeconds(_enemy.animationCompo.GetDuration(type.ToString()));
-        _enemy.enemyData.GetDamage(type);
-        _enemy.TransitionState(_enemy.stateCompo.GetState(StateType.Idle));
+        print(type);
+        if (type.ToString() == "Miss")
+        {
+            print("Miss");
+            AttackMiss();
+        }
+           
+        else
+        {
+            _enemy.animationCompo.PlayAnimation(type);
+            _enemy.enemyData.GetDamage(type);
+
+        }
+        
     }
 
     private void AttackMiss()

@@ -59,6 +59,10 @@ public class Slot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IP
     public void ChangeImage(Sprite sprite)
     {
         _itemMark.GetComponent<Image>().sprite = sprite;
+
+        Color a = _itemMark.GetComponent<Image>().color;
+        a.a = 1f;
+        _itemMark.GetComponent<Image>().color = a;
     }
 
     public void Delete()
@@ -67,7 +71,11 @@ public class Slot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IP
         {
             InventoryManager.Instance.UnEquipItem(this);
         }
-        _equipMark.SetActive(false);
+
+        Color a = _itemMark.GetComponent<Image>().color;
+        a.a = 0f;
+        _itemMark.GetComponent<Image>().color = a;
+
         _slotData.state = State.Empty;
         _slotData.itemData = null;
         _itemMark.GetComponent<Image>().sprite = null;

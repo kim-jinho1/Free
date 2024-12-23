@@ -29,7 +29,8 @@ public class EnemyData : MonoBehaviour
        
 
     [Header("For Boss")]
-    private int _mainAttackRng;
+    public int _skill2_Rng;
+    public int _skill1_Rng;
     private int _mainAttackDamage;
     private void Awake()
     {
@@ -42,7 +43,11 @@ public class EnemyData : MonoBehaviour
      
         AttackDamage = enemySO.skill1_AttackDamage;
         AttackSpeed = enemySO.attackSpeed;
-        AttackSucRate = enemySO.skill1_AttackRate;
+
+        //È®·ü
+        AttackSucRate = enemySO.attackSucRate;
+        _skill1_Rng = enemySO.skill1_AttackRate;
+        _skill2_Rng = enemySO.skill2_AttackRate;
 
         HeadRNG = enemySO.HeadRNG;
         BodyRNG = enemySO.BodyRNG;
@@ -52,7 +57,7 @@ public class EnemyData : MonoBehaviour
         bodyDamage = enemySO.BodyDamage;
         armDamage = enemySO.ArmDamage;
 
-        _mainAttackRng = enemySO.skill2_AttackRate;
+       
     }
 
   
@@ -166,6 +171,7 @@ public class EnemyData : MonoBehaviour
         }
 
     }
+
 
     public  int MainAttackDamage
     {
@@ -330,9 +336,9 @@ public class EnemyData : MonoBehaviour
                 return 0;
         }
     }
-    public int GetBossMainSkillRng()
+    public int GetBossSkil2lRng()
     {
-        return _mainAttackRng;
+        return _skill2_Rng;
     }
 
 

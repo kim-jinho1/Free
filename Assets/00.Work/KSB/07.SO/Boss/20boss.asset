@@ -14,15 +14,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: 80
   attackSpeed: 12
-  skill1_AttackDamage: 75
-  skill1_AttackRate: 9
+  skill1_AttackDamage: 15
+  attackSucRate: 80
   BodyDamage: 10
   ArmDamage: 15
   HeadDamage: 25
   BodyRNG: 60
   ArmRNG: 30
   HeadRNG: 20
-  skill2_AttackRate: 25
-  skill2_AttackDamage: 15
+  skill2_AttackRate: 75
+  skill1_AttackRate: 25
+  skill2_AttackDamage: 9
   _attack_Passive_Rng: 50
   _speed_Passive_Rng: 50

@@ -15,7 +15,7 @@ MonoBehaviour:
   hp: 50
   attackSpeed: 3
   skill1_AttackDamage: 15
-  skill1_AttackRate: 85
+  attackSucRate: 85
   BodyDamage: 13
   ArmDamage: 8
   HeadDamage: 14
@@ -23,6 +23,7 @@ MonoBehaviour:
   ArmRNG: 30
   HeadRNG: 20
   skill2_AttackRate: 0
+  skill1_AttackRate: 0
   skill2_AttackDamage: 0
   _attack_Passive_Rng: 50
   _speed_Passive_Rng: 50

@@ -7,7 +7,7 @@ public class EnemySO : ScriptableObject
     public int hp;
     public float attackSpeed;
     public int skill1_AttackDamage;
-    public int skill1_AttackRate;
+    public int attackSucRate;
 
 
     [Header("EnemyDamageSetting")]
@@ -22,6 +22,7 @@ public class EnemySO : ScriptableObject
 
     [Header("For Boss Enemy")]
     public int skill2_AttackRate;
+    public int skill1_AttackRate;
     public int skill2_AttackDamage;
 
     [Header("Passive_Skill_Rng")]

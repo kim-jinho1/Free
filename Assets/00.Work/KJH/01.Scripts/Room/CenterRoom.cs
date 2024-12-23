@@ -20,13 +20,9 @@ public class CenterRoom : MonoBehaviour
     private void Update()
     {
         if (_isEntered && !_isExiting)
-        {
             ResetRoom();
-        }
         else if (_isEntered && _isExiting)
-        {
             SettingRoom();
-        }
     }
 
     public void EnterRoom()

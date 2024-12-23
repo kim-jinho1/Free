@@ -6,7 +6,10 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/00.mainScene/Start.unity
+    path: Assets/00.Work/KJH/00.Scenes/Leaderboards.unity
+    guid: 67fe3384aca6e664090dde1c12dd5826
+  - enabled: 1
+    path: Assets/00.MainScene/Start.unity
     guid: fe974003b0ad11644a253a279aaec956
   - enabled: 1
     path: Assets/00.Work/KJH/00.Scenes/MainGameScene.unity

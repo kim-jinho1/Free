@@ -1,11 +1,16 @@
 using System;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
     [SerializeField] private Transform _pos;
     [SerializeField] private AbilityData _abilityData;
 
+
+    public GraphicRaycaster graphicRaycaster;
+    public EventSystem eventSystem;
 
     public Action<Transform> OnMoveVertical;
     public Action<Transform> OnMoveHorizontal;
@@ -23,11 +28,10 @@ public class Player : MonoBehaviour
     public static int CurrentRoom { get; set; }
     public Transform CenterPosition { get; set; }
     public int CurrentFloor { get; set; }
+    public bool CanMove { get; set; }
 
     public PlayerStateMachine StateMachine { get; set; }
-
     public Collider2D Collider { get; set; }
-
     private bool _dirRight = true;
 
     private void Awake()
@@ -52,6 +56,7 @@ public class Player : MonoBehaviour
 
     private void PlayerReset()
     {
+        CanMove = true;
         CurrentRoom = 0;
         CurrentFloor = 1;
         CenterPosition = _pos;
@@ -104,13 +109,10 @@ public class Player : MonoBehaviour
         {
             case 0:
                 return "PlayerAttack2";
-                break;
             case 1:
                 return "PlayerAttack1";
-                break;
             default:
                 return "PlayerAttack1";
-                break;
         }
     }
 }

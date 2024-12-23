@@ -117,7 +117,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 15
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -146,8 +146,9 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 1
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Standalone
     maxTextureSize: 512
@@ -158,8 +159,9 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 1
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: iPhone
     maxTextureSize: 512
@@ -170,6 +172,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 1
   - serializedVersion: 3
@@ -182,6 +185,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 1
   - serializedVersion: 3
@@ -194,8 +198,22 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 1
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 512
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -693,29 +711,29 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      ice_golem_run_1: -2274363484027164459
-      ice_golem_run_2: 8284087734974297348
-      ice_golem_run_0: 4944230376442633554
-      ice_golem_run_4: 2833043080597125133
-      ice_golem_take_hit_1: 4341681513027860401
-      ice_golem_idle_0: 4723107735738678597
       ice_golem_attack_0: -7008412969330441016
+      ice_golem_attack_1: -7763475090823894447
+      ice_golem_attack_2: 302641331129538988
+      ice_golem_attack_3: -6329420634031446844
       ice_golem_attack_4: -910092549403018386
       ice_golem_attack_5: 221524225039350300
-      ice_golem_idle_1: -7385789195546760866
-      ice_golem_attack_3: -6329420634031446844
+      ice_golem_dead_0: 2649847697073447219
+      ice_golem_dead_1: -8293461521501190705
       ice_golem_dead_2: -1631342717326862633
       ice_golem_dead_3: -3927913518680497933
-      ice_golem_attack_2: 302641331129538988
+      ice_golem_idle_0: 4723107735738678597
+      ice_golem_idle_1: -7385789195546760866
       ice_golem_idle_2: 3234629978573100161
-      ice_golem_dead_1: -8293461521501190705
       ice_golem_idle_3: 6373048116405451881
-      ice_golem_run_5: -2217414122262695004
-      ice_golem_attack_1: -7763475090823894447
-      ice_golem_take_hit_2: -2248839228343834159
-      ice_golem_take_hit_0: 5082019123799949526
-      ice_golem_dead_0: 2649847697073447219
+      ice_golem_run_0: 4944230376442633554
+      ice_golem_run_1: -2274363484027164459
+      ice_golem_run_2: 8284087734974297348
       ice_golem_run_3: 5304202850863732263
+      ice_golem_run_4: 2833043080597125133
+      ice_golem_run_5: -2217414122262695004
+      ice_golem_take_hit_0: 5082019123799949526
+      ice_golem_take_hit_1: 4341681513027860401
+      ice_golem_take_hit_2: -2248839228343834159
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

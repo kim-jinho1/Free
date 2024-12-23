@@ -6870,6 +6870,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 192982745998575483, guid: a63028d49aed10a43ac8602c903a642e, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 806697540974697096, guid: a63028d49aed10a43ac8602c903a642e, type: 3}
       propertyPath: m_Name
       value: RoomChoice

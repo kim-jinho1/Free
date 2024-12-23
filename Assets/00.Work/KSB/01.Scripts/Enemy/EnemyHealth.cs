@@ -24,6 +24,10 @@ public class EnemyHealth : MonoBehaviour
 
     private void Update()
     {
+        if(isDeath)
+        {
+            _currentHp = 0;
+        }
         if (CurrentHp <= _fullHp / 2&& !prePassiveTrigger)
         {
             Passive_Skill();
@@ -51,10 +55,10 @@ public class EnemyHealth : MonoBehaviour
     {
         return CurrentHp;
     }
-    public void HpChange(int Damage)//ÀÌ°É·Î Ã¼·Â ±ðÀ¸¼Å
+    public void DamageApply(int Damage,int WeaponDamage)//ÀÌ°É·Î Ã¼·Â ±ðÀ¸¼Å
     {
 
-        CurrentHp -= Damage;
+        CurrentHp -= Damage+WeaponDamage;
 
         if (CurrentHp <= 0)
         {

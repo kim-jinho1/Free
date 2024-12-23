@@ -156,7 +156,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 15
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -185,8 +185,9 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 1
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Standalone
     maxTextureSize: 512
@@ -197,8 +198,9 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 1
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: iPhone
     maxTextureSize: 512
@@ -209,6 +211,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 1
   - serializedVersion: 3
@@ -221,6 +224,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 1
   - serializedVersion: 3
@@ -233,8 +237,22 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 1
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 512
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -1005,42 +1023,42 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      lava_golem_run_9: -9198414914159423821
-      lava_golem_idle_6: 1157655834030907621
-      lava_golem_attack_1: -952426830766834569
-      lava_golem_take_hit_0: -3456469352084946835
-      lava_golem_idle_2: -2858838383879112439
-      lava_golem_take_hit_1: -9112227928378954093
       lava_golem_attack_0: -3030921816199058033
-      lava_golem_run_10: -5836031315328178808
-      lava_golem_run_3: -5172387907279172920
-      lava_golem_run_6: -5530084091041101578
-      lava_golem_run_11: 9029008039735238337
-      lava_golem_run_7: 2948931230418218560
-      lava_golem_attack_5: 5728880391513816074
-      lava_golem_attack_3: 2389871659592937638
-      lava_golem_run_1: 4302733631788967978
-      lava_golem_take_hit_2: 7033987819540056398
-      lava_golem_attack_6: 8266171837638549525
+      lava_golem_attack_1: -952426830766834569
       lava_golem_attack_2: -6024676594033935929
-      lava_golem_run_5: -997821986007944061
+      lava_golem_attack_3: 2389871659592937638
       lava_golem_attack_4: 8755548091433987781
-      lava_golem_dead_2: -8021002546382298978
-      lava_golem_run_8: 2065555562863131666
-      lava_golem_idle_1: 2203527430912321787
-      lava_golem_run_2: -290565097274971424
-      lava_golem_take_hit_3: -150671284205903705
-      lava_golem_idle_7: -6638578985023425641
-      lava_golem_idle_3: -5297782886579127294
-      lava_golem_idle_5: 5656000148072212450
-      lava_golem_dead_1: -7392825921517626707
-      lava_golem_dead_3: -5410358700249007207
-      lava_golem_run_4: 4435188938749194939
-      lava_golem_take_hit_4: -8455095363949827196
+      lava_golem_attack_5: 5728880391513816074
+      lava_golem_attack_6: 8266171837638549525
       lava_golem_dead_0: 4607347543901839638
+      lava_golem_dead_1: -7392825921517626707
+      lava_golem_dead_2: -8021002546382298978
+      lava_golem_dead_3: -5410358700249007207
       lava_golem_idle_0: -6854109219701583546
+      lava_golem_idle_1: 2203527430912321787
+      lava_golem_idle_2: -2858838383879112439
+      lava_golem_idle_3: -5297782886579127294
       lava_golem_idle_4: 4528452960221474446
+      lava_golem_idle_5: 5656000148072212450
+      lava_golem_idle_6: 1157655834030907621
+      lava_golem_idle_7: -6638578985023425641
       lava_golem_run_0: 956056601708153494
+      lava_golem_run_1: 4302733631788967978
+      lava_golem_run_10: -5836031315328178808
+      lava_golem_run_11: 9029008039735238337
+      lava_golem_run_2: -290565097274971424
+      lava_golem_run_3: -5172387907279172920
+      lava_golem_run_4: 4435188938749194939
+      lava_golem_run_5: -997821986007944061
+      lava_golem_run_6: -5530084091041101578
+      lava_golem_run_7: 2948931230418218560
+      lava_golem_run_8: 2065555562863131666
+      lava_golem_run_9: -9198414914159423821
+      lava_golem_take_hit_0: -3456469352084946835
+      lava_golem_take_hit_1: -9112227928378954093
+      lava_golem_take_hit_2: 7033987819540056398
+      lava_golem_take_hit_3: -150671284205903705
+      lava_golem_take_hit_4: -8455095363949827196
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

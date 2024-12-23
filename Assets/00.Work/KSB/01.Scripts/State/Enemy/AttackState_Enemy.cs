@@ -23,21 +23,20 @@ public class AttackState_Enemy : Enemy_State
         int Randnum = Random.Range(0, 100);
         if (Randnum < attackSucRng)
         {
-            StartCoroutine(Attack());
+           Attack();
         }
         else
         {
             AttackMiss();
         }
     }
-    IEnumerator Attack()
+    public void Attack()
     {
         print("Attack접근");
         _enemy.animationCompo.PlayAnimation(AnimationType.Attack);
-        yield return new WaitForSeconds(_enemy.animationCompo.GetDuration("Attack"));
-        _enemy.enemyData.GetDamage(AnimationType.Attack);//이거 가지고 플레이어 데미지 감소
+        _enemy.enemyData.GetDamage(AnimationType.Attack);//이거 가지고 플레이어 데미지 감소 _enemy.animationCompo.GetDuration("Attack")
         _enemy.enemyData.Hp_Passive_Skill();
-        _enemy.TransitionState(_enemy.stateCompo.GetState(StateType.Idle));
+      
       
     }
     private void AttackMiss()

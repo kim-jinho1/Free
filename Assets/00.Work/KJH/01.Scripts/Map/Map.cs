@@ -16,7 +16,7 @@ public class Map : MonoSingleton<Map>
     {
         GameObject en = Instantiate(_enemies[0], MapManager.Instance._enemyPool.transform);
         en.transform.position = _rightEnemypos.position;
-        en.transform.Rotate(0, 180, 0);
+        en.transform.GetChild(0).GetChild(0).Rotate(0, 180, 0);
         en.transform.position = _rightEnemypos.position;
         _enemy = en;
         en.SetActive(false);

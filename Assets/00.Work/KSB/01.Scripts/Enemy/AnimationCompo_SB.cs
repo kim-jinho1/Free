@@ -67,6 +67,7 @@ public enum AnimationType
     Attack2,
     Death,
     Hit,
+    Miss
 
 
 

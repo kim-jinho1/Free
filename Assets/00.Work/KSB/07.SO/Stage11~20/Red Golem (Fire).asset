@@ -10,19 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 21ea3cc9b8c44ee419281f8a1f5d6f6c, type: 3}
-  m_Name: TestEnemy 1
+  m_Name: Red Golem (Fire)
   m_EditorClassIdentifier: 
-  hp: 10000
-  attackSpeed: 3
-  attackDamage: 10
-  attackRate: 85
-  BodyDamage: 100
-  ArmDamage: 50
-  HeadDamage: 300
-  BodyRNG: 30
-  ArmRNG: 30
-  HeadRNG: 30
-  MainSkillRng: 52
-  attackDamage2: 30
+  hp: 15
+  attackSpeed: 7
+  skill1_AttackDamage: 20
+  attackSucRate: 85
+  BodyDamage: 5
+  ArmDamage: 3
+  HeadDamage: 6
+  BodyRNG: 75
+  ArmRNG: 20
+  HeadRNG: 15
+  skill2_AttackRate: 0
+  skill1_AttackRate: 0
+  skill2_AttackDamage: 0
   _attack_Passive_Rng: 50
   _speed_Passive_Rng: 50

@@ -6,7 +6,7 @@ public class Enemy_JH : MonoBehaviour
     public GameObject enemy;
     public static Action<GameObject> OnClick;
 
-    public void OnBtnClick()
+    public void OnEnemyClick()
     {
         Debug.Log("OnClick");
         MapManager.Instance._battlePanel.SetActive(true);

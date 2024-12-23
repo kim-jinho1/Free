@@ -31,6 +31,7 @@ public class CenterRoom : MonoBehaviour
 
     public void EnterRoom()
     {
+        Player.CurrentRoom = 0;
         _isEntered = true;
     }
 

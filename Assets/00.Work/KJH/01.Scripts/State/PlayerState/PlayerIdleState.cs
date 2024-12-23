@@ -12,7 +12,6 @@ public class PlayerIdleState : PlayerState
         base.Enter();
         RightRoom.OnRightClick += CheckRoom;
         LeftRoom.OnLeftClick += CheckRoom;
-        CenterRoom.OnCenterClick += CheckCenterRoom;
     }
 
     private void CheckRoom()
@@ -30,6 +29,11 @@ public class PlayerIdleState : PlayerState
             StateMachine.ChangeState(PlayerStateEnum.HorizontalMove);
             Player.IsCenter = true;
         }
+    }
+
+    private void EnemyClick()
+    {
+
     }
 
     public override void Exit()

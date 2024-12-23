@@ -35,6 +35,7 @@ public class LeftRoom : MonoBehaviour
 
     public void EnterRoom()
     {
+        Player.CurrentRoom = 2;
         var color = _image.color;
         color.a = 0f;
         _image.color = color;

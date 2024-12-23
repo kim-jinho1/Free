@@ -1,5 +1,3 @@
-using UnityEngine;
-
 public class PlayerIdleState : PlayerState
 {
     public PlayerIdleState(Player player, PlayerStateMachine stateMachine, string animBoolHash) : base(player, stateMachine, animBoolHash)
@@ -27,13 +25,9 @@ public class PlayerIdleState : PlayerState
         else if (!Player.IsCenter)
         {
             StateMachine.ChangeState(PlayerStateEnum.HorizontalMove);
+            Player.CanMove = false;
             Player.IsCenter = true;
         }
-    }
-
-    private void EnemyClick()
-    {
-
     }
 
     public override void Exit()

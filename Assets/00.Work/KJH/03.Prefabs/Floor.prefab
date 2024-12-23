@@ -889,6 +889,7 @@ MonoBehaviour:
   _enemyPos: {fileID: 7446671214673892098}
   _isEntered: 0
   _isExiting: 0
+  _enemy: {fileID: 0}
   floor: 0
 --- !u!61 &7176750772650390311
 BoxCollider2D:
@@ -1325,5 +1326,5 @@ MonoBehaviour:
   _rightEnemypos: {fileID: 1061486258070868026}
   _floor: {fileID: 7304392940128019278}
   _enemies:
-  - {fileID: 3040430803585294934, guid: 23c692707e0836d4e8f077f1fb47e4f7, type: 3}
+  - {fileID: 3977259927036062991, guid: 04d31fcfa884e804a891d3af980c4789, type: 3}
   _enemy: {fileID: 0}

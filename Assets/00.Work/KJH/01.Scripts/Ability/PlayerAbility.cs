@@ -32,6 +32,7 @@ public class PlayerAbility : MonoSingleton<PlayerAbility>
         _currentHp = _player.AbilityData.currentHp;
         _currentHungry = _player.AbilityData.currentHungry;
         _maxHungry = _player.AbilityData.maxHungry;
+        _damageedown = _player.AbilityData.damageDown;
     }
 
     #region 능력치 세팅

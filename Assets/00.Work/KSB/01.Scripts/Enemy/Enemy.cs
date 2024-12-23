@@ -64,6 +64,6 @@ public class Enemy : MonoBehaviour
             return AnimationType.Attack;
         }
         else
-        return AnimationType.Miss;
+        return AnimationType.Attack;
     }
 }

@@ -12,16 +12,35 @@ public class GameOverUIManager : MonoSingleton<GameOverUIManager>
     [SerializeField] private GameObject _gameOverUIPanel, _exitButton, _restartButton;
     [SerializeField] private GameObject _alpha;
 
+    Tweener d;
+
     public void Awake()        //게임 오버 시 실행(어디서 실행하도록!!)
     {
         _gameOverUIPanel.SetActive(true);
         _exitButton.SetActive(false);
         _restartButton.SetActive(false);
-        _alpha.GetComponent<Image>().DOFade(0.5f, 3).OnComplete(() =>
+        d = _alpha.GetComponent<Image>().DOFade(0.5f, 3).OnComplete(() =>
         {
-            _exitButton.SetActive(true);
-            _restartButton.SetActive(true);
+            Active();
         });
+    }
+
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            d.Kill();
+            Color a = _alpha.GetComponent<Image>().color;
+            a.a = 0.5f;
+            _alpha.GetComponent<Image>().color = a;
+            Active();
+        }
+    }
+
+    public void Active()
+    {
+        _exitButton.SetActive(true);
+        _restartButton.SetActive(true);
     }
 
     public void OnRestartButtonClick()

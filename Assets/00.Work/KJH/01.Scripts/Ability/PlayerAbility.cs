@@ -51,61 +51,61 @@ public class PlayerAbility : MonoSingleton<PlayerAbility>
     //회피율
     public float Dodge
     {
-        get => _player.AbilityData.dodge;
-        set => _player.AbilityData.dodge = value;
+        get => _dodge;
+        set => _dodge = value;
     }
     //명중률
     public float Accuracy
     {
-        get => _player.AbilityData.accuracy;
-        set => _player.AbilityData.accuracy = value;
+        get => _accuracy;
+        set => _accuracy = value;
     }
     //도주율
     public float Escape
     {
-        get => _player.AbilityData.escape;
-        set => _player.AbilityData.escape = value;
+        get => _escape;
+        set => _escape = value;
     }
     //치명타율
     public float Critical
     {
-        get => _player.AbilityData.critical;
-        set => _player.AbilityData.critical = value;
+        get => _critical;
+        set => _critical = value;
     }
     //치명타 피해
     public float CriticalAttack
     {
-        get => _player.AbilityData.criticalAttack;
-        set => _player.AbilityData.criticalAttack = value;
+        get => _criticalAtack;
+        set => _criticalAtack = value;
     }
     //최대 체력
     public float MaxHealth {  
-        get => _player.AbilityData.maxHp;
-        set => _player.AbilityData.maxHp = value; 
+        get => _maxHp;
+        set => _maxHp = value; 
     }
     //현재체력
     public float CurrentHp
     {
-        get => _player.AbilityData.maxHp;
-        set => _player.AbilityData.maxHp = value; 
+        get => _currentHp;
+        set => _currentHp = value; 
     }
     //현재배고픔
     public float CurrentHungry
     {
-        get => _player.AbilityData.maxHungry;
-        set => _player.AbilityData.maxHungry = value; 
+        get => _currentHungry;
+        set => _currentHungry = value; 
     }
     //최대배고픔수치
     public float MaxHungry
     {
-        get => _player.AbilityData.maxHungry;
-        set => _player.AbilityData.maxHungry = value; 
+        get => _maxHungry;
+        set => _maxHungry = value; 
     }
     //받는 피해 감소
     public float DamageDown
     {
-        get => _player.AbilityData.damageDown;
-        set => _player.AbilityData.damageDown = value; 
+        get => _damageedown;
+        set => _damageedown = value; 
     }
     
     #endregion

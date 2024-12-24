@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/00.Work/KJH/00.Scenes/MainGameScene.unity
     guid: 0ef7b08635330034c8fcf139d357fe50
+  - enabled: 1
+    path: Assets/00.Work/KSB/00.Scenes/startCutScene.unity
+    guid: 0e67eac7fa69d8c44b2463f8bcf9ab38
   m_configObjects: {}

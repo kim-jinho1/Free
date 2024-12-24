@@ -56,4 +56,6 @@ public class CenterRoom : MonoBehaviour
         OnCenterMove?.Invoke(transform);
         EnterRoom();
     }
+
+
 }

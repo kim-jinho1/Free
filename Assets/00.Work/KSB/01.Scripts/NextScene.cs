@@ -25,7 +25,14 @@ public class NextScene : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            SceneManager.LoadScene(sceneName); // 씬 이름으로 전환
+            MoveNextScene(); // 씬 이름으로 전환
         }
     }
+
+    public void MoveNextScene()
+    {
+        SceneManager.LoadScene(sceneName);
+    }
 }
+
+

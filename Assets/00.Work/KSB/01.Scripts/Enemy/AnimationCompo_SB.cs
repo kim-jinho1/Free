@@ -6,15 +6,6 @@ public class AnimationCompo_SB : MonoBehaviour
     public Animator _animator;
     RuntimeAnimatorController _controller;
     Enemy _enemy;
-
-
-
-
-   
-  
-
-
-
     private void Awake()
     {
         _animator = GetComponent<Animator>();

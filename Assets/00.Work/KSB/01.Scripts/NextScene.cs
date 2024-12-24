@@ -1,12 +1,11 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
-#if UNITY_EDITOR
 using UnityEditor;
-#endif
+
 
 public class NextScene : MonoBehaviour
 {
+    
 
     [SerializeField] private SceneAsset scene; 
     [SerializeField] private string sceneName;
@@ -25,7 +24,14 @@ public class NextScene : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            SceneManager.LoadScene(sceneName); // 씬 이름으로 전환
+            MoveNextScene(); // 씬 이름으로 전환
         }
     }
+
+    public void MoveNextScene()
+    {
+        SceneManager.LoadScene(sceneName);
+    }
 }
+
+

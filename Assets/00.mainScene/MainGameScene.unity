@@ -3106,7 +3106,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b84aed6afd85f40449a475b86cc04b32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  contentParent: {fileID: 419249748}
   _mapPool: {fileID: 202898496}
   _enemyPool: {fileID: 1743305449}
   _battlePanel: {fileID: 2094844988}
@@ -8734,7 +8733,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   percentList: []
   damageList: []
-  pannel: {fileID: 0}
+  pannel: {fileID: 2094844988}
 --- !u!1 &2127427087
 GameObject:
   m_ObjectHideFlags: 0

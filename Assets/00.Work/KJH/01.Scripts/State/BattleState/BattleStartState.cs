@@ -24,6 +24,8 @@ public class BattleStartState : BattleState
             battle.EnemyAttack(en);
             battle.StateMachine.ChangeState(BattleStateEnum.MiddleState);
         }
+
+        SJ_BattleUI.Instance.SetEnemy(en);
     }
 
     public void ExitState()

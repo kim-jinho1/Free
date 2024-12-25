@@ -25,5 +25,9 @@ MonoBehaviour:
   skill2_AttackRate: 0
   skill1_AttackRate: 0
   skill2_AttackDamage: 0
-  _attack_Passive_Rng: 50
-  _speed_Passive_Rng: 50
+  _attack_Passive_Rng: 0
+  _speed_Passive_Rng: 0
+  HitPoint:
+  - {fileID: -803756584, guid: 8342bd385db583247a6a3812540888ee, type: 3}
+  - {fileID: -1605954305, guid: 8342bd385db583247a6a3812540888ee, type: 3}
+  - {fileID: 472405278, guid: 8342bd385db583247a6a3812540888ee, type: 3}

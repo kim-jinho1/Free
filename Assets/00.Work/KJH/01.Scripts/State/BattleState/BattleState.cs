@@ -18,9 +18,9 @@ public class BattleState
     {
         Battle = battle;
         StateMachine = stateMachine;
-        AnimBoolHash = Animator.StringToHash(animBoolHash);
+        //AnimBoolHash = Animator.StringToHash(animBoolHash);
 
-        Animator = battle.Animator;
+       // Animator = battle.Animator;
     }
     
     public virtual void Update()
@@ -42,6 +42,6 @@ public class BattleState
 
     public void Tirggercalled()
     {
-        IsTirggcalled = true;
+        //IsTirggcalled = true;
     }
 }

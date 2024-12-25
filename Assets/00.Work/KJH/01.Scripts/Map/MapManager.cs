@@ -19,8 +19,6 @@ public class MapManager : MonoSingleton<MapManager>
 
     [SerializeField] private Player _player;
 
-    [SerializeField] public GameObject mapPanel;
-
     private int _mapScale = 50;
 
     public int _currentFloor;
@@ -34,7 +32,7 @@ public class MapManager : MonoSingleton<MapManager>
 
     private void Start()
     {
-        _currentFloor = _player.CurrentFloor;
+        _currentFloor = 1;
         tower[_currentFloor].SetActive(true);
     }
 
@@ -43,7 +41,7 @@ public class MapManager : MonoSingleton<MapManager>
         int scale = 0;
         int floor = 1;
 
-        while (scale < _mapScale)
+        while (scale <= _mapScale)
         {
             int random = UnityEngine.Random.Range(0, 11);
             if (floor == 50)
@@ -67,19 +65,22 @@ public class MapManager : MonoSingleton<MapManager>
 
     public void ChangeFloor(bool isChange)
     {
-        if (isChange)
+        if (tower[_currentFloor] is not null)
         {
-            tower[_currentFloor].SetActive(false);
-            _currentFloor++;
-            tower[_currentFloor].SetActive(true);
-            _player.CurrentFloor = _currentFloor;
-        }
-        else
-        {
-            tower[_currentFloor].SetActive(false);
-            _currentFloor--;
-            tower[_currentFloor].SetActive(true);
-            _player.CurrentFloor = _currentFloor;
+            if (isChange)
+            {
+                tower[_currentFloor].SetActive(false);
+                _currentFloor++;
+                tower[_currentFloor].SetActive(true);
+                _player.CurrentFloor = _currentFloor;
+            }
+            else
+            {
+                tower[_currentFloor].SetActive(false);
+                _currentFloor--;
+                tower[_currentFloor].SetActive(true);
+                _player.CurrentFloor = _currentFloor;
+            }
         }
     }
 }

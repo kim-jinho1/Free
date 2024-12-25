@@ -5,8 +5,6 @@ using UnityEditor;
 
 public class NextScene : MonoBehaviour
 {
-    
-
     [SerializeField] private SceneAsset scene; 
     [SerializeField] private string sceneName;
 
@@ -30,8 +28,6 @@ public class NextScene : MonoBehaviour
 
     public void MoveNextScene()
     {
-        SceneManager.LoadScene(sceneName);
+        SceneManager.LoadScene("MainGameScene");
     }
 }
-
-

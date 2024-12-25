@@ -12,8 +12,7 @@ public class Boss_Attack : Enemy_State
         attackSucRate = _enemy.enemyData.AttackSucRate;
         _enemy.myTurn = false;
 
-        if (_enemy.enemyData._isStunned)
-            return;
+      
 
         AttackTry(attackSucRate);
     }
@@ -34,7 +33,7 @@ public class Boss_Attack : Enemy_State
 
     private void Attack()
     {
-        AnimationType type = _enemy.ChooseAttack(_enemy.enemyData._skill2_Rng, _enemy.enemyData._skill1_Rng);
+        AnimationType type = _enemy.ChooseAttack(_enemy.enemyData.Skill2_Rng, _enemy.enemyData.Skill1_Rng);
         print(type);
         if (type.ToString() == "Miss")
         {

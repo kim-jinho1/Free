@@ -3,35 +3,35 @@ using UnityEngine;
 
 public class RoomPanel : MonoBehaviour
 {
-    private GameObject roomPanel;
-    private int currentFloor = 1;
+    private int currentFloor;
 
-    private void Awake()
-    {
-        roomPanel = MapManager.Instance.mapPanel;
-    }
+    public static Action OnClickUpDown;
 
     public void OnClickDown()
     {
-        currentFloor = MapManager.Instance._currentFloor;
-
-        if (currentFloor > 1)
+        if (Player.IsCenter)
         {
-            MapManager.Instance.ChangeFloor(false);
+            currentFloor = MapManager.Instance._currentFloor;
+            if (currentFloor > 1)
+            {
+                MapManager.Instance.ChangeFloor(false);
+            }
+            OnClickUpDown?.Invoke();
+            PlayerUIState.UIExit();
         }
-        PlayerUIState.UIExit();
-        roomPanel.SetActive(false);
     }
-    
+
     public void OnClickUp()
     {
-        currentFloor = MapManager.Instance._currentFloor;
-
-        if (currentFloor <= 50)
+        if (Player.IsCenter)
         {
-            MapManager.Instance.ChangeFloor(true);
+            currentFloor = MapManager.Instance._currentFloor;
+            if (currentFloor < 50)
+            {
+                MapManager.Instance.ChangeFloor(true);
+            }
+            OnClickUpDown?.Invoke();
+            PlayerUIState.UIExit();
         }
-        PlayerUIState.UIExit();
-        roomPanel.SetActive(false);
     }
 }

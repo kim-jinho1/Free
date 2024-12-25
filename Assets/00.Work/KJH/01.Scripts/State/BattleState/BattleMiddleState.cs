@@ -33,16 +33,22 @@ public class BattleMiddleState : BattleState
 
     private void PlayerAttack()
     {
-        Battle.OnPlayerAttack?.Invoke();
+        Battle.OnPlayerAttack?.Invoke(battle.target.GetComponent<Enemy>());
     }
 
     private void EnemyAttack()
     {
-        Battle.OnEnemyAttack?.Invoke();
+        Battle.OnEnemyAttack?.Invoke(battle.target.GetComponent<Enemy>());
     }
 
     public void BattleEnd()
     {
         StateMachine.ChangeState(BattleStateEnum.EndState);
+    }
+
+    public override void Exit()
+    {
+        base.Exit();
+        Enemy_JH.OnClick -= Attack;
     }
 }

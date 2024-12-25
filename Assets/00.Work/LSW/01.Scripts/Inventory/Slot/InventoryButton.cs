@@ -2,6 +2,9 @@ using UnityEngine;
 
 public class InventoryButton : MonoBehaviour
 {
+    [SerializeField] private GameObject _Inven;
+
+
     private void Start()
     {
         OnClose();
@@ -9,8 +12,8 @@ public class InventoryButton : MonoBehaviour
 
     public void OnClose()
     {
-        //InventoryManager.Instance._inventory.SetActive(false);
-        //InventoryManager.Instance._inspector.SetActive(false);
+        _Inven.SetActive(false);
+        _Inven.SetActive(false);
     }
 
     public void OnOpen()

@@ -10,6 +10,7 @@ public class PlayerIdleState : PlayerState
         base.Enter();
         RightRoom.OnRightClick += CheckRoom;
         LeftRoom.OnLeftClick += CheckRoom;
+        CenterRoom.OnCenterClick += CheckRoom;
     }
 
     private void CheckRoom()
@@ -20,13 +21,16 @@ public class PlayerIdleState : PlayerState
 
     private void CheckCenterRoom()
     {
-        if (Player.IsCenter)
-            StateMachine.ChangeState(PlayerStateEnum.UI);
-        else if (!Player.IsCenter)
+        if (!Player.IsMoveing)
         {
-            StateMachine.ChangeState(PlayerStateEnum.HorizontalMove);
-            Player.CanMove = false;
-            Player.IsCenter = true;
+            if (Player.IsCenter)
+                StateMachine.ChangeState(PlayerStateEnum.UI);
+            else if (!Player.IsCenter)
+            {
+                StateMachine.ChangeState(PlayerStateEnum.HorizontalMove);
+                Player.CanMove = false;
+                Player.IsCenter = true;
+            }
         }
     }
 

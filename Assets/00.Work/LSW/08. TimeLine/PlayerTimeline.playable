@@ -717,7 +717,7 @@ MonoBehaviour:
     m_Start: 3.539568860751266
     m_ClipIn: 0
     m_Asset: {fileID: -1957734520233287801}
-    m_Duration: 5.333333333333333
+    m_Duration: 5.243764472582062
     m_TimeScale: 1
     m_ParentTrack: {fileID: -1045857501223585984}
     m_EaseInDuration: 0
@@ -779,7 +779,7 @@ MonoBehaviour:
     m_Recordable: 0
     m_PostExtrapolationMode: 1
     m_PreExtrapolationMode: 1
-    m_PostExtrapolationTime: 0.9104311392487343
+    m_PostExtrapolationTime: 1.0000000000000053
     m_PreExtrapolationTime: 3.539568860751266
     m_DisplayName: Player_Move_CompleteScene
   - m_Version: 1

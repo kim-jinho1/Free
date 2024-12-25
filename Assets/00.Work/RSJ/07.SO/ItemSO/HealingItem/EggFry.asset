@@ -13,14 +13,17 @@ MonoBehaviour:
   m_Name: Eggfry
   m_EditorClassIdentifier: 
   ItemName: "\uACC4\uB780\uD6C4\uB77C\uC774"
-  ItemImage: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  ItemImage: {fileID: 21300000, guid: 4c63671ea1ec33c4c8cd8f7336384b67, type: 3}
   itemType: 2
   itemGrade: 0
   equipType: 0
+  itemSort: 0
   AttackUp: 0
   CriticalUp: 0
+  CriticalDamageUp: 0
   HealthRateUp: 0.02
   SpeedRateUp: 0
   DodgeRateUp: 0
   HungerRateUp: 0.07
+  Damage: 0
   MaxDuplicateValue: 0

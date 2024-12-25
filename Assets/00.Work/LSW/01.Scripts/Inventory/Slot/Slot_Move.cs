@@ -100,7 +100,7 @@ public class Slot_Move : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Slot"))
         {
-            InventoryManager.Instance._eachChangeSlot.Add(collision.gameObject.GetComponent<Slot>());
+            InventoryManager.Instance._eachChangeSlot.Add(collision.gameObject.GetComponentInChildren<Slot>());
         }
     }
 
@@ -108,7 +108,7 @@ public class Slot_Move : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Slot"))
         {
-            InventoryManager.Instance._eachChangeSlot.Remove(collision.gameObject.GetComponent<Slot>());
+            InventoryManager.Instance._eachChangeSlot.Remove(collision.gameObject.GetComponentInChildren<Slot>());
         }
     }
 }

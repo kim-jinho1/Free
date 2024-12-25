@@ -23,7 +23,10 @@ MonoBehaviour:
   ArmRNG: 30
   HeadRNG: 25
   skill2_AttackRate: 0
-  skill1_AttackRate: 85
+  skill1_AttackRate: 0
   skill2_AttackDamage: 0
-  _attack_Passive_Rng: 50
-  _speed_Passive_Rng: 50
+  _attack_Passive_Rng: 0
+  _speed_Passive_Rng: 0
+  HitPoint:
+  - {fileID: 2108332866, guid: 22fd0f0189f320743bd49965d13d623b, type: 3}
+  - {fileID: -1156549340, guid: 22fd0f0189f320743bd49965d13d623b, type: 3}

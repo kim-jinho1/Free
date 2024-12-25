@@ -17,14 +17,14 @@ public class RSJ_MainUI : MonoBehaviour
 
     public void StartBtn()
     {
-        ClickSound.Play();
+        //ClickSound.Play();
         StartCoroutine(Fading());
         Invoke("StartGame", 1f);
     }
 
     private void StartGame()
     {
-        SceneManager.LoadScene("MainGameScene");
+        SceneManager.LoadScene("StartCutScene");
     }
 
     public void LoadBtn()

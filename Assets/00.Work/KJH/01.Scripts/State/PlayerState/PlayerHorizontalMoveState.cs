@@ -21,11 +21,11 @@ public class PlayerHorizontalMoveState : PlayerState
     }
     private void Move(Transform target)
     {
-        if (!_isMoveing)
+        if (!Player.IsMoveing)
         {
+            Player.IsMoveing = true;
             Player.Rigid.DOMoveX(target.position.x, 1f);
             _target = target;
-            _isMoveing = true;
         }
     }
 
@@ -49,12 +49,14 @@ public class PlayerHorizontalMoveState : PlayerState
                 _isMoveing = false;
                 StateMachine.ChangeState(PlayerStateEnum.Idle);
                 Player.IsCenter = false;
+                Player.IsMoveing = false;
             }
             else if (Mathf.Approximately(_target.position.x, Player.transform.position.x) && Mathf.Approximately(_target.position.x, Player.CenterPosition.position.x))
             {
                 _isMoveing = false;
                 StateMachine.ChangeState(PlayerStateEnum.Idle);
                 Player.IsCenter = true;
+                Player.IsMoveing = false;
             }
         }
     }

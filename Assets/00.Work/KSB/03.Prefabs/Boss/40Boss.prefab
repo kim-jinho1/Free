@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8319703140676895357}
   - component: {fileID: 3305883660221027975}
   - component: {fileID: 3115275984327896176}
-  - component: {fileID: 4340898854027348908}
+  - component: {fileID: 3998285298660729981}
   m_Layer: 0
   m_Name: visual
   m_TagString: Untagged
@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animator: {fileID: 0}
---- !u!95 &4340898854027348908
+--- !u!95 &3998285298660729981
 Animator:
   serializedVersion: 5
   m_ObjectHideFlags: 0
@@ -392,3 +392,4 @@ MonoBehaviour:
   _isStunned: 0
   _skill2_Rng: 0
   _skill1_Rng: 0
+  _hitPointSprite: []

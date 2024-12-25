@@ -1,4 +1,5 @@
-using System.Runtime.CompilerServices;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class AnimationCompo_SB : MonoBehaviour
@@ -12,9 +13,10 @@ public class AnimationCompo_SB : MonoBehaviour
         _enemy = GetComponentInParent<Enemy>();
        
     }
-
+  
     public void EndPoint()
     {
+
         _enemy.TransitionState(_enemy.stateCompo.GetState(StateType.Idle));
     }
     public void StopAnimation()

@@ -144,10 +144,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32d8302c252f527469b66f41dcc8b8ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemySO: {fileID: 11400000, guid: 7ed960964dbc2334ba2a1c1a945efead, type: 2}
+  enemySO: {fileID: 11400000, guid: 69d1af5d99d5cdb4aa8d6e5c2392e42c, type: 2}
   _isStunned: 0
   _skill2_Rng: 0
   _skill1_Rng: 0
+  _hitPointSprite: []
 --- !u!1 &7540934140486344055
 GameObject:
   m_ObjectHideFlags: 0

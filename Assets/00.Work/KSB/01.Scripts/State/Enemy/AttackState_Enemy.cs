@@ -11,8 +11,6 @@ public class AttackState_Enemy : Enemy_State
         attackSucRate = _enemy.enemyData.AttackSucRate;
         _enemy.myTurn = false;
 
-        if (_enemy.enemyData._isStunned)
-            return;
         AttackTry(attackSucRate);
     }
 

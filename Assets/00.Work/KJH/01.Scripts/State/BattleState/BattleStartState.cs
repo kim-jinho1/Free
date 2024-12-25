@@ -8,20 +8,20 @@ public class BattleStartState : BattleState
     public override void Enter()
     {
         base.Enter();
-        FirstAttack(battle.target.GetComponent<Enemy>().enemyData.AttackSpeed, _player.AbilityData.speed);
+        FirstAttack(battle.target.GetComponent<Enemy>().enemyData.AttackSpeed, _player.AbilityData.speed, battle.target.GetComponent<Enemy>());
     }
 
 
-    private void FirstAttack(float a, float b)
+    private void FirstAttack(float a, float b, Enemy en)
     {
         if (a > b)
         {
-            battle.PlayerAttack();
+            battle.PlayerAttack(en);
             battle.StateMachine.ChangeState(BattleStateEnum.MiddleState);
         }
         else
         {
-            battle.EnemyAttack();
+            battle.EnemyAttack(en);
             battle.StateMachine.ChangeState(BattleStateEnum.MiddleState);
         }
     }

@@ -189,15 +189,15 @@ RectTransform:
   m_GameObject: {fileID: 4461584021066648017}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 7, y: 7, z: 1}
+  m_LocalScale: {x: 44.777077, y: 33.625145, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5005372580027761626}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: 0.00024414, y: -0.00030518}
+  m_SizeDelta: {x: 14.286, y: 14.286}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5215594175774390680
 CanvasRenderer:
@@ -389,6 +389,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemySO: {fileID: 11400000, guid: 14868c8fa7079594cbf3a35173ec87ae, type: 2}
   _isStunned: 0
+  _skill2_Rng: 0
+  _skill1_Rng: 0
 --- !u!1 &8760030732387673407
 GameObject:
   m_ObjectHideFlags: 0
@@ -402,7 +404,6 @@ GameObject:
   - component: {fileID: 4797879808427972078}
   - component: {fileID: 7911588546519574986}
   - component: {fileID: 8455292130383687941}
-  - component: {fileID: 5622894072538263340}
   m_Layer: 7
   m_Name: Button
   m_TagString: Untagged
@@ -537,15 +538,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 6307989720600579095}
---- !u!210 &5622894072538263340
-SortingGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8760030732387673407}
-  m_Enabled: 1
-  m_SortingLayerID: -200849037
-  m_SortingLayer: 3
-  m_SortingOrder: 0
-  m_SortAtRoot: 0

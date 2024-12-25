@@ -9,7 +9,6 @@ public class EnemySO : ScriptableObject
     public int skill1_AttackDamage;
     public int attackSucRate;
 
-
     [Header("EnemyDamageSetting")]
     public float BodyDamage;
     public float ArmDamage;
@@ -29,7 +28,6 @@ public class EnemySO : ScriptableObject
     public int _attack_Passive_Rng;
     public int _speed_Passive_Rng;
 
-
+    [Header("EnemyNormalSetting")]
+    public Sprite[] HitPoint;
 }
-
-

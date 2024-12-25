@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: RealAbilityData
   attack: 10
-  speed: 3
+  speed: 0
   dodge: 15
   accuracy: 67
   escape: 20
@@ -26,3 +26,4 @@ MonoBehaviour:
   hungry: 0
   currentHungry: 100
   maxHungry: 100
+  damageDown: 0

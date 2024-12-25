@@ -27,3 +27,7 @@ MonoBehaviour:
   skill2_AttackDamage: 9
   _attack_Passive_Rng: 50
   _speed_Passive_Rng: 50
+  HitPoint:
+  - {fileID: 155246812, guid: 3e642b2df2b56aa4f818ee4b14f183ea, type: 3}
+  - {fileID: 802121791, guid: 3e642b2df2b56aa4f818ee4b14f183ea, type: 3}
+  - {fileID: 1619495721, guid: 3e642b2df2b56aa4f818ee4b14f183ea, type: 3}

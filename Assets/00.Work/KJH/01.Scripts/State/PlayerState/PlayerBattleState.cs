@@ -12,7 +12,11 @@ public class PlayerBattleState : PlayerState
     public override void Enter()
     {
         base.Enter();
+        Player._battle.StateMachine.ChangeState(BattleStateEnum.StartState);
+
     }
+
+
 
     public override void Exit()
     {

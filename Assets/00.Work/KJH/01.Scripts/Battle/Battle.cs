@@ -6,8 +6,8 @@ public class Battle : MonoBehaviour
 {
     [SerializeField] private GameObject _battlePanel;
 
-    public Action OnPlayerAttack;
-    public Action OnEnemyAttack;
+    public Action<Enemy> OnPlayerAttack;
+    public Action<Enemy> OnEnemyAttack;
 
     public GameObject target { get; set; }
 
@@ -17,7 +17,7 @@ public class Battle : MonoBehaviour
 
     public Animator Animator { get; private set; }
 
-    public BattleStateMachine StateMachine { get; private set; }
+    public BattleStateMachine StateMachine { get;  set; }
 
     public int turn { get; set; }
 
@@ -26,13 +26,34 @@ public class Battle : MonoBehaviour
     {
         turn = 0;
 
+        StateMachine = new BattleStateMachine();
+        StateMachine.AddState(BattleStateEnum.StartState, new BattleStartState(this, StateMachine, "PlayerIdle"));
+        StateMachine.AddState(BattleStateEnum.MiddleState, new BattleMiddleState(this, StateMachine, "PlayerIdle"));
+        StateMachine.AddState(BattleStateEnum.EndState, new BattleEndState(this, StateMachine, "PlayerIdle"));
+        StateMachine.AddState(BattleStateEnum.NotState, new BattleNotState(this, StateMachine, "PlayerIdle"));
+    }
+
+    private void Start()
+    {
+        StateMachine.Initialize(BattleStateEnum.NotState);
+    }
+
+    private void OnEnable()
+    {
         OnPlayerAttack += PlayerAttack;
         OnEnemyAttack += EnemyAttack;
+        RightRoom.OnEnemy += SetTarGet;
+        LeftRoom.OnEnemy += SetTarGet;
+        CenterRoom.OnEnemy += SetTarGet;
+    }
 
-        StateMachine.AddState(BattleStateEnum.StartState, new BattleStartState(this, StateMachine, "Idle"));
-        StateMachine.AddState(BattleStateEnum.MiddleState, new BattleMiddleState(this, StateMachine, "Attack"));
-        StateMachine.AddState(BattleStateEnum.EndState, new BattleEndState(this, StateMachine, "HorizontalMove"));
-        StateMachine.AddState(BattleStateEnum.NotState, new BattleNotState(this, StateMachine, "HorizontalMove"));
+    private void OnDisable()
+    {
+        OnPlayerAttack -= PlayerAttack;
+        OnEnemyAttack -= EnemyAttack;
+        RightRoom.OnEnemy -= SetTarGet;
+        LeftRoom.OnEnemy -= SetTarGet;
+        CenterRoom.OnEnemy -= SetTarGet;
     }
 
     private void Update()
@@ -48,18 +69,23 @@ public class Battle : MonoBehaviour
         }
     }
 
-    public void PlayerAttack()
+    public void PlayerAttack(Enemy en)
     {
         _battlePanel.SetActive(true);
         _battlePanel.transform.DOMove(new Vector3(960, 540), 1f).SetEase(Ease.OutExpo);
         turn++;
-        //적의 체력을 깍는다
+        en.myTurn = true;
+
     }
 
-    public void EnemyAttack()
+    public void EnemyAttack(Enemy en)
     {
         turn++;
-        //나의 체력을 깍는다
+        en.enemyHealth._currentHp -= _player.AbilityData.attack;
     }
 
+    private void SetTarGet(GameObject en)
+    {
+        target = en;
+    }
 }

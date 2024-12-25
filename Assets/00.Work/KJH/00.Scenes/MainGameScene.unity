@@ -3003,12 +3003,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b84aed6afd85f40449a475b86cc04b32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  contentParent: {fileID: 419249748}
   _mapPool: {fileID: 202898496}
   _enemyPool: {fileID: 1743305449}
   _battlePanel: {fileID: 2094844988}
   _player: {fileID: 1875677447}
-  mapPanel: {fileID: 0}
   _currentFloor: 0
   tower: []
 --- !u!114 &785146737
@@ -5371,13 +5369,13 @@ RectTransform:
   - {fileID: 785146735}
   - {fileID: 1875677446}
   - {fileID: 1743305450}
-  - {fileID: 2094844989}
   - {fileID: 1061607604}
   - {fileID: 192982744205119008}
   - {fileID: 3916792413269842056}
   - {fileID: 1914155352}
   - {fileID: 1203089498}
   - {fileID: 2128735240}
+  - {fileID: 2094844989}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}

@@ -5,6 +5,7 @@ using DG.Tweening;
 
 public class SJ_BattleUI : MonoBehaviour
 {
+    public EnemySO enemySO;
     [SerializeField] private List<TextMeshProUGUI> percentList;
     [SerializeField] private List<TextMeshProUGUI> damageList;
     [SerializeField] private GameObject pannel;
@@ -20,7 +21,7 @@ public class SJ_BattleUI : MonoBehaviour
 
     public void Attack(int ListNum)
     {
-        //List 받아와서 공격 퍼센트에 따라 데미지 넣기 ㅇㅇ
+   
         int per = Random.Range(0,101);
         if(per >= 50)
         {

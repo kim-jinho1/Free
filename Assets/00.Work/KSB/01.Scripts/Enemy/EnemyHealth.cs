@@ -7,7 +7,7 @@ public class EnemyHealth : MonoBehaviour
     private Enemy _enemy;
     private int _fullHp;
     public bool isDeath = false;
-    public int _currentHp;
+    public float _currentHp;
     private bool prePassiveTrigger = false;
 
     private void Awake()
@@ -33,7 +33,7 @@ public class EnemyHealth : MonoBehaviour
             Passive_Skill();
         }
     }
-    private int CurrentHp
+    private float CurrentHp
     {
         get
         {
@@ -51,7 +51,7 @@ public class EnemyHealth : MonoBehaviour
             }
         }
     }
-    public int GetCurrentHp()
+    public float GetCurrentHp()
     {
         return CurrentHp;
     }

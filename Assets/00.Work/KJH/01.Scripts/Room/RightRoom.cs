@@ -2,10 +2,12 @@ using System;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class RightRoom : MonoBehaviour , IMap
+public class RightRoom : MonoBehaviour, IMap
 {
     [SerializeField] private Transform _enemyPos;
+    [SerializeField] private Button _rightRoomButton;
 
+    public static Action<GameObject> OnEnemy;
     public static Action<Transform> OnRightMove;
     public static Action OnRightClick;
     public bool _isEntered = false;
@@ -19,24 +21,33 @@ public class RightRoom : MonoBehaviour , IMap
     private void Awake()
     {
         _image = GetComponent<Image>();
+        _rightRoomButton.onClick.AddListener(OnRightRoomClick); // 버튼 클릭 이벤트 추가
     }
 
-    private void Update()
+    private void OnEnable()
     {
-        if (_isEntered && !_isExiting)
-        {
-            ResetRoom();
-        }
-        else if (_isEntered && _isExiting)
-        {
-            ExitRoom();
-        }
+        LeftRoom.OnLeftClick += ExitRoom;
+        CenterRoom.OnCenterClick += ExitRoom;
+        RoomPanel.OnClickUpDown += ExitRoom;
+    }
+
+    private void OnDisable()
+    {
+        LeftRoom.OnLeftClick -= ExitRoom;
+        CenterRoom.OnCenterClick -= ExitRoom;
+        RoomPanel.OnClickUpDown -= ExitRoom;
     }
 
     public void EnterRoom()
     {
-        Player.CurrentRoom = 1;
-        _enemy.SetActive(true);
+        _isEntered = true;
+
+        // 적 활성화
+        if (_enemy != null)
+        {
+            _enemy.SetActive(true);
+        }
+
         var color = _image.color;
         color.a = 0f;
         _image.color = color;
@@ -44,10 +55,19 @@ public class RightRoom : MonoBehaviour , IMap
 
     public void ExitRoom()
     {
+        if (_isEntered && _isExiting)
+        {
+            _isExiting = true;
 
-        var color = _image.color;
-        color.a = 0.5f;
-        _image.color = color;
+            // 적 비활성화
+            if (_enemy != null)
+            {
+                _enemy.SetActive(false);
+            }
+            var color = _image.color;
+            color.a = 0.5f;
+            _image.color = color;
+        }
     }
 
     private void ResetRoom()
@@ -57,19 +77,29 @@ public class RightRoom : MonoBehaviour , IMap
         _image.color = color;
     }
 
-
-
     public void OnRightRoomClick()
     {
-        OnRightClick?.Invoke();
-        OnRightMove?.Invoke(transform);
-        EnterRoom();
+        if (!Player.IsMoveing)
+        {
+            if (Player.CurrentRoom != 1)
+            {
+                OnRightClick?.Invoke();
+                OnRightMove?.Invoke(transform);
+                OnEnemy?.Invoke(_enemy);
+
+                // 현재 방 설정 및 방 입장
+                Player.CurrentRoom = 1;
+                EnterRoom();
+            }
+        }
     }
 
-    void IMap.SettingRoom(int a,GameObject en)
+    public void SettingRoom(int a, GameObject en)
     {
         floor = a;
         _enemy = en;
+        en.transform.GetChild(0).GetChild(0).Rotate(0, 180, 0);
+        en.transform.position = _enemyPos.transform.position;
         var color = _image.color;
         color.a = 1f;
         _image.color = color;

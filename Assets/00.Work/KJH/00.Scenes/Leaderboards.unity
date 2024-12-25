@@ -805,8 +805,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b87445880329b394d990ff85d888947e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  btnScoreSave: {fileID: 0}
-  inputScore: {fileID: 0}
+  btnScoreSave: {fileID: 1123196654}
+  inputScore: {fileID: 850136050}
 --- !u!1 &809349526
 GameObject:
   m_ObjectHideFlags: 0

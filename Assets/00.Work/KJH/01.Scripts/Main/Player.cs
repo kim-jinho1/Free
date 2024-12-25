@@ -7,7 +7,9 @@ public class Player : MonoBehaviour
 {
     [SerializeField] private Transform _pos;
     [SerializeField] private AbilityData _abilityData;
-
+    [SerializeField] private GameObject _Inven;
+    [SerializeField] private GameObject _setting;
+     public Battle _battle;
 
     public GraphicRaycaster graphicRaycaster;
     public EventSystem eventSystem;
@@ -22,10 +24,11 @@ public class Player : MonoBehaviour
     public Animator Animator { get; private set; }
     public Rigidbody2D Rigid { get; private set; }
 
-    public bool IsCenter { get; set; }
+    public static bool IsCenter { get; set; }
+    public static bool IsMoveing { get; set; }
 
     /// <summary>0이면 센터 1이면 오른쪽 2면 왼쪽</summary>
-    public static int CurrentRoom { get; set; }
+    public static int CurrentRoom { get; set; } 
     public Transform CenterPosition { get; set; }
     public int CurrentFloor { get; set; }
     public bool CanMove { get; set; }
@@ -36,7 +39,7 @@ public class Player : MonoBehaviour
 
     private void Awake()
     {
-
+        IsMoveing = false;
         Animator = GetComponentInChildren<Animator>();
         Rigid = GetComponent<Rigidbody2D>();
         StateMachine = new PlayerStateMachine();
@@ -45,7 +48,7 @@ public class Player : MonoBehaviour
         StateMachine.AddState(PlayerStateEnum.Attack, new PlayerAttackState(this, StateMachine, AttackAnim()));
         StateMachine.AddState(PlayerStateEnum.HorizontalMove, new PlayerHorizontalMoveState(this, StateMachine, "PlayerRun"));
         StateMachine.AddState(PlayerStateEnum.UI, new PlayerUIState(this, StateMachine, "PlayerIdle"));
-
+        StateMachine.AddState(PlayerStateEnum.Battle, new PlayerBattleState(this, StateMachine, "PlayerIdle"));
     }
 
     private void Start()
@@ -114,5 +117,15 @@ public class Player : MonoBehaviour
             default:
                 return "PlayerAttack1";
         }
+    }
+
+    public void OpemInven()
+    {
+        _Inven.SetActive(true);
+    }
+
+    public void OpenSetting()
+    {
+        _setting.SetActive(true);
     }
 }

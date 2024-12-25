@@ -12,7 +12,6 @@ public enum MapType
 public class MapManager : MonoSingleton<MapManager>
 {
     [Header("UI Elements")]
-    [SerializeField] private Transform contentParent;
     [SerializeField] public GameObject _mapPool;
     [SerializeField] public GameObject _enemyPool;
     [SerializeField] public GameObject _battlePanel;

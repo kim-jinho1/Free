@@ -37,13 +37,10 @@ public class Slot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IP
 
         if (_slotData.equip)
         {
-            _equipBorder.color = Color.red;
             _equipMark.SetActive(true);
-
         }
         else
         {
-            _equipBorder.color = Color.black;
             _equipMark.SetActive(false);
         }
     }

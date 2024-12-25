@@ -7,7 +7,7 @@ public class Slot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IP
 {
     [SerializeField] private GameObject _itemMark;
     public SlotData _slotData;
-    public event Action<Slot> OnShowInspector; 
+    public event Action<Slot> OnShowInspector;
 
     [Header("ItemMove")]
     [SerializeField] private GameObject _itemMove;
@@ -51,6 +51,10 @@ public class Slot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IP
         _slotData.itemData = newitem;
         _slotData.itemData.ItemImage = newitem.ItemImage;
         ChangeImage(_slotData.itemData.ItemImage);
+
+        Color a = _itemMark.GetComponent<Image>().color;
+        a.a = 1f;
+        _itemMark.GetComponent<Image>().color = a;
     }
 
     public void ChangeImage(Sprite sprite)
@@ -58,7 +62,7 @@ public class Slot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IP
         _itemMark.GetComponent<Image>().sprite = sprite;
 
         Color a = _itemMark.GetComponent<Image>().color;
-        a.a = 1f;
+        a.a = 0f;
         _itemMark.GetComponent<Image>().color = a;
     }
 

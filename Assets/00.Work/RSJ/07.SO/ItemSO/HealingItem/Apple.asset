@@ -13,14 +13,17 @@ MonoBehaviour:
   m_Name: Apple
   m_EditorClassIdentifier: 
   ItemName: "\uC0AC\uACFC"
-  ItemImage: {fileID: 21300000, guid: 6fb7c70c632af63478386fc137389423, type: 3}
+  ItemImage: {fileID: 21300000, guid: ea4c873407f259541b6eed81288fc427, type: 3}
   itemType: 2
   itemGrade: 0
   equipType: 0
+  itemSort: 0
   AttackUp: 0
   CriticalUp: 0
+  CriticalDamageUp: 0
   HealthRateUp: 0.05
   SpeedRateUp: 0
   DodgeRateUp: 0
   HungerRateUp: 0.05
+  Damage: 0
   MaxDuplicateValue: 0

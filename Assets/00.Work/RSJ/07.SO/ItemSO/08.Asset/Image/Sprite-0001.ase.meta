@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 6d2dfc2e814177843906b123a5f5a852
+guid: 23f02ecb49345044cad95adcdce71c99
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -121,18 +121,18 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: UI_Flat_Frame_0
+  - name: Sprite-0001
     originalName: 
-    pivot: {x: 0.50832075, y: 0.24260354}
+    pivot: {x: 0.47172236, y: -0.012820513}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 661
-      height: 338
-    spriteID: 8f2723c67aafe7c42ac2a5c5f8d46171
+      width: 389
+      height: 390
+    spriteID: bc7ca62b0dbbcd9438ae84b3af6ff9d6
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -141,55 +141,27 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 4}
-  - name: UI_Flat_Frame_1
-    originalName: 
-    pivot: {x: 0.5609349, y: -0.25925928}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 4
-      y: 350
-      width: 599
-      height: 216
-    spriteID: 16eb0559731f4c7419e87716b9d6d8ce
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 4, y: 350}
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
-    guid: 94698294
-    name: UI_Flat
+    guid: -572921211
+    name: Sprite-0001
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: UI_Flat_Frame_0
+    - name: Sprite-0001
       frameIndex: 0
       cellRect:
-        x: 32
-        y: -82
-        width: 661
-        height: 338
-      spriteId: 8f2723c67aafe7c42ac2a5c5f8d46171
-    - name: UI_Flat_Frame_1
-      frameIndex: 1
-      cellRect:
-        x: 32
-        y: 56
-        width: 599
-        height: 216
-      spriteId: 16eb0559731f4c7419e87716b9d6d8ce
+        x: 37
+        y: 5
+        width: 389
+        height: 390
+      spriteId: bc7ca62b0dbbcd9438ae84b3af6ff9d6
     linkedCells: []
     parentIndex: -1
   platformSettings: []
   generatePhysicsShape: 0
   secondarySpriteTextures: []
   spritePackingTag: 
-  canvasSize: {x: 736, y: 288}
+  canvasSize: {x: 441, y: 405}

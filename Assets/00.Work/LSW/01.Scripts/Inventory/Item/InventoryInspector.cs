@@ -72,18 +72,19 @@ public class InventoryInspector : MonoBehaviour
         if (!mainSlot._slotData.equip)
         {
             List<Slot> equipSlot = InventoryManager.Instance._equipSlots;
-            if (!equipSlot.Exists(slot => slot._slotData.itemData.itemType == itemType.Equip                               //같은 Equip타입의 장착중인 아이템이 존재할 때
-                && slot._slotData.itemData.equipType == mainSlot._slotData.itemData.equipType))
+            if (!equipSlot.Exists(slot => slot._slotData.itemData.itemType == itemType.Equip))                               //같은 Equip타입의 장착중인 아이템이 존재할 때
             {
-                mainSlot._slotData.equip = InventoryManager.Instance.EquipItem(mainSlot);
+                mainSlot._slotData.equip = true;
+                InventoryManager.Instance.EquipItem(mainSlot);
             }
             else
             {
-                Slot sameSlot = equipSlot.Find(slot => slot._slotData.itemData.itemType == itemType.Equip
-                && slot._slotData.itemData.equipType == mainSlot._slotData.itemData.equipType);
+                Slot sameSlot = equipSlot.Find(slot => slot._slotData.itemData.itemType == itemType.Equip);
 
-                sameSlot._slotData.equip = InventoryManager.Instance.UnEquipItem(sameSlot);
-                mainSlot._slotData.equip = InventoryManager.Instance.EquipItem(mainSlot);
+                sameSlot._slotData.equip = false;
+                UnEquip(sameSlot);
+                mainSlot._slotData.equip = true;
+                InventoryManager.Instance.EquipItem(mainSlot);
             }
         }
         Disable();

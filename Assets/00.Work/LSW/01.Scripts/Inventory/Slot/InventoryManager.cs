@@ -78,19 +78,17 @@ public class InventoryManager : MonoBehaviour
         SlotFullValue--;
     }
 
-    public bool EquipItem(Slot slot)       //아이템을 장착
+    public void EquipItem(Slot slot)       //아이템을 장착
     {
         _equipSlots.Add(slot);
         SetPlayerStat(slot._slotData.itemData);
-        return true;
     }
 
-    public bool UnEquipItem(Slot slot)      //아이템을 장착 해제
+    public void UnEquipItem(Slot slot)      //아이템을 장착 해제
     {
         RollBackPlayerStat(slot._slotData.itemData);
         _equipSlots.Remove(slot);
         slot._slotData.equip = false;
-        return false;
     }
 
     public void SetPlayerStat(ItemData item)

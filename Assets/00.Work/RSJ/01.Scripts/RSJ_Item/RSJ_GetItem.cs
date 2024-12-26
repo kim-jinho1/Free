@@ -7,6 +7,24 @@ public class RSJ_GetItem : MonoBehaviour, IPointerClickHandler, IAttackAble
 {
     [SerializeField] private List<ItemData> _ItemList;
     private List<ItemData> _getItemList = new List<ItemData>();
+    [SerializeField] private Transform[] _ItemPos;
+
+    private void Awake()
+    {
+        int spawnDone = 0;
+        for (int i = 0; i < _ItemPos.Length; i++)
+        {
+            int spawnRandomInt = Random.Range(0,2);
+
+            if (spawnRandomInt == 1)
+            {
+                _ItemPos[i].gameObject.SetActive(true);
+                spawnDone++;
+            }
+            else if (spawnDone == 2)
+                break;
+        }
+    }
 
     public void OnPointerClick(PointerEventData eventData)
     {
@@ -15,6 +33,8 @@ public class RSJ_GetItem : MonoBehaviour, IPointerClickHandler, IAttackAble
         InventoryManager.Instance.AddItem(ItemChoose(RandomGrade(RandomInt)));
 
         _getItemList.Clear();
+
+        eventData.pointerCurrentRaycast.gameObject.SetActive(false);
     }
 
     private ItemGrade RandomGrade(int percent)
@@ -47,7 +67,6 @@ public class RSJ_GetItem : MonoBehaviour, IPointerClickHandler, IAttackAble
         }
 
         int randomList = Random.Range(0, _getItemList.Count);
-        Debug.Log(randomList);
         return _getItemList[randomList];
     }
 

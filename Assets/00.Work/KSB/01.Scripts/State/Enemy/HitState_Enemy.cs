@@ -25,7 +25,7 @@ public class HitState_Enemy : Enemy_State
 
         _enemy.animationCompo.PlayAnimation(AnimationType.Hit);
         _enemy.myTurn = true;
-        _enemy.enemyData.Speed_Passive_Skill();
+     
     
     }
 }

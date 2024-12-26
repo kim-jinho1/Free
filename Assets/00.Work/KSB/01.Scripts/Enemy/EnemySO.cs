@@ -27,6 +27,7 @@ public class EnemySO : ScriptableObject
     [Header("Passive_Skill_Rng")]
     public int _attack_Passive_Rng;
     public int _speed_Passive_Rng;
+    public int _health_Passive_Rng;
 
     [Header("EnemyNormalSetting")]
     public Sprite[] HitPoint;

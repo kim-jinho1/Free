@@ -239,7 +239,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -2432, y: -178}
   m_SizeDelta: {x: 160, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4558475704913183012
@@ -323,7 +323,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 5740429236552639200}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1356701854864021810}
+        m_TargetAssemblyTypeName: Enemy_JH, Assembly-CSharp
+        m_MethodName: OnEnemyClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1356701854864021810
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -336,7 +348,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 866f03bdc914cc34e956b15f9b405ffc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy: {fileID: 5918036116053384047}
+  enemy: {fileID: 8606085191273722701}
 --- !u!1 &8606085191273722701
 GameObject:
   m_ObjectHideFlags: 0

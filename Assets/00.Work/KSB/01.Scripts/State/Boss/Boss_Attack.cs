@@ -40,11 +40,11 @@ public class Boss_Attack : Enemy_State
             print("Miss");
             AttackMiss();
         }
-           
         else
         {
             _enemy.animationCompo.PlayAnimation(type);
             _enemy.enemyData.GetDamage(type);
+            _enemy.enemyData.Hp_Passive_Skill(_enemy.enemyData.Hp_Passive_Rng);
 
         }
         

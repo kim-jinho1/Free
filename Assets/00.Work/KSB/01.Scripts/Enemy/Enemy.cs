@@ -20,6 +20,7 @@ public class Enemy : MonoBehaviour
 
     void Start()
     {
+        print(enemyData.Hp_Passive_Rng+" sobin");
         TransitionState(stateCompo.GetState(StateType.Idle));
         print(enemyHealth.GetCurrentHp());
     }
@@ -27,6 +28,7 @@ public class Enemy : MonoBehaviour
     void Update()
     {
         currentState.StateUpdate();
+      
       
     }
 

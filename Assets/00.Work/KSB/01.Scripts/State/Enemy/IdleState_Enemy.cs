@@ -21,7 +21,7 @@ public class IdleState_Enemy : Enemy_State
 
     public override void StateFixedUpdate()
     {
-        if(_enemy.enemyHealth._currentHp<=0)
+        if(_enemy.enemyHealth.CurrentHp<=0)
         _enemy.TransitionState(_enemy.stateCompo.GetState(StateType.Death));
     }
     

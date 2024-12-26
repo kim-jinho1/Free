@@ -24,7 +24,6 @@ public class EnemyData : MonoBehaviour
     private float armDamage;
 
     [Header("Passive_Skill_Rng")]
-    private int _attack_Passive_Rng;
     public bool Active_Passive_Use;
     private int _speed_Passive_Rng;
     private int _hp_Passive_Rng;
@@ -42,7 +41,6 @@ public class EnemyData : MonoBehaviour
         _fullHp = enemySO.hp;
         Hp = enemySO.hp;
 
-        Attack_Passive_Rng = enemySO._attack_Passive_Rng;
         Speed_Passive_Rng = enemySO._speed_Passive_Rng;
         _hp_Passive_Rng = enemySO._health_Passive_Rng;
 
@@ -153,13 +151,6 @@ public class EnemyData : MonoBehaviour
         get { return _attackSucRate; }
         set { _attackSucRate = value; }
     }
-
-    public int Attack_Passive_Rng
-    {
-        get { return _attack_Passive_Rng; }
-        set { _attack_Passive_Rng = value; }
-    }
-
     public int Speed_Passive_Rng
     {
         get { return _speed_Passive_Rng; }

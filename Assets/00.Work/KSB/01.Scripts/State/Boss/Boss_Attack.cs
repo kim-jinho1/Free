@@ -45,6 +45,8 @@ public class Boss_Attack : Enemy_State
             _enemy.animationCompo.PlayAnimation(type);
             _enemy.enemyData.GetDamage(type);
             _enemy.enemyData.Hp_Passive_Skill(_enemy.enemyData.Hp_Passive_Rng);
+            _enemy.enemyData.Speed_Passive_Skill(_enemy.enemyData.Hp_Passive_Rng);
+            _enemy.enemyData.ActivatePassiveSkill();
 
         }
         

@@ -13,14 +13,17 @@ MonoBehaviour:
   m_Name: Meat
   m_EditorClassIdentifier: 
   ItemName: "\uACE0\uAE30"
-  ItemImage: {fileID: -5086530901905536447, guid: ec51bd3d6b2e6934e9df7ee923a0fa72, type: 3}
+  ItemImage: {fileID: 21300000, guid: b26d45cd21d309146877daa4184bbc25, type: 3}
   itemType: 2
   itemGrade: 0
   equipType: 0
+  itemSort: 0
   AttackUp: 0
   CriticalUp: 0
+  CriticalDamageUp: 0
   HealthRateUp: 0.02
   SpeedRateUp: 0
   DodgeRateUp: 0
   HungerRateUp: 0.1
+  Damage: 0
   MaxDuplicateValue: 0

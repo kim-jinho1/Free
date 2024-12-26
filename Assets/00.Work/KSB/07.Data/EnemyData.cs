@@ -3,7 +3,7 @@ using UnityEngine;
 public class EnemyData : MonoBehaviour
 {
     [Header("SO")]
-    [SerializeField] private EnemySO enemySO;
+    [SerializeField] public EnemySO enemySO;
 
     [Header("About normalSetting")]
     private int _hp;

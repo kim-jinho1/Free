@@ -27,10 +27,7 @@ public class Enemy : MonoBehaviour
     void Update()
     {
         currentState.StateUpdate();
-        if (Input.GetMouseButtonDown(0))
-        {
-            enemyHealth.DamageApply(5,0);
-        }
+      
     }
 
     private void FixedUpdate()

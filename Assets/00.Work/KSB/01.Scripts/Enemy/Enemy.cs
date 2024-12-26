@@ -28,10 +28,7 @@ public class Enemy : MonoBehaviour
     void Update()
     {
         currentState.StateUpdate();
-        if (Input.GetMouseButtonDown(0))
-        {
-           myTurn = true;
-        }
+      
       
     }
 

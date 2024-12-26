@@ -7944,6 +7944,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CanGetItem
       objectReference: {fileID: 0}
+    - target: {fileID: 3052187474298686135, guid: a8e3402523d8b15469376e7a66a0b4fd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5608906129486731783, guid: a8e3402523d8b15469376e7a66a0b4fd, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -8836,6 +8840,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   percentList: []
   damageList: []
+  _images: []
   pannel: {fileID: 2094844988}
 --- !u!1 &2127427087
 GameObject:

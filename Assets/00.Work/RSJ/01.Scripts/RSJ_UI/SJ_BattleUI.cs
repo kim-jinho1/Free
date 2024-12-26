@@ -28,7 +28,10 @@ public class SJ_BattleUI : MonoSingleton<SJ_BattleUI>
     public void SetEnemy(Enemy en)
     {
         enemySO = en.enemyData.enemySO;
-        _enemypercents[0] = 1;
+
+        _enemypercents[0] = enemySO.BodyRNG;
+        _enemypercents[1] = enemySO.ArmRNG;
+        _enemypercents[2] = enemySO.HeadRNG;
         _attacks[0] = 1;
         _enemySprites = en.enemyData.GetHitPointSprites();
 

@@ -7,7 +7,7 @@ public class EnemyHealth : MonoBehaviour
     private Enemy _enemy;
     private int _fullHp;
     public bool isDeath = false;
-    public float _currentHp;
+    private float _currentHp;
   
 
     private void Awake()
@@ -30,7 +30,7 @@ public class EnemyHealth : MonoBehaviour
         }
      
     }
-    private float CurrentHp
+   public float CurrentHp
     {
         get
         {

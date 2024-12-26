@@ -81,7 +81,7 @@ public class Battle : MonoBehaviour
     public void EnemyAttack(Enemy en)
     {
         turn++;
-        en.enemyHealth._currentHp -= _player.AbilityData.attack;
+        en.enemyHealth.CurrentHp -= _player.AbilityData.attack;
     }
 
     private void SetTarGet(GameObject en)

@@ -25,6 +25,7 @@ public class EnemyData : MonoBehaviour
 
     [Header("Passive_Skill_Rng")]
     private int _attack_Passive_Rng;
+    public bool Active_Passive_Use;
     private int _speed_Passive_Rng;
     private int _hp_Passive_Rng;
 
@@ -63,6 +64,7 @@ public class EnemyData : MonoBehaviour
 
         // HitPoint Sprite 데이터 설정
         _hitPointSprite = enemySO.HitPoint;
+        Active_Passive_Use = enemySO.ActivatePassiveSkill_Use;
     }
 
     public int Skill2_Rng
@@ -219,15 +221,19 @@ public class EnemyData : MonoBehaviour
         return _hitPointSprite;
     }
 
-    public void ActivatePassiveSkill()
+    public void ActivatePassiveSkill(bool isUse,float hp)
     {
         // 패시브 스킬 발동 시 각 부위의 RNG 감소
-        HeadRNG -= (int)(headDamage * 0.5f); // 머리 부위 RNG 감소
-        BodyRNG -= (int)(bodyDamage * 0.5f); // 몸통 부위 RNG 감소
-        ArmRNG -= (int)(armDamage * 0.5f); // 팔 부위 RNG 감소
+        if(hp <_hp/2)
+        {
+            HeadRNG -= (int)(headDamage * 0.5f); // 머리 부위 RNG 감소
+            BodyRNG -= (int)(bodyDamage * 0.5f); // 몸통 부위 RNG 감소
+            ArmRNG -= (int)(armDamage * 0.5f); // 팔 부위 RNG 감소
 
-        // 공격력 증가
-        _attackDamage += (int)(AttackDamage * 0.3f); // 공격력 30% 증가
+            // 공격력 증가
+            _attackDamage += (int)(AttackDamage * 0.3f); // 공격력 30% 증가
+        }
+      
     }
 
     public void Speed_Passive_Skill(int speedRng)

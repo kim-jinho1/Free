@@ -25,7 +25,7 @@ public class EnemySO : ScriptableObject
     public int skill2_AttackDamage;
 
     [Header("Passive_Skill_Rng")]
-    public int _attack_Passive_Rng;
+    public bool ActivatePassiveSkill_Use;
     public int _speed_Passive_Rng;
     public int _health_Passive_Rng;
 

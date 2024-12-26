@@ -191,6 +191,7 @@ GameObject:
   - component: {fileID: 3029436007990752075}
   - component: {fileID: 1652973665058312795}
   - component: {fileID: 2245788746010167026}
+  - component: {fileID: 648511152031385825}
   m_Layer: 0
   m_Name: Button
   m_TagString: Untagged
@@ -300,6 +301,19 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &648511152031385825
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4075109393068181282}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 866f03bdc914cc34e956b15f9b405ffc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemy: {fileID: 4075109393068181282}
 --- !u!1 &4455372773837518528
 GameObject:
   m_ObjectHideFlags: 0

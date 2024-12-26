@@ -679,8 +679,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Exit
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: d40b93ea796e70f43920cd791d297a1a, type: 2}
+  m_sharedMaterial: {fileID: 7204486283383047815, guid: d40b93ea796e70f43920cd791d297a1a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -887,7 +887,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: DeaChung Jemok
+  m_text: The Tower
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 4c8e5913a9affd94d9a9f52164e76256, type: 2}
   m_sharedMaterial: {fileID: 7017125282724108174, guid: 4c8e5913a9affd94d9a9f52164e76256, type: 2}
@@ -1071,8 +1071,8 @@ MonoBehaviour:
 
 '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 639db9ed12ed83745bab547f5d61a4f4, type: 2}
-  m_sharedMaterial: {fileID: 2236845823891322689, guid: 639db9ed12ed83745bab547f5d61a4f4, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: d40b93ea796e70f43920cd791d297a1a, type: 2}
+  m_sharedMaterial: {fileID: 7204486283383047815, guid: d40b93ea796e70f43920cd791d297a1a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1385,8 +1385,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Setting
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 639db9ed12ed83745bab547f5d61a4f4, type: 2}
-  m_sharedMaterial: {fileID: 2236845823891322689, guid: 639db9ed12ed83745bab547f5d61a4f4, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: d40b93ea796e70f43920cd791d297a1a, type: 2}
+  m_sharedMaterial: {fileID: 7204486283383047815, guid: d40b93ea796e70f43920cd791d297a1a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2029,14 +2029,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.4037736, g: 0.3953934, b: 0.3953934, a: 0.7607843}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: -1883391294943188660, guid: 52ae01dc254649c4da47b242ecefe381, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2071,7 +2071,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -2139, y: 353}
+  m_AnchoredPosition: {x: -2162, y: 353}
   m_SizeDelta: {x: 1120, y: 207}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &714343908
@@ -2341,8 +2341,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Quit
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 639db9ed12ed83745bab547f5d61a4f4, type: 2}
-  m_sharedMaterial: {fileID: 2236845823891322689, guid: 639db9ed12ed83745bab547f5d61a4f4, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: d40b93ea796e70f43920cd791d297a1a, type: 2}
+  m_sharedMaterial: {fileID: 7204486283383047815, guid: d40b93ea796e70f43920cd791d297a1a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

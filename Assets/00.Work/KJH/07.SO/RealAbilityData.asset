@@ -14,12 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: RealAbilityData
   attack: 10
-  speed: 0
+  speed: 3
   dodge: 15
-  accuracy: 67
-  escape: 20
-  critical: 10
-  criticalAttack: 2
+  accuracy: 60
+  escape: 15
+  critical: 5
+  criticalAttack: 200
   hp: 100
   currentHp: 100
   maxHp: 100

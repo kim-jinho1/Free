@@ -13,14 +13,17 @@ MonoBehaviour:
   m_Name: Sword
   m_EditorClassIdentifier: 
   ItemName: "\uB871\uC18C\uB4DC"
-  ItemImage: {fileID: 21300000, guid: 85336b9e9c5868e42bdfcaf4f1a767cc, type: 3}
+  ItemImage: {fileID: -27664557, guid: c8fa4435e6360004fa40150ea6b07d2e, type: 3}
   itemType: 0
   itemGrade: 0
   equipType: 1
+  itemSort: 0
   AttackUp: 5
   CriticalUp: 0
+  CriticalDamageUp: 0
   HealthRateUp: 0
   SpeedRateUp: 0
   DodgeRateUp: 0
   HungerRateUp: 0
+  Damage: 0
   MaxDuplicateValue: 0

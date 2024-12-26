@@ -13,14 +13,17 @@ MonoBehaviour:
   m_Name: CarrotSword
   m_EditorClassIdentifier: 
   ItemName: "\uB2F9\uADFC\uCE7C"
-  ItemImage: {fileID: 6934013284892070054, guid: 1415446a915bebd4fb78ef633d5221cb, type: 3}
+  ItemImage: {fileID: -1991434290, guid: 53d904a78b8c57941a08523017a72c1e, type: 3}
   itemType: 0
   itemGrade: 2
   equipType: 1
+  itemSort: 0
   AttackUp: 10
   CriticalUp: -15
+  CriticalDamageUp: 0
   HealthRateUp: 0
   SpeedRateUp: 3
   DodgeRateUp: 0
   HungerRateUp: 10
+  Damage: 0
   MaxDuplicateValue: 0

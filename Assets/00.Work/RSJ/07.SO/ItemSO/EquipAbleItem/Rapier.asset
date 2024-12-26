@@ -13,14 +13,17 @@ MonoBehaviour:
   m_Name: Rapier
   m_EditorClassIdentifier: 
   ItemName: "\uB808\uC774\uD53C\uC5B4"
-  ItemImage: {fileID: 7441861488978599509, guid: 03886712b40691f4c852298c9768bb11, type: 3}
+  ItemImage: {fileID: 317648038, guid: 53d904a78b8c57941a08523017a72c1e, type: 3}
   itemType: 0
   itemGrade: 2
   equipType: 1
+  itemSort: 0
   AttackUp: 5
   CriticalUp: 0
+  CriticalDamageUp: 0
   HealthRateUp: 0
   SpeedRateUp: 9
   DodgeRateUp: 10
   HungerRateUp: 0
+  Damage: 0
   MaxDuplicateValue: 0

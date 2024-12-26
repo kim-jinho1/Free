@@ -13,15 +13,17 @@ MonoBehaviour:
   m_Name: ShrapnelSword
   m_EditorClassIdentifier: 
   ItemName: "\uBD84\uC5F4\uAC80"
-  ItemImage: {fileID: 21300000, guid: 85336b9e9c5868e42bdfcaf4f1a767cc, type: 3}
+  ItemImage: {fileID: 1999553946, guid: 53d904a78b8c57941a08523017a72c1e, type: 3}
   itemType: 0
   itemGrade: 0
   equipType: 1
-  AttackUp: 5
-  CriticalUp: 0
-  CriticalDamageUp: 0
+  itemSort: 0
+  AttackUp: 12
+  CriticalUp: 20
+  CriticalDamageUp: 5
   HealthRateUp: 0
-  SpeedRateUp: 0
+  SpeedRateUp: 5
   DodgeRateUp: 0
   HungerRateUp: 0
+  Damage: 0
   MaxDuplicateValue: 0

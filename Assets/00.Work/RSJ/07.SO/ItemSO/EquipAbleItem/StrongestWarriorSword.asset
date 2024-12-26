@@ -13,15 +13,17 @@ MonoBehaviour:
   m_Name: StrongestWarriorSword
   m_EditorClassIdentifier: 
   ItemName: "\uCD5C\uAC15\uC758 \uC6A9\uC0AC\uC758 \uAC80"
-  ItemImage: {fileID: 21300000, guid: 85336b9e9c5868e42bdfcaf4f1a767cc, type: 3}
+  ItemImage: {fileID: 392106245, guid: 53d904a78b8c57941a08523017a72c1e, type: 3}
   itemType: 0
   itemGrade: 0
   equipType: 1
-  AttackUp: 5
-  CriticalUp: 0
-  CriticalDamageUp: 0
+  itemSort: 0
+  AttackUp: 60
+  CriticalUp: 10
+  CriticalDamageUp: 30
   HealthRateUp: 0
-  SpeedRateUp: 0
+  SpeedRateUp: 30
   DodgeRateUp: 0
   HungerRateUp: 0
+  Damage: 0
   MaxDuplicateValue: 0

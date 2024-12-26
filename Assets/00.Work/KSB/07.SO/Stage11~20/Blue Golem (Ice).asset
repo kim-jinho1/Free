@@ -21,7 +21,7 @@ MonoBehaviour:
   HeadDamage: 8
   BodyRNG: 80
   ArmRNG: 25
-  HeadRNG: 10
+  HeadRNG: 0
   skill2_AttackRate: 0
   skill1_AttackRate: 0
   skill2_AttackDamage: 0

@@ -12,15 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a45fbfb607562464e8a26e5c1e11a039, type: 3}
   m_Name: CriticalSword
   m_EditorClassIdentifier: 
-  ItemName: "\uB871\uC18C\uB4DC"
-  ItemImage: {fileID: 21300000, guid: 85336b9e9c5868e42bdfcaf4f1a767cc, type: 3}
+  ItemName: "\uD06C\uB9AC\uC2A4\uD0C8 \uC18C\uB4DC"
+  ItemImage: {fileID: 2067148530, guid: c8fa4435e6360004fa40150ea6b07d2e, type: 3}
   itemType: 0
   itemGrade: 0
   equipType: 1
-  AttackUp: 5
+  itemSort: 0
+  AttackUp: 12
   CriticalUp: 0
+  CriticalDamageUp: 0
   HealthRateUp: 0
-  SpeedRateUp: 0
+  SpeedRateUp: 5
   DodgeRateUp: 0
   HungerRateUp: 0
+  Damage: 0
   MaxDuplicateValue: 0

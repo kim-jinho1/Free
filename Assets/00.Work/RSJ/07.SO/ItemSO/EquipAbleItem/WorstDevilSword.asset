@@ -13,15 +13,17 @@ MonoBehaviour:
   m_Name: WorstDevilSword
   m_EditorClassIdentifier: 
   ItemName: "\uCD5C\uC545\uC758 \uB9C8\uC655\uC758 \uAC80"
-  ItemImage: {fileID: 21300000, guid: 85336b9e9c5868e42bdfcaf4f1a767cc, type: 3}
+  ItemImage: {fileID: -677021789, guid: fa64733386be1f24d9ecc4f1df910b53, type: 3}
   itemType: 0
   itemGrade: 0
   equipType: 1
-  AttackUp: 5
-  CriticalUp: 0
-  CriticalDamageUp: 0
-  HealthRateUp: 0
-  SpeedRateUp: 0
+  itemSort: 0
+  AttackUp: 100
+  CriticalUp: 20
+  CriticalDamageUp: 45
+  HealthRateUp: -30
+  SpeedRateUp: 15
   DodgeRateUp: 0
   HungerRateUp: 0
+  Damage: 0
   MaxDuplicateValue: 0

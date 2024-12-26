@@ -13,14 +13,17 @@ MonoBehaviour:
   m_Name: FloweringSword
   m_EditorClassIdentifier: 
   ItemName: "\uD50C\uB77C\uC6CC\uB9C1 \uC18C\uB4DC"
-  ItemImage: {fileID: -7957278214813060823, guid: 1415446a915bebd4fb78ef633d5221cb, type: 3}
+  ItemImage: {fileID: 1741010598, guid: fa64733386be1f24d9ecc4f1df910b53, type: 3}
   itemType: 0
   itemGrade: 2
   equipType: 1
+  itemSort: 0
   AttackUp: 5
   CriticalUp: 5
+  CriticalDamageUp: 0
   HealthRateUp: 10
   SpeedRateUp: 7
   DodgeRateUp: 0
   HungerRateUp: 0
+  Damage: 0
   MaxDuplicateValue: 0

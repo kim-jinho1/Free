@@ -13,14 +13,17 @@ MonoBehaviour:
   m_Name: BlackIronSword
   m_EditorClassIdentifier: 
   ItemName: "\uD751\uCCA0\uB300\uAC80"
-  ItemImage: {fileID: 6934013284892070054, guid: 1d574ed36f251a94db7e489432b273ba, type: 3}
+  ItemImage: {fileID: -1206789183, guid: fa64733386be1f24d9ecc4f1df910b53, type: 3}
   itemType: 0
   itemGrade: 2
   equipType: 1
+  itemSort: 0
   AttackUp: 12
   CriticalUp: 3
+  CriticalDamageUp: 0
   HealthRateUp: 0
   SpeedRateUp: -10
   DodgeRateUp: 0
   HungerRateUp: 0
+  Damage: 0
   MaxDuplicateValue: 0

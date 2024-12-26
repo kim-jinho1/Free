@@ -18,11 +18,11 @@ MonoBehaviour:
   itemGrade: 0
   equipType: 1
   itemSort: 0
-  AttackUp: 5
-  CriticalUp: 0
+  AttackUp: 20
+  CriticalUp: 50
   CriticalDamageUp: 0
   HealthRateUp: 0
-  SpeedRateUp: 0
+  SpeedRateUp: 20
   DodgeRateUp: 0
   HungerRateUp: 0
   Damage: 0

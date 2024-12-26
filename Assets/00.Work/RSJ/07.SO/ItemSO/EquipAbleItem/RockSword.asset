@@ -13,10 +13,11 @@ MonoBehaviour:
   m_Name: RockSword
   m_EditorClassIdentifier: 
   ItemName: "\uB3CC \uAC80"
-  ItemImage: {fileID: 5755147017564654305, guid: 9bf681170c1fd03448ba87986e8f6701, type: 3}
+  ItemImage: {fileID: -1901475848, guid: f31fcd92f6009604389c00aab296dfe0, type: 3}
   itemType: 0
   itemGrade: 2
   equipType: 1
+  itemSort: 0
   AttackUp: 10
   CriticalUp: 3
   CriticalDamageUp: 0
@@ -24,4 +25,5 @@ MonoBehaviour:
   SpeedRateUp: -5
   DodgeRateUp: 0
   HungerRateUp: 0
+  Damage: 0
   MaxDuplicateValue: 0

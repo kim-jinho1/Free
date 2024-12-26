@@ -13,14 +13,17 @@ MonoBehaviour:
   m_Name: AmazonSword
   m_EditorClassIdentifier: 
   ItemName: "\uC544\uB9C8\uC874\uC758 \uAE0D\uC9C0"
-  ItemImage: {fileID: 6934013284892070054, guid: d3d12272ac65d56418ac13eb9f915707, type: 3}
+  ItemImage: {fileID: 1598268885, guid: fa64733386be1f24d9ecc4f1df910b53, type: 3}
   itemType: 0
   itemGrade: 2
   equipType: 1
+  itemSort: 0
   AttackUp: 7
   CriticalUp: 0
+  CriticalDamageUp: 0
   HealthRateUp: 0
   SpeedRateUp: 5
   DodgeRateUp: 0
   HungerRateUp: 0
+  Damage: 0
   MaxDuplicateValue: 0

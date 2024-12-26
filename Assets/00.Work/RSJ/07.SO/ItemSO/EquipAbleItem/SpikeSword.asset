@@ -13,14 +13,17 @@ MonoBehaviour:
   m_Name: SpikeSword
   m_EditorClassIdentifier: 
   ItemName: "\uAC00\uC2DC\uAC80"
-  ItemImage: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
+  ItemImage: {fileID: -1154122754, guid: fa64733386be1f24d9ecc4f1df910b53, type: 3}
   itemType: 0
   itemGrade: 1
   equipType: 1
+  itemSort: 0
   AttackUp: 6
   CriticalUp: 5
+  CriticalDamageUp: 0
   HealthRateUp: 0
   SpeedRateUp: 0
   DodgeRateUp: 0
   HungerRateUp: 0
+  Damage: 0
   MaxDuplicateValue: 0

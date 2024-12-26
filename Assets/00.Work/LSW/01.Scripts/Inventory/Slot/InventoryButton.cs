@@ -13,7 +13,6 @@ public class InventoryButton : MonoBehaviour
     public void OnClose()
     {
         _Inven.SetActive(false);
-        _Inven.SetActive(false);
     }
 
     public void OnOpen()

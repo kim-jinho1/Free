@@ -8530,6 +8530,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8c5d5ab56ab5174cacb0f2f93fffb88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemySO: {fileID: 0}
   percentList: []
   damageList: []
   pannel: {fileID: 0}

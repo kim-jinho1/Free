@@ -82,7 +82,6 @@ public class InventoryManager : MonoBehaviour
     {
         _equipSlots.Add(slot);
         SetPlayerStat(slot._slotData.itemData);
-        ShowEquipMark(slot);
         return true;
     }
 
@@ -90,21 +89,8 @@ public class InventoryManager : MonoBehaviour
     {
         RollBackPlayerStat(slot._slotData.itemData);
         _equipSlots.Remove(slot);
-        HideEquipMark(slot);
         slot._slotData.equip = false;
         return false;
-    }
-
-    public void ShowEquipMark(Slot Slot)
-    {
-        Slot._equipBorder.color = Color.red;
-        Slot._equipMark.SetActive(true);
-    }
-
-    public void HideEquipMark(Slot Slot)
-    {
-        Slot._equipBorder.color = Color.black;
-        Slot._equipMark.SetActive(false);
     }
 
     public void SetPlayerStat(ItemData item)

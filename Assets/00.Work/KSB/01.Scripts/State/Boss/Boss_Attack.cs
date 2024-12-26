@@ -48,6 +48,8 @@ public class Boss_Attack : Enemy_State
             _enemy.enemyData.Speed_Passive_Skill(_enemy.enemyData.Speed_Passive_Rng);
             _enemy.enemyData.ActivatePassiveSkill(_enemy.enemyData.Active_Passive_Use,_enemy.enemyHealth.CurrentHp);
 
+            
+
         }
         
     }

@@ -6,22 +6,22 @@ public class EnemyData : MonoBehaviour
     [SerializeField] public EnemySO enemySO;
 
     [Header("About normalSetting")]
-    private int _hp;
-    private int _fullHp;
-    private int _attackDamage;
-    private float _attackSpeed;
-    private int _attackSucRate;
+    [SerializeField] private int _hp;
+    [SerializeField] private int _fullHp;
+    [SerializeField] private int _attackDamage;
+    [SerializeField] private float _attackSpeed;
+    [SerializeField] private int _attackSucRate;
 
 
     [Header("About Damage Rate")]
-    private int _headRNG;
-    private int _bodyRNG;
-    private int _armRNG;
+    [SerializeField] private int _headRNG;
+    [SerializeField] private int _bodyRNG;
+    [SerializeField] private int _armRNG;
 
     [Header("About Damage Of Part")]
-    private float headDamage;
-    private float bodyDamage;
-    private float armDamage;
+    [SerializeField] private float headDamage;
+    [SerializeField] private float bodyDamage;
+    [SerializeField] private float armDamage;
 
     [Header("Passive_Skill_Rng")]
     public bool Active_Passive_Use;
@@ -29,9 +29,9 @@ public class EnemyData : MonoBehaviour
     private int _hp_Passive_Rng;
 
     [Header("For Boss")]
-    int _skill2_Rng;
-    int _skill1_Rng;
-    private int Attack2Damage;
+    [SerializeField] int _skill2_Rng;
+    [SerializeField] int _skill1_Rng;
+    [SerializeField] private int Attack2Damage;
 
     [Header("Sprite")]
     public Sprite[] _hitPointSprite;
@@ -43,7 +43,7 @@ public class EnemyData : MonoBehaviour
 
         Speed_Passive_Rng = enemySO._speed_Passive_Rng;
         _hp_Passive_Rng = enemySO._health_Passive_Rng;
-
+     
         AttackDamage = enemySO.skill1_AttackDamage;
         Attack2Damage = enemySO.skill2_AttackDamage;
         AttackSpeed = enemySO.attackSpeed;
@@ -64,8 +64,7 @@ public class EnemyData : MonoBehaviour
         _hitPointSprite = enemySO.HitPoint;
         Active_Passive_Use = enemySO.ActivatePassiveSkill_Use;
     }
-
-    public int Skill2_Rng
+     public int Skill2_Rng
     {
         get { return _skill2_Rng; }
         set

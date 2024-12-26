@@ -26,6 +26,7 @@ public class EnemyData : MonoBehaviour
     [Header("Passive_Skill_Rng")]
     private int _attack_Passive_Rng;
     private int _speed_Passive_Rng;
+    private int _hp_Passive_Rng;
 
     [Header("For Boss")]
     int _skill2_Rng;
@@ -42,6 +43,7 @@ public class EnemyData : MonoBehaviour
 
         Attack_Passive_Rng = enemySO._attack_Passive_Rng;
         Speed_Passive_Rng = enemySO._speed_Passive_Rng;
+        _hp_Passive_Rng = enemySO._health_Passive_Rng;
 
         AttackDamage = enemySO.skill1_AttackDamage;
         Attack2Damage = enemySO.skill2_AttackDamage;
@@ -100,6 +102,25 @@ public class EnemyData : MonoBehaviour
 
         }
     }
+    public int Hp_Passive_Rng
+    {
+        get { return _hp_Passive_Rng; }
+        set
+        {
+            if (value < 0)
+            {
+                _hp_Passive_Rng = 0;
+            }
+            else if (value > 100)
+            {
+                _hp_Passive_Rng = 100;
+            }
+            else
+                _hp_Passive_Rng = value;
+
+        }
+    }
+
     public int Hp
     {
         get { return _hp; }
@@ -191,14 +212,7 @@ public class EnemyData : MonoBehaviour
         }
     }
 
-    public void Hp_Passive_Skill()
-    {
-        int ranNum = Random.Range(0, 100);
-        if (ranNum < 30) // 30% 확률로 HP 증가
-        {
-            Hp += (int)(Hp * 0.4f); // HP 40% 증가
-        }
-    }
+
 
     public Sprite[] GetHitPointSprites()
     {
@@ -216,12 +230,21 @@ public class EnemyData : MonoBehaviour
         _attackDamage += (int)(AttackDamage * 0.3f); // 공격력 30% 증가
     }
 
-    public void Speed_Passive_Skill()
+    public void Speed_Passive_Skill(int speedRng)
     {
         int ranNum = Random.Range(0, 100);  // 0과 100 사이에서 랜덤 숫자 생성
-        if (ranNum < 30)  // 30% 확률로 공격 속도 증가
+        if (ranNum < speedRng)  // 30% 확률로 공격 속도 증가
         {
             AttackSpeed += 1;  // 공격 속도 1 증가
+        }
+    }
+
+    public void Hp_Passive_Skill(int hpRng)
+    {
+        int ranNum = Random.Range(0, 100);
+        if (ranNum < hpRng) // 30% 확률로 HP 증가
+        {
+            Hp += (int)(Hp * 0.4f); // HP 40% 증가
         }
     }
 

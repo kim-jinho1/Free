@@ -391,7 +391,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 5156973630519822751}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 351599651978991348}
+        m_TargetAssemblyTypeName: Enemy_JH, Assembly-CSharp
+        m_MethodName: OnEnemyClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &351599651978991348
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -404,7 +416,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 866f03bdc914cc34e956b15f9b405ffc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy: {fileID: 5110910848033504929}
+  enemy: {fileID: 276810967413568463}
 --- !u!1 &7549469629207124480
 GameObject:
   m_ObjectHideFlags: 0

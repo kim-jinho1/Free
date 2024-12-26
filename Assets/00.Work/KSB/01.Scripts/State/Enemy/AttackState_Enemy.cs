@@ -33,7 +33,7 @@ public class AttackState_Enemy : Enemy_State
         print("Attack접근");
         _enemy.animationCompo.PlayAnimation(AnimationType.Attack);
         _enemy.enemyData.GetDamage(AnimationType.Attack);//이거 가지고 플레이어 데미지 감소 _enemy.animationCompo.GetDuration("Attack")
-        _enemy.enemyData.Hp_Passive_Skill();
+      
       
       
     }

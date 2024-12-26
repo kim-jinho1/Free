@@ -8,7 +8,7 @@ public class EnemyHealth : MonoBehaviour
     private int _fullHp;
     public bool isDeath = false;
     public float _currentHp;
-    private bool prePassiveTrigger = false;
+  
 
     private void Awake()
     {
@@ -28,10 +28,7 @@ public class EnemyHealth : MonoBehaviour
         {
             _currentHp = 0;
         }
-        if (CurrentHp <= _fullHp / 2&& !prePassiveTrigger)
-        {
-            Passive_Skill();
-        }
+     
     }
     private float CurrentHp
     {
@@ -73,11 +70,5 @@ public class EnemyHealth : MonoBehaviour
     }
 
 
-    private void Passive_Skill()
-    {
-        prePassiveTrigger = true;
-        _enemy.enemyData.ActivatePassiveSkill();
-
-      
-    }
+  
 }

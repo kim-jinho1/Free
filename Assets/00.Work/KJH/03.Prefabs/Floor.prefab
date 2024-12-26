@@ -1407,4 +1407,7 @@ MonoBehaviour:
   _rightEnemypos: {fileID: 1061486258070868026}
   _floor: {fileID: 7304392940128019278}
   _enemies:
-  - {fileID: 3040430803585294934, guid: 23c692707e0836d4e8f077f1fb47e4f7, type: 3}
+  - {fileID: 7563833076982182517, guid: 646c0effb0a7ee64b97ee46f80eab889, type: 3}
+  - {fileID: 1794109957329430187, guid: 342f1344b1c48da4ca9e519de5a7b14c, type: 3}
+  - {fileID: 5656996718621728169, guid: 23a2f209b028b5a46a10314737ba9ca8, type: 3}
+  - {fileID: 5375096499404636776, guid: 6a3bdb144fbdacd48a7d77b4391dea10, type: 3}
